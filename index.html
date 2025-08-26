@@ -1,1 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bahr Naturals - Handcrafted natural soaps honoring South Sudanese heritage. From the Nile to your home with authentic, chemical-free skincare celebrating ancient wisdom and Canadian craft.">
+    <meta name="keywords" content="natural soap, handmade soap, South Sudanese heritage, organic skincare, shea butter, Calgary soap maker, cultural beauty, sustainable skincare">
+    <meta name="author" content="Ester Simon, Bahr Naturals">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://altpeach.github.io/bahr-naturals/">
+    <meta property="og:title" content="Bahr Naturals - From the Nile to Your Home">
+    <meta property="og:description" content="Authentic handcrafted soaps celebrating South Sudanese heritage with natural Canadian ingredients">
+    <meta property="og:image" content="https://altpeach.github.io/bahr-naturals/images/bahr-naturals-hero.jpg">
 
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://altpeach.github.io/bahr-naturals/">
+    <meta property="twitter:title" content="Bahr Naturals - From the Nile to Your Home">
+    <meta property="twitter:description" content="Authentic handcrafted soaps celebrating South Sudanese heritage with natural Canadian ingredients">
+    <meta property="twitter:image" content="https://altpeach.github.io/bahr-naturals/images/bahr-naturals-hero.jpg">
+
+    <title>Bahr Naturals - From the Nile to Your Home | Handcrafted Heritage Soaps</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;500;600&family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/cultural-elements.css">
+    
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=CAD&components=buttons"></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Bahr Naturals",
+      "description": "Handcrafted natural soaps honoring South Sudanese heritage",
+      "url": "https://altpeach.github.io/bahr-naturals/",
+      "logo": "https://altpeach.github.io/bahr-naturals/images/bahr-naturals-logo.png",
+      "founder": {
+        "@type": "Person",
+        "name": "Ester Simon"
+      },
+      "location": {
+        "@type": "Place",
+        "name": "Calgary, AB, Canada"
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Main navigation">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link" aria-label="Bahr Naturals Home">
+                    <img src="images/bahr-naturals-logo.svg" alt="Bahr Naturals Logo" class="logo" width="180" height="60">
+                </a>
+            </div>
+            
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                <span class="nav-toggle-icon"></span>
+                <span class="nav-toggle-icon"></span>
+                <span class="nav-toggle-icon"></span>
+            </button>
+            
+            <ul class="nav-menu" id="nav-menu" role="menubar">
+                <li class="nav-item" role="menuitem">
+                    <a href="index.html" class="nav-link nav-link--active" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item" role="menuitem">
+                    <a href="about.html" class="nav-link">Heritage Story</a>
+                </li>
+                <li class="nav-item" role="menuitem">
+                    <a href="shop.html" class="nav-link">Products</a>
+                </li>
+                <li class="nav-item" role="menuitem">
+                    <a href="resources.html" class="nav-link">Resources</a>
+                </li>
+                <li class="nav-item" role="menuitem">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 id="hero-heading" class="hero-title">
+                        From the Nile to Your Home
+                    </h1>
+                    <p class="hero-subtitle">
+                        Handcrafted natural soaps celebrating South Sudanese heritage with authentic Canadian ingredients
+                    </p>
+                    <p class="hero-description">
+                        Where ancient wisdom meets modern craftsmanship. Each bar tells a story of tradition, 
+                        purity, and the journey from heritage to home.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="shop.html" class="btn btn--primary" aria-describedby="shop-description">
+                            Shop Heritage Collection
+                        </a>
+                        <a href="about.html" class="btn btn--secondary">
+                            Our Story
+                        </a>
+                    </div>
+                    <span id="shop-description" class="sr-only">Browse our collection of handcrafted heritage soaps</span>
+                </div>
+                <div class="hero-image">
+                    <img src="images/hero-heritage-soaps.jpg" alt="Beautiful arrangement of Bahr Naturals handcrafted soaps with natural ingredients and subtle South Sudanese textile accents" class="hero-img" width="600" height="400" loading="eager">
+                </div>
+            </div>
+            
+            <!-- Cultural pattern accent -->
+            <div class="cultural-accent cultural-accent--hero" aria-hidden="true"></div>
+        </section>
+
+        <!-- Heritage Story Section -->
+        <section class="heritage-story" aria-labelledby="heritage-heading">
+            <div class="container">
+                <div class="heritage-content">
+                    <div class="heritage-text">
+                        <h2 id="heritage-heading" class="section-title">
+                            Honoring Ancient Wisdom
+                        </h2>
+                        <p class="heritage-intro">
+                            Founded by Ester Simon, Bahr Naturals bridges the beauty traditions of South Sudan 
+                            with the pristine natural ingredients of Canada.
+                        </p>
+                        <p class="heritage-description">
+                            Our name "Bahr" means "river" in Arabic – symbolizing the life-giving waters of the Nile 
+                            that have nourished South Sudanese culture for millennia. Each soap is crafted with 
+                            authentic shea butter and botanical essences, honoring traditional recipes while 
+                            meeting modern standards of purity and sustainability.
+                        </p>
+                        <div class="heritage-values">
+                            <div class="value-item">
+                                <h3 class="value-title">Heritage</h3>
+                                <p class="value-description">Authentic South Sudanese cultural roots</p>
+                            </div>
+                            <div class="value-item">
+                                <h3 class="value-title">Purity</h3>
+                                <p class="value-description">100% natural, chemical-free formulations</p>
+                            </div>
+                            <div class="value-item">
+                                <h3 class="value-title">Craftsmanship</h3>
+                                <p class="value-description">Small-batch, handmade excellence</p>
+                            </div>
+                        </div>
+                        <a href="about.html" class="btn btn--outline">
+                            Read Our Full Story
+                        </a>
+                    </div>
+                    <div class="heritage-image">
+                        <img src="images/ester-simon-founder.jpg" alt="Ester Simon, founder of Bahr Naturals, working with traditional ingredients in her Calgary studio" class="heritage-img" width="500" height="600" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section class="featured-products" aria-labelledby="products-heading">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="products-heading" class="section-title">
+                        Heritage Collection
+                    </h2>
+                    <p class="section-description">
+                        Discover our signature soaps, each crafted with traditional ingredients and modern care
+                    </p>
+                </header>
+                
+                <div class="products-grid" role="region" aria-label="Featured products">
+                    
+                    <!-- Product 1: Shea Lavender -->
+                    <article class="product-card" itemscope itemtype="https://schema.org/Product">
+                        <div class="product-image">
+                            <img src="images/products/shea-lavender-soap.jpg" alt="Shea Lavender Heritage Soap" class="product-img" width="300" height="300" loading="lazy" itemprop="image">
+                            <span class="product-badge">Signature</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title" itemprop="name">Shea Lavender Heritage Soap</h3>
+                            <p class="product-description" itemprop="description">
+                                Traditional shea butter meets Canadian lavender in this soothing, moisturizing bar
+                            </p>
+                            <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                                <span class="price" itemprop="price" content="12.99">$12.99 CAD</span>
+                                <meta itemprop="priceCurrency" content="CAD">
+                                <meta itemprop="availability" content="https://schema.org/InStock">
+                            </div>
+                            <div class="product-actions">
+                                <div id="paypal-button-shea-lavender" class="paypal-button-container" aria-label="PayPal payment for Shea Lavender Heritage Soap"></div>
+                                <a href="product.html?id=shea-lavender" class="btn btn--outline btn--small">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 2: Nile Mint -->
+                    <article class="product-card" itemscope itemtype="https://schema.org/Product">
+                        <div class="product-image">
+                            <img src="images/products/nile-mint-soap.jpg" alt="Nile Mint Traditional Soap" class="product-img" width="300" height="300" loading="lazy" itemprop="image">
+                            <span class="product-badge">Traditional</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title" itemprop="name">Nile Mint Traditional Soap</h3>
+                            <p class="product-description" itemprop="description">
+                                Refreshing mint and traditional oils create an invigorating, culturally-rooted experience
+                            </p>
+                            <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                                <span class="price" itemprop="price" content="14.99">$14.99 CAD</span>
+                                <meta itemprop="priceCurrency" content="CAD">
+                                <meta itemprop="availability" content="https://schema.org/InStock">
+                            </div>
+                            <div class="product-actions">
+                                <div id="paypal-button-nile-mint" class="paypal-button-container" aria-label="PayPal payment for Nile Mint Traditional Soap"></div>
+                                <a href="product.html?id=nile-mint" class="btn btn--outline btn--small">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 3: Heritage Honey -->
+                    <article class="product-card" itemscope itemtype="https://schema.org/Product">
+                        <div class="product-image">
+                            <img src="images/products/heritage-honey-soap.jpg" alt="Heritage Honey Cleansing Soap" class="product-img" width="300" height="300" loading="lazy" itemprop="image">
+                            <span class="product-badge">Premium</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title" itemprop="name">Heritage Honey Cleansing Soap</h3>
+                            <p class="product-description" itemprop="description">
+                                Raw Canadian honey and ancient cleansing botanicals for gentle, nourishing care
+                            </p>
+                            <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                                <span class="price" itemprop="price" content="16.99">$16.99 CAD</span>
+                                <meta itemprop="priceCurrency" content="CAD">
+                                <meta itemprop="availability" content="https://schema.org/InStock">
+                            </div>
+                            <div class="product-actions">
+                                <div id="paypal-button-heritage-honey" class="paypal-button-container" aria-label="PayPal payment for Heritage Honey Cleansing Soap"></div>
+                                <a href="product.html?id=heritage-honey" class="btn btn--outline btn--small">
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                </div>
+                
+                <div class="section-footer">
+                    <a href="shop.html" class="btn btn--primary btn--large">
+                        View All Products
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials" aria-labelledby="testimonials-heading">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="testimonials-heading" class="section-title">
+                        What Our Community Says
+                    </h2>
+                </header>
+                
+                <div class="testimonials-grid">
+                    <blockquote class="testimonial-card">
+                        <p class="testimonial-text">
+                            "The Shea Lavender soap is pure luxury. You can feel the love and tradition in every bar. 
+                            My skin has never felt better, and I love supporting authentic cultural businesses."
+                        </p>
+                        <cite class="testimonial-author">
+                            <span class="author-name">Sarah M.</span>
+                            <span class="author-location">Calgary, AB</span>
+                        </cite>
+                    </blockquote>
+                    
+                    <blockquote class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Bahr Naturals isn't just soap – it's a connection to heritage and quality. 
+                            The Nile Mint is my morning ritual now. Absolutely beautiful products."
+                        </p>
+                        <cite class="testimonial-author">
+                            <span class="author-name">Michael T.</span>
+                            <span class="author-location">Toronto, ON</span>
+                        </cite>
+                    </blockquote>
+                    
+                    <blockquote class="testimonial-card">
+                        <p class="testimonial-text">
+                            "As someone who values natural skincare and cultural authenticity, 
+                            Bahr Naturals delivers on both. The Heritage Honey soap is divine."
+                        </p>
+                        <cite class="testimonial-author">
+                            <span class="author-name">Priya K.</span>
+                            <span class="author-location">Vancouver, BC</span>
+                        </cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter" aria-labelledby="newsletter-heading">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2 id="newsletter-heading" class="newsletter-title">
+                        Join Our Heritage Journey
+                    </h2>
+                    <p class="newsletter-description">
+                        Receive cultural beauty wisdom, exclusive offers, and stories from the heart of our tradition
+                    </p>
+                    
+                    <form class="newsletter-form" action="https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID" method="POST" aria-label="Newsletter signup form">
+                        <input type="hidden" name="_subject" value="Newsletter Subscription - Bahr Naturals">
+                        <input type="hidden" name="_next" value="https://altpeach.github.io/bahr-naturals/thank-you.html?type=newsletter">
+                        
+                        <div class="form-group">
+                            <label for="newsletter-email" class="sr-only">Email address</label>
+                            <input 
+                                type="email" 
+                                id="newsletter-email" 
+                                name="email" 
+                                placeholder="Your email address" 
+                                class="form-input form-input--newsletter" 
+                                required 
+                                aria-describedby="newsletter-privacy"
+                            >
+                            <button type="submit" class="btn btn--primary btn--newsletter">
+                                Subscribe
+                            </button>
+                        </div>
+                        
+                        <p id="newsletter-privacy" class="newsletter-privacy">
+                            We respect your privacy. Unsubscribe at any time. 
+                            <a href="privacy-policy.html" class="privacy-link">Privacy Policy</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Cultural accent pattern -->
+            <div class="cultural-accent cultural-accent--newsletter" aria-hidden="true"></div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                
+                <div class="footer-section footer-section--brand">
+                    <img src="images/bahr-naturals-logo-light.svg" alt="Bahr Naturals" class="footer-logo" width="150" height="50">
+                    <p class="footer-tagline">
+                        <span class="tagline-accent">From the Nile to Your Home</span><br>
+                        Honoring heritage through handcrafted excellence
+                    </p>
+                    <div class="social-links" aria-label="Social media links">
+                        <a href="https://instagram.com/bahrnaturals" class="social-link" aria-label="Follow us on Instagram" target="_blank" rel="noopener">
+                            <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://facebook.com/bahrnaturals" class="social-link" aria-label="Follow us on Facebook" target="_blank" rel="noopener">
+                            <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="shop.html" class="footer-link">Heritage Collection</a></li>
+                        <li><a href="shop.html?category=signature" class="footer-link">Signature Soaps</a></li>
+                        <li><a href="shop.html?category=gift-sets" class="footer-link">Gift Sets</a></li>
+                        <li><a href="experiences.html" class="footer-link">Workshops</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">Our Story</a></li>
+                        <li><a href="resources.html" class="footer-link">Ingredient Guide</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+                        <li><a href="shipping-policy.html" class="footer-link">Shipping Info</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html" class="footer-link">Customer Service</a></li>
+                        <li><a href="refund-policy.html" class="footer-link">Returns & Refunds</a></li>
+                        <li><a href="terms-conditions.html" class="footer-link">Terms & Conditions</a></li>
+                        <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        © 2025 Bahr Naturals. All rights reserved. Made with ❤️ in Calgary, AB
+                    </p>
+                    <p class="heritage-note">
+                        <span class="cultural-accent">بحر</span> • Celebrating South Sudanese Heritage
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js" defer></script>
+    <script src="js/payment-integration.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+    
+</body>
+</html>
