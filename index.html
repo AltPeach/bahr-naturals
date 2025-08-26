@@ -3,103 +3,1012 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bahr Naturals - Handcrafted natural soaps honoring South Sudanese heritage. From the Nile to your home with authentic, artisan-crafted soaps combining ancient wisdom and Canadian craft.">
-    <meta name="keywords" content="natural soap, handmade soap, South Sudanese heritage, organic skincare, shea butter, artisan soap, cultural beauty, sustainable skincare, heritage crafts">
+    <meta name="description" content="Bahr Naturals - Handcrafted natural soaps honoring South Sudanese heritage. Authentic, artisan-crafted soaps combining ancient wisdom and Canadian craft.">
+    <meta name="keywords" content="natural soap, handmade soap, South Sudanese heritage, organic skincare, artisan soap">
     <meta name="author" content="Ester Simon, Bahr Naturals">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://altpeach.github.io/bahr-naturals/">
+    <meta property="og:url" content="https://bahrnaturals.com/">
     <meta property="og:title" content="Bahr Naturals - From the Nile to Your Home">
-    <meta property="og:description" content="Authentic handcrafted soaps celebrating South Sudanese heritage with natural Canadian ingredients. Founded by Ester Simon.">
-    <meta property="og:image" content="https://altpeach.github.io/bahr-naturals/images/bahr-naturals-hero.jpg">
+    <meta property="og:description" content="Authentic handcrafted soaps celebrating South Sudanese heritage with natural Canadian ingredients.">
+    <meta property="og:image" content="https://bahrnaturals.com/images/og-image.jpg">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://altpeach.github.io/bahr-naturals/">
-    <meta property="twitter:title" content="Bahr Naturals - From the Nile to Your Home">
-    <meta property="twitter:description" content="Authentic handcrafted soaps celebrating South Sudanese heritage with natural Canadian ingredients">
-    <meta property="twitter:image" content="https://altpeach.github.io/bahr-naturals/images/bahr-naturals-hero.jpg">
-
-    <title>Bahr Naturals - From the Nile to Your Home | Handcrafted Heritage Soaps</title>
+    <title>Bahr Naturals - Handcrafted Heritage Soaps</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧼</text></svg>">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=Itim&display=swap" rel="stylesheet">
     
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="css/heritage-colors.css">
-    <link rel="stylesheet" href="css/typography.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Bahr Naturals",
-        "description": "Handcrafted natural soaps honoring South Sudanese heritage",
-        "url": "https://altpeach.github.io/bahr-naturals/",
-        "logo": "https://altpeach.github.io/bahr-naturals/images/bahr-naturals-logo.png",
-        "founder": {
-            "@type": "Person",
-            "name": "Ester Simon"
-        },
-        "location": {
-            "@type": "Place",
-            "name": "Toronto, ON, Canada"
-        },
-        "sameAs": [
-            "https://instagram.com/bahrnaturals",
-            "https://facebook.com/bahrnaturals"
-        ]
-    }
-    </script>
+    <!-- CSS -->
+    <style>
+        /* CSS Variables */
+        :root {
+            /* Colors */
+            --color-primary: #5D8A7E;
+            --color-accent: #D7B89C;
+            --color-background-light: #FDFBF8;
+            --color-text-primary: #444444;
+            --color-text-secondary: #6B7280;
+            --color-white: #FFFFFF;
+            --color-light-gray: #F8F9FA;
+            --color-medium-gray: #E9ECEF;
+            --color-success: #4CAF50;
+            
+            /* Fonts */
+            --font-heading: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-accent: 'Itim', cursive;
+            
+            /* Spacing */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-xxl: 3rem;
+            
+            /* Border radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            
+            /* Shadows */
+            --shadow-light: 0 2px 12px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--color-text-primary);
+            background-color: var(--color-background-light);
+            overflow-x: hidden;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: var(--spacing-md);
+            background: var(--color-primary);
+            color: white;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            z-index: 1000;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: var(--spacing-md);
+        }
+        
+        /* Header & Navigation */
+        .header {
+            position: sticky;
+            top: 0;
+            background: rgba(253, 251, 248, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(93, 138, 126, 0.1);
+            z-index: 1000;
+            padding: var(--spacing-md) 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        
+        .logo-wave {
+            width: 30px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent) 0%, transparent 100%);
+            margin-left: var(--spacing-sm);
+            border-radius: 2px;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: var(--spacing-sm);
+        }
+        
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-primary);
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xl);
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--color-text-primary);
+            font-weight: 500;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-md);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--color-primary);
+            background: rgba(93, 138, 126, 0.05);
+        }
+        
+        .cart-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--color-primary);
+            padding: var(--spacing-sm);
+            position: relative;
+        }
+        
+        .cart-icon {
+            font-size: 1.25rem;
+            margin-right: var(--spacing-sm);
+        }
+        
+        .cart-count {
+            background: var(--color-accent);
+            color: white;
+            border-radius: 50%;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            min-width: 1.5rem;
+            text-align: center;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-md) var(--spacing-xl);
+            border: none;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .btn-primary {
+            background: var(--color-primary);
+            color: white;
+            box-shadow: var(--shadow-light);
+        }
+        
+        .btn-primary:hover {
+            background: #4C7267;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .btn-small {
+            padding: var(--spacing-sm) var(--spacing-lg);
+            font-size: 0.875rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: var(--spacing-xxl) 0;
+            background: linear-gradient(135deg, var(--color-background-light) 0%, rgba(247, 243, 233, 0.8) 100%);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xxl);
+            align-items: center;
+        }
+        
+        .hero-content {
+            z-index: 2;
+        }
+        
+        .hero-title {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .hero-main {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1.2;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .hero-sub {
+            display: block;
+            font-family: var(--font-accent);
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            color: var(--color-accent);
+            font-weight: 400;
+        }
+        
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.7;
+        }
+        
+        .hero-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+        
+        .hero-blessing {
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid rgba(93, 138, 126, 0.1);
+        }
+        
+        .blessing-text {
+            font-family: var(--font-accent);
+            font-size: 1rem;
+            color: var(--color-accent);
+            font-style: italic;
+        }
+        
+        .hero-visual {
+            position: relative;
+        }
+        
+        .product-showcase {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+        }
+        
+        .heritage-accent {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, var(--color-accent), rgba(215, 184, 156, 0.7));
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        .scroll-indicator {
+            margin-top: var(--spacing-xxl);
+            display: flex;
+            justify-content: center;
+        }
+        
+        .river-flow-line {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+            border-radius: 2px;
+            animation: flow 2s ease-in-out infinite;
+        }
+        
+        @keyframes flow {
+            0%, 100% { transform: translateX(0) scaleX(1); }
+            50% { transform: translateX(10px) scaleX(1.2); }
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: var(--spacing-xxl) 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xxl);
+        }
+        
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-md);
+            font-weight: 600;
+        }
+        
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+        }
+        
+        .cultural-divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+        
+        /* Heritage Preview */
+        .heritage-preview {
+            background: white;
+        }
+        
+        .heritage-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xxl);
+            align-items: center;
+        }
+        
+        .heritage-text {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .heritage-subtitle {
+            font-family: var(--font-heading);
+            font-size: clamp(1.75rem, 3vw, 2rem);
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .heritage-description {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .heritage-highlights {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .highlight-item {
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid rgba(93, 138, 126, 0.1);
+        }
+        
+        .highlight-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .highlight-item h4 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .highlight-item p {
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 0;
+        }
+        
+        .heritage-visual {
+            position: relative;
+        }
+        
+        .founder-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-medium);
+            background: linear-gradient(135deg, var(--color-background-light), rgba(215, 184, 156, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+        }
+        
+        .cultural-frame {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: 15px;
+            bottom: 15px;
+            border: 3px solid var(--color-accent);
+            border-radius: var(--radius-lg);
+            z-index: -1;
+        }
+        
+        .link-accent {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            gap: var(--spacing-sm);
+        }
+        
+        .link-accent:hover {
+            color: var(--color-primary);
+            transform: translateX(5px);
+        }
+        
+        /* Featured Products */
+        .featured-products {
+            background: white;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xxl);
+        }
+        
+        .product-card {
+            background: var(--color-background-light);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image-container {
+            position: relative;
+            margin-bottom: var(--spacing-lg);
+            flex-grow: 1;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: var(--font-heading);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: var(--spacing-md);
+            right: var(--spacing-md);
+            background: var(--color-accent);
+            color: white;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .product-info {
+            text-align: center;
+        }
+        
+        .product-name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .product-description {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-md);
+            font-size: 0.95rem;
+        }
+        
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+        }
+        
+        .section-cta {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+        }
+        
+        /* Ingredients Spotlight */
+        .ingredients-spotlight {
+            background: linear-gradient(135deg, var(--color-background-light), rgba(247, 243, 233, 0.5));
+        }
+        
+        .spotlight-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xxl);
+            align-items: center;
+        }
+        
+        .spotlight-description {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .ingredients-list {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .ingredient-item {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-md);
+            border-left: 4px solid var(--color-accent);
+            transition: all 0.3s ease;
+        }
+        
+        .ingredient-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ingredient-item strong {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        
+        .ingredients-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-medium);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+        }
+        
+        .testimonial-card {
+            background: var(--color-background-light);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--color-accent);
+            opacity: 0.3;
+            font-family: var(--font-heading);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .testimonial-author {
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            padding: var(--spacing-xxl) 0;
+            background: var(--color-primary);
+            color: white;
+        }
+        
+        .newsletter-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: white;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .newsletter-description {
+            font-size: 1.125rem;
+            margin-bottom: var(--spacing-xl);
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: var(--spacing-md);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+        }
+        
+        .newsletter-input:focus {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+        
+        .newsletter-privacy {
+            font-size: 0.875rem;
+            opacity: 0.8;
+            text-align: center;
+        }
+        
+        .newsletter-privacy a {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--color-text-primary);
+            color: white;
+            padding: var(--spacing-xxl) 0 var(--spacing-md);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .footer-section h3,
+        .footer-section h4 {
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-title {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+        }
+        
+        .footer-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .cultural-blessing {
+            padding: var(--spacing-md) 0;
+            border-top: 1px solid rgba(215, 184, 156, 0.3);
+        }
+        
+        .blessing-footer {
+            font-family: var(--font-accent);
+            font-style: italic;
+            color: var(--color-accent);
+        }
+        
+        .footer-heading {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+        
+        .footer-nav a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-nav a:hover {
+            color: var(--color-accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(215, 184, 156, 0.2);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--color-accent);
+            transform: translateY(-2px);
+        }
+        
+        .contact-info {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: var(--spacing-xl);
+            text-align: center;
+            position: relative;
+        }
+        
+        .cultural-pattern-footer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-accent), transparent, var(--color-primary));
+        }
+        
+        .copyright {
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+        
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--color-background-light);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: var(--spacing-xl);
+                transition: left 0.3s ease;
+                box-shadow: var(--shadow-medium);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+                text-align: center;
+            }
+            
+            .heritage-content {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+            }
+            
+            .spotlight-content {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+            }
+            
+            .form-group {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-actions {
+                flex-direction: column;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+            
+            .hero-image {
+                height: 300px;
+            }
+            
+            .founder-image {
+                height: 300px;
+            }
+            
+            .ingredients-image {
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Skip Link for Accessibility -->
+    <!-- Skip Link -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Cultural Pattern Background Element -->
-    <div class="cultural-pattern-bg" aria-hidden="true"></div>
     
     <!-- Header -->
     <header class="header" role="banner">
-        <nav class="nav">
-            <div class="nav-container">
-                <a href="index.html" class="logo" aria-label="Bahr Naturals Home">
-                    <span class="logo-text">Bahr Naturals</span>
-                    <div class="logo-wave" aria-hidden="true"></div>
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="Bahr Naturals Home">
+                <span class="logo-text">Bahr Naturals</span>
+                <div class="logo-wave" aria-hidden="true"></div>
+            </a>
+            
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="about.html" class="nav-link">Our Story</a>
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="resources.html" class="nav-link">Resources</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="cart.html" class="cart-link" aria-label="Shopping cart">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-count">0</span>
                 </a>
-                
-                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                
-                <div class="nav-menu">
-                    <a href="index.html" class="nav-link active">Home</a>
-                    <a href="about.html" class="nav-link">Heritage Story</a>
-                    <a href="shop.html" class="nav-link">Products</a>
-                    <a href="experiences.html" class="nav-link">Experiences</a>
-                    <a href="resources.html" class="nav-link">Resources</a>
-                    <a href="contact.html" class="nav-link">Contact</a>
-                    <a href="cart.html" class="cart-link" aria-label="Shopping cart">
-                        <span class="cart-icon">🛒</span>
-                        <span class="cart-count">0</span>
-                    </a>
-                </div>
             </div>
-        </nav>
+        </div>
     </header>
 
     <!-- Main Content -->
@@ -107,66 +1016,47 @@
         
         <!-- Hero Section -->
         <section class="hero" aria-labelledby="hero-heading">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1 id="hero-heading" class="hero-title">
-                        <span class="hero-main">From the Nile to Your Home</span>
-                        <span class="hero-sub">Handcrafted with Heritage</span>
-                    </h1>
-                    
-                    <p class="hero-description">
-                        Honoring South Sudanese traditions through natural, artisan-crafted soaps. 
-                        Each bar carries the wisdom of ancient beauty rituals and the purity of Canadian craftsmanship.
-                    </p>
-                    
-                    <div class="hero-actions">
-                        <a href="shop.html" class="btn btn-primary" aria-describedby="shop-description">
-                            Shop Our Collection
-                        </a>
-                        <a href="about.html" class="btn btn-secondary">
-                            Our Heritage Story
-                        </a>
+            <div class="container">
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <h1 id="hero-heading" class="hero-title">
+                            <span class="hero-main">From the Nile to Your Home</span>
+                            <span class="hero-sub">Handcrafted with Heritage</span>
+                        </h1>
+                        
+                        <p class="hero-description">
+                            Honoring South Sudanese traditions through natural, artisan-crafted soaps. 
+                            Each bar carries the wisdom of ancient beauty rituals and the purity of Canadian craftsmanship.
+                        </p>
+                        
+                        <div class="hero-actions">
+                            <a href="shop.html" class="btn btn-primary">Shop Our Collection</a>
+                            <a href="about.html" class="btn btn-secondary">Our Heritage Story</a>
+                        </div>
+                        
+                        <div class="hero-blessing">
+                            <p class="blessing-text">"Where ancient wisdom meets Canadian craft"</p>
+                        </div>
                     </div>
-                    <span id="shop-description" class="sr-only">Browse our collection of handcrafted heritage soaps</span>
                     
-                    <div class="hero-blessing">
-                        <p class="blessing-text">"Where ancient wisdom meets Canadian craft"</p>
+                    <div class="hero-visual">
+                        <div class="product-showcase">
+                            <div class="hero-image">
+                                Handcrafted Heritage Soaps
+                            </div>
+                            <div class="heritage-accent" aria-hidden="true"></div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="hero-visual">
-                    <div class="product-showcase">
-                        <div class="hero-img-placeholder" style="
-                            background: linear-gradient(135deg, var(--color-background-light), var(--color-shea-light));
-                            border-radius: 12px;
-                            height: 500px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            box-shadow: var(--shadow-medium);
-                        ">
-                            <div style="text-align: center; color: var(--color-primary);">
-                                <div style="font-size: 4rem; margin-bottom: 1rem;">🧼</div>
-                                <p style="font-family: var(--font-heading); font-size: 1.5rem; margin: 0;">
-                                    Handcrafted Heritage Soaps
-                                </p>
-                                <p style="font-family: var(--font-accent); color: var(--color-accent); margin-top: 0.5rem;">
-                                    From the Nile's gift to your skin
-                                </p>
-                            </div>
-                        </div>
-                        <div class="heritage-accent" aria-hidden="true"></div>
-                    </div>
+                <div class="scroll-indicator" aria-label="Scroll down to learn more">
+                    <div class="river-flow-line"></div>
                 </div>
-            </div>
-            
-            <div class="scroll-indicator" aria-label="Scroll down to learn more">
-                <div class="river-flow-line"></div>
             </div>
         </section>
 
         <!-- Heritage Story Preview -->
-        <section class="heritage-preview">
+        <section class="heritage-preview section">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">A Journey of Heritage & Heart</h2>
@@ -201,29 +1091,8 @@
                     </div>
                     
                     <div class="heritage-visual">
-                        <div class="founder-img-placeholder" style="
-                            background: linear-gradient(135deg, var(--color-background-light), rgba(212, 184, 150, 0.1));
-                            border-radius: 12px;
-                            height: 400px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            position: relative;
-                            overflow: hidden;
-                            box-shadow: var(--shadow-medium);
-                        ">
-                            <div style="text-align: center; color: var(--color-primary); padding: 2rem;">
-                                <div style="font-size: 3rem; margin-bottom: 1rem;">👩🏿‍🎨</div>
-                                <p style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 0.5rem;">
-                                    Ester Simon
-                                </p>
-                                <p style="font-family: var(--font-accent); color: var(--color-accent); font-size: 1.1rem;">
-                                    Founder & Artisan
-                                </p>
-                                <p style="margin-top: 1rem; font-style: italic; color: var(--color-text-secondary);">
-                                    Crafting beauty with heritage and heart
-                                </p>
-                            </div>
+                        <div class="founder-image">
+                            Ester Simon - Founder & Artisan
                         </div>
                         <div class="cultural-frame" aria-hidden="true"></div>
                     </div>
@@ -232,7 +1101,7 @@
         </section>
 
         <!-- Featured Products -->
-        <section class="featured-products" aria-labelledby="products-heading">
+        <section class="featured-products section" aria-labelledby="products-heading">
             <div class="container">
                 <div class="section-header">
                     <h2 id="products-heading" class="section-title">Handcrafted Natural Soaps</h2>
@@ -240,136 +1109,67 @@
                     <div class="cultural-divider" aria-hidden="true"></div>
                 </div>
                 
-                <div class="products-grid" role="region" aria-label="Featured products">
-                    
-                    <!-- Product 1: Nile Essence -->
-                    <article class="product-card animate-on-scroll" itemscope itemtype="https://schema.org/Product">
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <article class="product-card">
                         <div class="product-image-container">
-                            <div class="product-img-placeholder" style="
-                                background: linear-gradient(135deg, #A394D6, rgba(163, 148, 214, 0.3));
-                                height: 250px;
-                                border-radius: 8px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                position: relative;
-                            ">
-                                <div style="text-align: center; color: white;">
-                                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🌙</div>
-                                    <p style="font-family: var(--font-heading); font-size: 1.1rem;">Nile Essence</p>
-                                </div>
+                            <div class="product-image">
+                                Nile Essence
                             </div>
                             <div class="product-badge">Bestseller</div>
                         </div>
                         <div class="product-info">
-                            <h3 class="product-name" itemprop="name">Nile Essence</h3>
-                            <p class="product-description" itemprop="description">
-                                Rich shea butter with lavender and chamomile for ultimate relaxation. Perfect for sensitive skin and evening routines.
+                            <h3 class="product-name">Nile Essence</h3>
+                            <p class="product-description">
+                                Rich shea butter with lavender and chamomile for ultimate relaxation.
                             </p>
-                            <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                                <span class="price" itemprop="price" content="18.00">$18.00 CAD</span>
-                                <meta itemprop="priceCurrency" content="CAD">
-                                <meta itemprop="availability" content="https://schema.org/InStock">
-                            </div>
+                            <div class="product-price">$18.00 CAD</div>
                             <div class="product-actions">
-                                <button class="btn btn-primary add-to-cart" 
-                                        data-product-id="nile-essence"
-                                        data-product-name="Nile Essence"
-                                        data-product-price="18.00"
-                                        data-product-image="images/products/nile-essence.jpg">
-                                    Add to Cart
-                                </button>
-                                <a href="shop.html#nile-essence" class="btn btn-secondary btn-small">
-                                    View Details
-                                </a>
+                                <button class="btn btn-primary">Add to Cart</button>
+                                <a href="shop.html" class="btn btn-secondary btn-small">View Details</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Product 2: Heritage Honey -->
-                    <article class="product-card animate-on-scroll" itemscope itemtype="https://schema.org/Product">
+                    <!-- Product 2 -->
+                    <article class="product-card">
                         <div class="product-image-container">
-                            <div class="product-img-placeholder" style="
-                                background: linear-gradient(135deg, #E5CBA8, rgba(229, 203, 168, 0.3));
-                                height: 250px;
-                                border-radius: 8px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                            ">
-                                <div style="text-align: center; color: #8B4513;">
-                                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🍯</div>
-                                    <p style="font-family: var(--font-heading); font-size: 1.1rem;">Heritage Honey</p>
-                                </div>
+                            <div class="product-image">
+                                Heritage Honey
                             </div>
                         </div>
                         <div class="product-info">
-                            <h3 class="product-name" itemprop="name">Heritage Honey</h3>
-                            <p class="product-description" itemprop="description">
-                                Canadian honey with oatmeal and coconut oil for gentle exfoliation and deep moisture. Ideal for dry skin.
+                            <h3 class="product-name">Heritage Honey</h3>
+                            <p class="product-description">
+                                Canadian honey with oatmeal and coconut oil for gentle exfoliation.
                             </p>
-                            <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                                <span class="price" itemprop="price" content="16.00">$16.00 CAD</span>
-                                <meta itemprop="priceCurrency" content="CAD">
-                                <meta itemprop="availability" content="https://schema.org/InStock">
-                            </div>
+                            <div class="product-price">$16.00 CAD</div>
                             <div class="product-actions">
-                                <button class="btn btn-primary add-to-cart" 
-                                        data-product-id="heritage-honey"
-                                        data-product-name="Heritage Honey"
-                                        data-product-price="16.00"
-                                        data-product-image="images/products/heritage-honey.jpg">
-                                    Add to Cart
-                                </button>
-                                <a href="shop.html#heritage-honey" class="btn btn-secondary btn-small">
-                                    View Details
-                                </a>
+                                <button class="btn btn-primary">Add to Cart</button>
+                                <a href="shop.html" class="btn btn-secondary btn-small">View Details</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Product 3: Cultural Clay -->
-                    <article class="product-card animate-on-scroll" itemscope itemtype="https://schema.org/Product">
+                    <!-- Product 3 -->
+                    <article class="product-card">
                         <div class="product-image-container">
-                            <div class="product-img-placeholder" style="
-                                background: linear-gradient(135deg, #B4926B, rgba(180, 146, 107, 0.3));
-                                height: 250px;
-                                border-radius: 8px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                            ">
-                                <div style="text-align: center; color: white;">
-                                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🏺</div>
-                                    <p style="font-family: var(--font-heading); font-size: 1.1rem;">Cultural Clay</p>
-                                </div>
+                            <div class="product-image">
+                                Cultural Clay
                             </div>
                         </div>
                         <div class="product-info">
-                            <h3 class="product-name" itemprop="name">Cultural Clay</h3>
-                            <p class="product-description" itemprop="description">
-                                Detoxifying bentonite clay with tea tree oil for deep cleansing. Perfect for oily and acne-prone skin.
+                            <h3 class="product-name">Cultural Clay</h3>
+                            <p class="product-description">
+                                Detoxifying bentonite clay with tea tree oil for deep cleansing.
                             </p>
-                            <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                                <span class="price" itemprop="price" content="20.00">$20.00 CAD</span>
-                                <meta itemprop="priceCurrency" content="CAD">
-                                <meta itemprop="availability" content="https://schema.org/InStock">
-                            </div>
+                            <div class="product-price">$20.00 CAD</div>
                             <div class="product-actions">
-                                <button class="btn btn-primary add-to-cart" 
-                                        data-product-id="cultural-clay"
-                                        data-product-name="Cultural Clay"
-                                        data-product-price="20.00"
-                                        data-product-image="images/products/cultural-clay.jpg">
-                                    Add to Cart
-                                </button>
-                                <a href="shop.html#cultural-clay" class="btn btn-secondary btn-small">
-                                    View Details
-                                </a>
+                                <button class="btn btn-primary">Add to Cart</button>
+                                <a href="shop.html" class="btn btn-secondary btn-small">View Details</a>
                             </div>
                         </div>
                     </article>
-                    
                 </div>
                 
                 <div class="section-cta">
@@ -379,15 +1179,14 @@
         </section>
 
         <!-- Ingredients Spotlight -->
-        <section class="ingredients-spotlight">
+        <section class="ingredients-spotlight section">
             <div class="container">
                 <div class="spotlight-content">
                     <div class="spotlight-text">
                         <h2 class="section-title">Pure. Natural. Flowing.</h2>
                         <p class="spotlight-description">
                             Every ingredient is carefully selected for its cultural significance and natural benefits. 
-                            From traditional shea butter that has nourished South Sudanese skin for generations, to 
-                            Canadian botanical extracts that add modern luxury to ancient wisdom.
+                            From traditional shea butter to Canadian botanical extracts.
                         </p>
                         
                         <div class="ingredients-list">
@@ -409,32 +1208,16 @@
                     </div>
                     
                     <div class="spotlight-visual">
-                        <div class="ingredients-img-placeholder" style="
-                            background: linear-gradient(135deg, var(--color-earth-green), rgba(143, 160, 133, 0.2));
-                            border-radius: 12px;
-                            height: 400px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            box-shadow: var(--shadow-medium);
-                        ">
-                            <div style="text-align: center; color: white; padding: 2rem;">
-                                <div style="font-size: 3rem; margin-bottom: 1rem;">🌿</div>
-                                <p style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1rem;">
-                                    Natural Ingredients
-                                </p>
-                                <p style="font-style: italic; opacity: 0.9;">
-                                    Shea butter, essential oils, and traditional botanicals
-                                </p>
-                            </div>
+                        <div class="ingredients-image">
+                            Natural Ingredients
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Social Proof -->
-        <section class="testimonials" aria-labelledby="testimonials-heading">
+        <!-- Testimonials -->
+        <section class="testimonials section" aria-labelledby="testimonials-heading">
             <div class="container">
                 <div class="section-header">
                     <h2 id="testimonials-heading" class="section-title">Loved by Our Community</h2>
@@ -442,7 +1225,7 @@
                 </div>
                 
                 <div class="testimonials-grid">
-                    <article class="testimonial-card animate-on-scroll">
+                    <article class="testimonial-card">
                         <div class="testimonial-content">
                             <p class="testimonial-text">
                                 "The quality is exceptional and I love the cultural story behind each bar. 
@@ -454,7 +1237,7 @@
                         </div>
                     </article>
                     
-                    <article class="testimonial-card animate-on-scroll">
+                    <article class="testimonial-card">
                         <div class="testimonial-content">
                             <p class="testimonial-text">
                                 "My sensitive skin has never felt better. The natural ingredients are so 
@@ -466,7 +1249,7 @@
                         </div>
                     </article>
                     
-                    <article class="testimonial-card animate-on-scroll">
+                    <article class="testimonial-card">
                         <div class="testimonial-content">
                             <p class="testimonial-text">
                                 "Beautiful products with authentic cultural respect. Ester's story is 
@@ -481,7 +1264,7 @@
             </div>
         </section>
 
-        <!-- Newsletter Signup -->
+        <!-- Newsletter -->
         <section class="newsletter">
             <div class="container">
                 <div class="newsletter-content">
@@ -490,24 +1273,13 @@
                         Receive cultural skincare tips, new product launches, and stories from our heritage journey.
                     </p>
                     
-                    <form class="newsletter-form" id="newsletter-form" action="https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID" method="POST">
-                        <input type="hidden" name="_subject" value="Newsletter Subscription - Bahr Naturals">
-                        <input type="hidden" name="_next" value="https://altpeach.github.io/bahr-naturals/thank-you.html?type=newsletter">
-                        
+                    <form class="newsletter-form">
                         <div class="form-group">
-                            <label for="email" class="sr-only">Email address</label>
-                            <input type="email" 
-                                   id="email" 
-                                   name="email" 
-                                   placeholder="Enter your email address" 
-                                   required 
-                                   class="newsletter-input"
-                                   aria-describedby="newsletter-privacy">
+                            <input type="email" placeholder="Enter your email address" class="newsletter-input" required>
                             <button type="submit" class="btn btn-primary">Subscribe</button>
                         </div>
-                        <p id="newsletter-privacy" class="newsletter-privacy">
-                            We respect your privacy. Unsubscribe at any time. 
-                            <a href="privacy-policy.html">Privacy Policy</a>
+                        <p class="newsletter-privacy">
+                            We respect your privacy. Unsubscribe at any time.
                         </p>
                     </form>
                 </div>
@@ -520,7 +1292,7 @@
         <div class="container">
             <div class="footer-content">
                 
-                <div class="footer-section footer-section--brand">
+                <div class="footer-section">
                     <h3 class="footer-title">Bahr Naturals</h3>
                     <p class="footer-description">
                         Honoring South Sudanese heritage through authentic, natural skincare.
@@ -533,105 +1305,90 @@
                 <div class="footer-section">
                     <h4 class="footer-heading">Quick Links</h4>
                     <nav class="footer-nav">
-                        <a href="about.html">Heritage Story</a>
+                        <a href="about.html">Our Story</a>
                         <a href="shop.html">Products</a>
-                        <a href="experiences.html">Workshops</a>
-                        <a href="resources.html">Skincare Tips</a>
+                        <a href="resources.html">Resources</a>
                         <a href="contact.html">Contact Us</a>
                     </nav>
                 </div>
                 
                 <div class="footer-section">
-                    <h4 class="footer-heading">Customer Care</h4>
+                    <h4 class="footer-heading">Support</h4>
                     <nav class="footer-nav">
-                        <a href="shipping-policy.html">Shipping Info</a>
-                        <a href="refund-policy.html">Returns & Refunds</a>
-                        <a href="privacy-policy.html">Privacy Policy</a>
-                        <a href="terms-conditions.html">Terms & Conditions</a>
-                        <a href="accessibility-statement.html">Accessibility</a>
+                        <a href="shipping.html">Shipping Info</a>
+                        <a href="returns.html">Returns</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms</a>
                     </nav>
                 </div>
                 
                 <div class="footer-section">
                     <h4 class="footer-heading">Connect With Us</h4>
                     <div class="social-links">
-                        <a href="https://instagram.com/bahrnaturals" class="social-link" aria-label="Follow us on Instagram" target="_blank" rel="noopener">📷</a>
-                        <a href="https://facebook.com/bahrnaturals" class="social-link" aria-label="Follow us on Facebook" target="_blank" rel="noopener">📘</a>
-                        <a href="mailto:hello@bahrnatural.com" class="social-link" aria-label="Email us">✉️</a>
+                        <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                        <a href="#" class="social-link" aria-label="Facebook">📘</a>
+                        <a href="#" class="social-link" aria-label="Email">✉️</a>
                     </div>
                     <div class="contact-info">
-                        <p>Email: <a href="mailto:hello@bahrnatural.com">hello@bahrnatural.com</a></p>
-                        <p>Phone: <a href="tel:+16475550123">+1 (647) 555-0123</a></p>
+                        <p>Email: <a href="mailto:hello@bahrnaturals.com">hello@bahrnaturals.com</a></p>
                     </div>
                 </div>
-                
             </div>
             
             <div class="footer-bottom">
                 <div class="cultural-pattern-footer" aria-hidden="true"></div>
                 <div class="footer-bottom-content">
                     <p class="copyright">
-                        © 2025 Bahr Naturals. All rights reserved. | Made with ❤️ in Canada
-                    </p>
-                    <p class="heritage-note">
-                        <span class="cultural-accent">بحر</span> • Celebrating South Sudanese Heritage
+                        © 2025 Bahr Naturals. All rights reserved.
                     </p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript Files -->
-    <script src="js/main.js"></script>
-    <script src="js/cart-management.js"></script>
-    
-    <!-- Initialize Cart -->
+    <!-- JavaScript -->
     <script>
-        // Initialize cart when page loads
+        // Mobile Navigation Toggle
         document.addEventListener('DOMContentLoaded', function() {
-            // Check if cart class exists
-            if (typeof BahrNaturalsCart !== 'undefined') {
-                window.cart = new BahrNaturalsCart();
-            } else {
-                console.error('BahrNaturalsCart class not found. Make sure cart-management.js is loaded correctly.');
-                
-                // Fallback cart functionality
-                window.cart = {
-                    items: [],
-                    addItem: function(product) {
-                        console.log('Adding product to cart:', product);
-                        // Add basic cart functionality
-                        this.items.push(product);
-                        this.updateCartCount();
-                    },
-                    updateCartCount: function() {
-                        const countElements = document.querySelectorAll('.cart-count');
-                        countElements.forEach(el => {
-                            el.textContent = this.items.length;
-                        });
-                    },
-                    getItemCount: function() {
-                        return this.items.length;
-                    }
-                };
-                
-                // Add event listeners for add-to-cart buttons
-                const addToCartButtons = document.querySelectorAll('.add-to-cart');
-                addToCartButtons.forEach(button => {
-                    button.addEventListener('click', function() {
-                        const product = {
-                            id: this.dataset.productId,
-                            name: this.dataset.productName,
-                            price: parseFloat(this.dataset.productPrice),
-                            image: this.dataset.productImage
-                        };
-                        window.cart.addItem(product);
-                        
-                        // Show confirmation
-                        alert(`${product.name} has been added to your cart!`);
-                    });
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    const isExpanded = navMenu.classList.contains('active');
+                    navToggle.setAttribute('aria-expanded', isExpanded);
                 });
             }
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (navMenu.classList.contains('active') && 
+                    !event.target.closest('.nav-menu') && 
+                    !event.target.closest('.nav-toggle')) {
+                    navMenu.classList.remove('active');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // Simple cart functionality
+            const addToCartButtons = document.querySelectorAll('.btn-primary');
+            const cartCount = document.querySelector('.cart-count');
+            let cartItems = 0;
+            
+            addToCartButtons.forEach(button => {
+                if (button.textContent.includes('Add to Cart')) {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        cartItems++;
+                        cartCount.textContent = cartItems;
+                        
+                        // Show confirmation
+                        const productName = this.closest('.product-card').querySelector('.product-name').textContent;
+                        alert(`Added ${productName} to your cart!`);
+                    });
+                }
+            });
         });
     </script>
 </body>
