@@ -9,10 +9,10 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=Itim&display=swap" rel="stylesheet">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧼</text></svg>">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
@@ -25,6 +25,9 @@
 <body>
     <!-- Cultural Pattern Background Element -->
     <div class="cultural-pattern-bg" aria-hidden="true"></div>
+    
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <!-- Header -->
     <header class="header">
@@ -57,9 +60,9 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <!-- Page Hero -->
-        <section class="page-hero">
+        <section class="page-hero section">
             <div class="container">
                 <h1 class="page-title">Connect With Us</h1>
                 <p class="page-subtitle">We'd love to hear from you</p>
@@ -68,11 +71,11 @@
         </section>
 
         <!-- Contact Content -->
-        <section class="contact-content">
+        <section class="contact-content section">
             <div class="container">
                 <div class="contact-grid">
                     <!-- Contact Form -->
-                    <div class="contact-form-section">
+                    <div class="contact-form-section cultural-card">
                         <h2 class="form-title">Send Us a Message</h2>
                         <p class="form-intro">
                             Whether you have questions about our products, want to learn more about our heritage, 
@@ -82,22 +85,22 @@
                         <form class="contact-form" id="contact-form">
                             <div class="form-group">
                                 <label for="name">Full Name *</label>
-                                <input type="text" id="name" name="name" required>
+                                <input type="text" id="name" name="name" class="form-control" required>
                             </div>
                             
                             <div class="form-group">
                                 <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
+                                <input type="email" id="email" name="email" class="form-control" required>
                             </div>
                             
                             <div class="form-group">
                                 <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone">
+                                <input type="tel" id="phone" name="phone" class="form-control">
                             </div>
                             
                             <div class="form-group">
                                 <label for="subject">Subject *</label>
-                                <select id="subject" name="subject" required>
+                                <select id="subject" name="subject" class="form-control" required>
                                     <option value="">Please select a topic</option>
                                     <option value="product-inquiry">Product Inquiry</option>
                                     <option value="custom-order">Custom Order</option>
@@ -111,7 +114,7 @@
                             
                             <div class="form-group">
                                 <label for="message">Message *</label>
-                                <textarea id="message" name="message" rows="6" required 
+                                <textarea id="message" name="message" rows="6" class="form-control" required 
                                           placeholder="Tell us how we can help you..."></textarea>
                             </div>
                             
@@ -134,15 +137,17 @@
                         <h2 class="info-title">Get In Touch</h2>
                         
                         <div class="contact-methods">
-                            <div class="contact-method">
+                            <div class="contact-method cultural-card">
+                                <div class="method-icon">✉️</div>
                                 <h3 class="method-title">Email Us</h3>
                                 <p class="method-details">
-                                    <a href="mailto:hello@bahrnatural.com">hello@bahrnatural.com</a><br>
+                                    <a href="mailto:hello@bahrnaturals.com">hello@bahrnaturals.com</a><br>
                                     We typically respond within 24 hours
                                 </p>
                             </div>
                             
-                            <div class="contact-method">
+                            <div class="contact-method cultural-card">
+                                <div class="method-icon">📞</div>
                                 <h3 class="method-title">Call Us</h3>
                                 <p class="method-details">
                                     <a href="tel:+16475550123">+1 (647) 555-0123</a><br>
@@ -150,7 +155,8 @@
                                 </p>
                             </div>
                             
-                            <div class="contact-method">
+                            <div class="contact-method cultural-card">
+                                <div class="method-icon">📍</div>
                                 <h3 class="method-title">Visit Our Studio</h3>
                                 <p class="method-details">
                                     123 Heritage Lane<br>
@@ -163,7 +169,7 @@
                             </div>
                         </div>
                         
-                        <div class="business-hours">
+                        <div class="business-hours cultural-card">
                             <h3 class="hours-title">Business Hours</h3>
                             <div class="hours-list">
                                 <div class="hours-item">
@@ -181,7 +187,7 @@
                             </div>
                         </div>
                         
-                        <div class="social-contact">
+                        <div class="social-contact cultural-card">
                             <h3 class="social-title">Follow Our Journey</h3>
                             <div class="social-links">
                                 <a href="#" class="social-link" aria-label="Facebook">
@@ -204,38 +210,40 @@
         </section>
 
         <!-- FAQ Section -->
-        <section class="contact-faq">
+        <section class="contact-faq section">
             <div class="container">
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <div class="cultural-divider" aria-hidden="true"></div>
+                <div class="section-header">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <div class="cultural-divider" aria-hidden="true"></div>
+                </div>
                 
                 <div class="faq-grid">
-                    <div class="faq-item">
+                    <div class="faq-item cultural-card">
                         <h3 class="faq-question">How are your soaps different from commercial brands?</h3>
                         <p class="faq-answer">Our soaps are handcrafted in small batches using traditional South Sudanese beauty wisdom combined with premium Canadian ingredients. We cure each bar for 6 weeks and use only natural, ethically sourced materials.</p>
                     </div>
                     
-                    <div class="faq-item">
+                    <div class="faq-item cultural-card">
                         <h3 class="faq-question">Do you offer custom soap orders?</h3>
                         <p class="faq-answer">Yes! We love creating custom soaps for special occasions, weddings, or corporate gifts. Contact us with your requirements and we'll create something unique that honors both your needs and our heritage traditions.</p>
                     </div>
                     
-                    <div class="faq-item">
+                    <div class="faq-item cultural-card">
                         <h3 class="faq-question">Can I visit your soap-making studio?</h3>
                         <p class="faq-answer">We offer studio visits by appointment where you can see our soap-making process and learn about South Sudanese beauty traditions. Please call ahead to schedule your visit.</p>
                     </div>
                     
-                    <div class="faq-item">
+                    <div class="faq-item cultural-card">
                         <h3 class="faq-question">Do you ship internationally?</h3>
                         <p class="faq-answer">Currently we ship within Canada with free shipping on orders over $50. We're working on international shipping options - please contact us for special requests.</p>
                     </div>
                     
-                    <div class="faq-item">
+                    <div class="faq-item cultural-card">
                         <h3 class="faq-question">Are your products suitable for sensitive skin?</h3>
                         <p class="faq-answer">Our soaps are made with natural ingredients and are generally suitable for sensitive skin. Our Gentle Baby soap is specifically formulated for the most sensitive skin types. If you have specific allergies, please review our ingredient lists or contact us.</p>
                     </div>
                     
-                    <div class="faq-item">
+                    <div class="faq-item cultural-card">
                         <h3 class="faq-question">How do I care for handmade soap?</h3>
                         <p class="faq-answer">Keep your soap in a dry place between uses, preferably on a soap dish that allows drainage. Our cotton soap bags help extend the life of each bar. With proper care, each soap lasts 4-6 weeks.</p>
                     </div>
@@ -244,9 +252,9 @@
         </section>
 
         <!-- Cultural Blessing -->
-        <section class="contact-blessing">
+        <section class="contact-blessing section">
             <div class="container">
-                <div class="blessing-content">
+                <div class="blessing-content cultural-blessing">
                     <div class="blessing-quote">
                         <p class="blessing-text">"In our culture, every conversation is a bridge between hearts. Thank you for reaching out to us."</p>
                         <cite class="blessing-attribution">- Ester Simon, Founder</cite>
@@ -300,7 +308,7 @@
                         <a href="#" aria-label="Email" class="social-link">✉️</a>
                     </div>
                     <div class="contact-info">
-                        <p>Email: hello@bahrnatural.com</p>
+                        <p>Email: hello@bahrnaturals.com</p>
                         <p>Phone: +1 (647) 555-0123</p>
                     </div>
                 </div>
@@ -319,5 +327,337 @@
     <script src="js/main.js"></script>
     <script src="js/cart-management.js"></script>
     <script src="js/form-handler.js"></script>
+    
+    <style>
+        /* Contact page specific styles */
+        .page-hero {
+            background: linear-gradient(135deg, var(--color-background-light), var(--color-coconut));
+            padding: var(--spacing-xxl) 0;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .page-subtitle {
+            font-size: var(--text-xl);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .contact-content {
+            background: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xxl);
+            align-items: start;
+        }
+        
+        .contact-form-section {
+            padding: var(--spacing-xl);
+        }
+        
+        .form-title {
+            font-family: var(--font-heading);
+            font-size: var(--text-2xl);
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .form-intro {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-xl);
+            line-height: var(--leading-relaxed);
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+        
+        .form-group label {
+            font-weight: var(--font-medium);
+            color: var(--color-primary);
+        }
+        
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            cursor: pointer;
+            font-size: var(--text-sm);
+        }
+        
+        .checkbox-custom {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--color-primary);
+            border-radius: var(--radius-sm);
+            display: inline-block;
+            position: relative;
+        }
+        
+        input[type="checkbox"]:checked + .checkbox-custom::after {
+            content: '✓';
+            position: absolute;
+            top: -2px;
+            left: 2px;
+            color: var(--color-primary);
+            font-size: var(--text-sm);
+        }
+        
+        input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+        }
+        
+        .form-message {
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin-top: var(--spacing-md);
+            display: none;
+        }
+        
+        .form-message.success {
+            background: rgba(var(--color-success-rgb), 0.1);
+            color: var(--color-success);
+            border: 1px solid var(--color-success);
+        }
+        
+        .form-message.error {
+            background: rgba(var(--color-error-rgb), 0.1);
+            color: var(--color-error);
+            border: 1px solid var(--color-error);
+        }
+        
+        .contact-info-section {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xl);
+        }
+        
+        .info-title {
+            font-family: var(--font-heading);
+            font-size: var(--text-2xl);
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+        
+        .contact-method {
+            padding: var(--spacing-lg);
+        }
+        
+        .method-icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .method-title {
+            font-family: var(--font-heading);
+            font-size: var(--text-lg);
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .method-details {
+            color: var(--color-text-secondary);
+            line-height: var(--leading-relaxed);
+        }
+        
+        .method-details a {
+            color: var(--color-accent);
+            font-weight: var(--font-medium);
+        }
+        
+        .method-note {
+            font-size: var(--text-sm);
+            color: var(--color-text-secondary);
+            margin-top: var(--spacing-sm);
+            font-style: italic;
+        }
+        
+        .business-hours {
+            padding: var(--spacing-lg);
+        }
+        
+        .hours-title {
+            font-family: var(--font-heading);
+            font-size: var(--text-lg);
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .hours-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+        
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid var(--color-medium-gray);
+        }
+        
+        .hours-item:last-child {
+            border-bottom: none;
+        }
+        
+        .day {
+            font-weight: var(--font-medium);
+            color: var(--color-text-primary);
+        }
+        
+        .time {
+            color: var(--color-text-secondary);
+        }
+        
+        .social-contact {
+            padding: var(--spacing-lg);
+            text-align: center;
+        }
+        
+        .social-title {
+            font-family: var(--font-heading);
+            font-size: var(--text-lg);
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+        }
+        
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--color-text-secondary);
+            transition: color var(--transition-normal);
+        }
+        
+        .social-link:hover {
+            color: var(--color-accent);
+        }
+        
+        .social-icon {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .social-name {
+            font-size: var(--text-sm);
+            font-weight: var(--font-medium);
+        }
+        
+        .contact-faq {
+            background: var(--color-background-light);
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xxl);
+        }
+        
+        .faq-item {
+            padding: var(--spacing-xl);
+        }
+        
+        .faq-question {
+            font-family: var(--font-heading);
+            font-size: var(--text-lg);
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .faq-answer {
+            color: var(--color-text-secondary);
+            line-height: var(--leading-relaxed);
+        }
+        
+        .contact-blessing {
+            background: white;
+        }
+        
+        .blessing-content {
+            text-align: center;
+            padding: var(--spacing-xl);
+        }
+        
+        .blessing-text {
+            font-family: var(--font-accent);
+            font-size: var(--text-2xl);
+            color: var(--color-accent);
+            font-style: italic;
+            margin-bottom: var(--spacing-md);
+            line-height: var(--leading-relaxed);
+        }
+        
+        .blessing-attribution {
+            color: var(--color-text-secondary);
+            font-style: normal;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
+            }
+            
+            .contact-methods {
+                gap: var(--spacing-md);
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-links {
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hours-item {
+                flex-direction: column;
+                gap: var(--spacing-xs);
+            }
+            
+            .contact-form-section,
+            .contact-method,
+            .business-hours,
+            .social-contact,
+            .faq-item {
+                padding: var(--spacing-lg);
+            }
+        }
+    </style>
 </body>
 </html>
