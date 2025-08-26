@@ -27,6 +27,7 @@
             --color-light-gray: #F8F9FA;
             --color-medium-gray: #E9ECEF;
             --color-success: #4CAF50;
+            --color-error: #ff6b6b;
             
             /* Fonts */
             --font-heading: 'Plus Jakarta Sans', sans-serif;
@@ -50,6 +51,9 @@
             /* Shadows */
             --shadow-light: 0 2px 12px rgba(0, 0, 0, 0.08);
             --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.12);
+            
+            /* Transitions */
+            --transition-normal: 0.3s ease;
         }
         
         /* Reset & Base Styles */
@@ -196,6 +200,11 @@
             font-weight: 600;
             min-width: 1.5rem;
             text-align: center;
+            display: none;
+        }
+        
+        .cart-count.has-items {
+            display: inline-block;
         }
         
         /* Buttons */
@@ -390,6 +399,7 @@
         
         .quote-attribution {
             color: var(--color-text-secondary);
+            font-size: 0.9rem;
         }
         
         .cultural-accent {
@@ -768,6 +778,49 @@
             opacity: 0.7;
         }
         
+        /* Global Message Styles */
+        .global-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--radius-md);
+            color: white;
+            font-weight: 500;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            transform: translateX(100%);
+            transition: transform var(--transition-normal);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .global-message.show {
+            transform: translateX(0);
+        }
+        
+        .global-message.success {
+            background: var(--color-success);
+        }
+        
+        .global-message.info {
+            background: var(--color-primary);
+        }
+        
+        .global-message.error {
+            background: var(--color-error);
+        }
+        
+        .message-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0;
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-toggle {
@@ -882,7 +935,7 @@
                 <a href="contact.html" class="nav-link">Contact</a>
                 <a href="cart.html" class="cart-link" aria-label="Shopping cart">
                     <span class="cart-icon">🛒</span>
-                    <span class="cart-count">0</span>
+                    <span class="cart-count" id="cart-count">0</span>
                 </a>
             </div>
         </div>
@@ -1321,10 +1374,120 @@
         </div>
     </footer>
 
-    <!-- JavaScript - Same as index.html for consistent functionality -->
+    <!-- JavaScript - Enhanced cart functionality -->
     <script>
-        // Mobile Navigation Toggle
+        // Enhanced Cart Management Class
+        class BahrNaturalsCart {
+            constructor() {
+                this.items = [];
+                this.storageKey = 'bahrNaturalsCart';
+                this.init();
+            }
+            
+            init() {
+                this.loadCart();
+                this.updateCartDisplay();
+            }
+            
+            // Load cart from localStorage
+            loadCart() {
+                try {
+                    const cartData = localStorage.getItem(this.storageKey);
+                    if (cartData) {
+                        this.items = JSON.parse(cartData);
+                    }
+                } catch (error) {
+                    console.error('Error loading cart from localStorage:', error);
+                    this.items = [];
+                }
+            }
+            
+            // Save cart to localStorage
+            saveCart() {
+                try {
+                    localStorage.setItem(this.storageKey, JSON.stringify(this.items));
+                } catch (error) {
+                    console.error('Error saving cart to localStorage:', error);
+                }
+            }
+            
+            // Get total item count
+            getItemCount() {
+                return this.items.reduce((count, item) => {
+                    return count + item.quantity;
+                }, 0);
+            }
+            
+            // Update cart display across all pages
+            updateCartDisplay() {
+                this.updateCartCount();
+            }
+            
+            // Update cart count in header
+            updateCartCount() {
+                const cartCountElements = document.querySelectorAll('.cart-count');
+                const count = this.getItemCount();
+                
+                cartCountElements.forEach(element => {
+                    element.textContent = count;
+                    
+                    // Add animation when count changes
+                    if (count > 0) {
+                        element.classList.add('has-items');
+                        element.classList.add('cart-updated');
+                        setTimeout(() => {
+                            element.classList.remove('cart-updated');
+                        }, 500);
+                    } else {
+                        element.classList.remove('has-items');
+                    }
+                });
+            }
+            
+            // Show message
+            showMessage(text, type = 'info') {
+                // Create message element
+                const message = document.createElement('div');
+                message.className = `global-message ${type}`;
+                message.innerHTML = `
+                    <span>${text}</span>
+                    <button class="message-close">&times;</button>
+                `;
+                
+                // Add to page
+                document.body.appendChild(message);
+                
+                // Show message with animation
+                setTimeout(() => {
+                    message.classList.add('show');
+                }, 10);
+                
+                // Close button
+                message.querySelector('.message-close').addEventListener('click', () => {
+                    message.classList.remove('show');
+                    setTimeout(() => {
+                        message.remove();
+                    }, 300);
+                });
+                
+                // Auto-remove after 3 seconds
+                setTimeout(() => {
+                    if (document.body.contains(message)) {
+                        message.classList.remove('show');
+                        setTimeout(() => {
+                            message.remove();
+                        }, 300);
+                    }
+                }, 3000);
+            }
+        }
+
+        // Initialize cart when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart
+            window.cart = new BahrNaturalsCart();
+            
+            // Mobile Navigation Toggle
             const navToggle = document.querySelector('.nav-toggle');
             const navMenu = document.querySelector('.nav-menu');
             
@@ -1343,25 +1506,6 @@
                     !event.target.closest('.nav-toggle')) {
                     navMenu.classList.remove('active');
                     navToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
-            
-            // Simple cart functionality
-            const addToCartButtons = document.querySelectorAll('.btn-primary');
-            const cartCount = document.querySelector('.cart-count');
-            let cartItems = 0;
-            
-            addToCartButtons.forEach(button => {
-                if (button.textContent.includes('Add to Cart')) {
-                    button.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        cartItems++;
-                        cartCount.textContent = cartItems;
-                        
-                        // Show confirmation
-                        const productName = this.closest('.product-card').querySelector('.product-name').textContent;
-                        alert(`Added ${productName} to your cart!`);
-                    });
                 }
             });
         });
