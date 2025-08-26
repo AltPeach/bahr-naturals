@@ -1,91 +1,49 @@
-// Main JavaScript for Bahr Naturals
-// Handles navigation, animations, and core functionality
+// Main JavaScript for Bahr Naturals Website
+// Core functionality for navigation, animations, and user interactions
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
-    initializeNavigation();
-    initializeScrollAnimations();
-    initializeFormHandling();
-    initializeCulturalElements();
-    initializeAccessibility();
-    updateCartDisplay();
     
-    console.log('Bahr Naturals website initialized');
-});
-
-// Navigation Functionality
-function initializeNavigation() {
+    // Navigation Menu Toggle
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
-    const header = document.querySelector('.header');
     
-    // Mobile menu toggle
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', function() {
-            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-            navToggle.setAttribute('aria-expanded', !isExpanded);
-            navMenu.classList.toggle('active');
+            const isOpen = navMenu.classList.contains('nav-menu--open');
             
-            // Animate hamburger menu
-            navToggle.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
+            if (isOpen) {
+                navMenu.classList.remove('nav-menu--open');
                 navToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-        
-        // Close mobile menu when pressing escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-                navToggle.setAttribute('aria-expanded', 'false');
+            } else {
+                navMenu.classList.add('nav-menu--open');
+                navToggle.setAttribute('aria-expanded', 'true');
             }
         });
     }
     
-    // Header scroll behavior
-    let lastScrollY = window.scrollY;
-    window.addEventListener('scroll', function() {
-        const currentScrollY = window.scrollY;
-        
-        if (header) {
-            if (currentScrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (navMenu && !navToggle.contains(event.target) && !navMenu.contains(event.target)) {
+            navMenu.classList.remove('nav-menu--open');
+            if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
         }
-        
-        lastScrollY = currentScrollY;
     });
     
-    // Smooth scroll for internal links
-    const internalLinks = document.querySelectorAll('a[href^="#"]');
-    internalLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+    // Smooth Scrolling for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                targetElement.scrollIntoView({
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
             }
         });
     });
-}
-
-// Scroll-triggered animations
-function initializeScrollAnimations() {
-    // Create intersection observer for fade-in animations
+    
+    // Scroll Animation Observer
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -95,330 +53,262 @@ function initializeScrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
-                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
     // Observe elements for animation
-    const animateElements = document.querySelectorAll(
-        '.product-card, .testimonial-card, .heritage-content, .timeline-item, .value-card'
-    );
-    
-    animateElements.forEach(element => {
-        element.classList.add('animate-on-scroll');
-        observer.observe(element);
+    document.querySelectorAll('.animate-on-scroll, .product-card, .testimonial-card, .heritage-content').forEach(el => {
+        observer.observe(el);
     });
     
-    // River flow animation
-    const riverLines = document.querySelectorAll('.river-flow-line');
-    riverLines.forEach(line => {
-        line.addEventListener('animationend', function() {
-            this.style.animationPlayState = 'paused';
-            setTimeout(() => {
-                this.style.animationPlayState = 'running';
-            }, 1000);
-        });
+    // Header Scroll Effect
+    const header = document.querySelector('.header');
+    let lastScrollTop = 0;
+    
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (header) {
+            if (scrollTop > 100) {
+                header.classList.add('header--scrolled');
+            } else {
+                header.classList.remove('header--scrolled');
+            }
+        }
+        
+        lastScrollTop = scrollTop;
     });
-}
-
-// Form handling
-function initializeFormHandling() {
-    // Newsletter form
+    
+    // Newsletter Form Handling
     const newsletterForm = document.getElementById('newsletter-form');
     if (newsletterForm) {
-        newsletterForm.addEventListener('submit', handleNewsletterSubmission);
-    }
-    
-    // Contact form
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', handleContactSubmission);
-    }
-    
-    // Form validation
-    const inputs = document.querySelectorAll('input[required], textarea[required], select[required]');
-    inputs.forEach(input => {
-        input.addEventListener('blur', validateField);
-        input.addEventListener('input', clearFieldError);
-    });
-}
-
-// Newsletter form submission
-function handleNewsletterSubmission(e) {
-    e.preventDefault();
-    
-    const form = e.target;
-    const email = form.querySelector('#email').value;
-    const submitBtn = form.querySelector('button[type="submit"]');
-    
-    if (!validateEmail(email)) {
-        showFormMessage('Please enter a valid email address.', 'error');
-        return;
-    }
-    
-    // Show loading state
-    submitBtn.classList.add('loading');
-    submitBtn.disabled = true;
-    
-    // Simulate API call (replace with actual endpoint)
-    setTimeout(() => {
-        submitBtn.classList.remove('loading');
-        submitBtn.disabled = false;
-        
-        // Show success message
-        showFormMessage('Thank you for joining our heritage circle!', 'success');
-        form.reset();
-    }, 1500);
-}
-
-// Contact form submission
-function handleContactSubmission(e) {
-    e.preventDefault();
-    
-    const form = e.target;
-    const formData = new FormData(form);
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const messageDiv = form.querySelector('#form-message');
-    
-    // Validate form
-    if (!validateContactForm(form)) {
-        return;
-    }
-    
-    // Show loading state
-    submitBtn.classList.add('loading');
-    submitBtn.disabled = true;
-    
-    // Simulate API call (replace with actual endpoint)
-    setTimeout(() => {
-        submitBtn.classList.remove('loading');
-        submitBtn.disabled = false;
-        
-        // Show success message
-        if (messageDiv) {
-            messageDiv.innerHTML = `
-                <div class="form-success">
-                    <strong>Thank you for reaching out!</strong><br>
-                    We'll respond to your message within 24 hours.
-                </div>
-            `;
-            messageDiv.classList.add('show');
-        }
-        
-        form.reset();
-        
-        // Hide message after 5 seconds
-        setTimeout(() => {
-            messageDiv.classList.remove('show');
-        }, 5000);
-    }, 1500);
-}
-
-// Form validation functions
-function validateEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-function validateContactForm(form) {
-    const requiredFields = form.querySelectorAll('[required]');
-    let isValid = true;
-    
-    requiredFields.forEach(field => {
-        if (!field.value.trim()) {
-            showFieldError(field, 'This field is required.');
-            isValid = false;
-        } else if (field.type === 'email' && !validateEmail(field.value)) {
-            showFieldError(field, 'Please enter a valid email address.');
-            isValid = false;
-        }
-    });
-    
-    return isValid;
-}
-
-function validateField(e) {
-    const field = e.target;
-    const value = field.value.trim();
-    
-    if (field.hasAttribute('required') && !value) {
-        showFieldError(field, 'This field is required.');
-    } else if (field.type === 'email' && value && !validateEmail(value)) {
-        showFieldError(field, 'Please enter a valid email address.');
-    } else {
-        clearFieldError(field);
-    }
-}
-
-function showFieldError(field, message) {
-    clearFieldError(field);
-    
-    field.classList.add('error');
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'field-error';
-    errorDiv.textContent = message;
-    
-    field.parentNode.appendChild(errorDiv);
-}
-
-function clearFieldError(field) {
-    field.classList.remove('error');
-    const errorDiv = field.parentNode.querySelector('.field-error');
-    if (errorDiv) {
-        errorDiv.remove();
-    }
-}
-
-function showFormMessage(message, type = 'info') {
-    // Create or update global message element
-    let messageDiv = document.getElementById('global-message');
-    
-    if (!messageDiv) {
-        messageDiv = document.createElement('div');
-        messageDiv.id = 'global-message';
-        messageDiv.className = 'global-message';
-        document.body.appendChild(messageDiv);
-    }
-    
-    messageDiv.className = `global-message ${type} show`;
-    messageDiv.textContent = message;
-    
-    // Auto-hide after 4 seconds
-    setTimeout(() => {
-        messageDiv.classList.remove('show');
-    }, 4000);
-}
-
-// Cultural elements and animations
-function initializeCulturalElements() {
-    // Add cultural pattern animations
-    const culturalPatterns = document.querySelectorAll('.cultural-pattern-bg');
-    culturalPatterns.forEach(pattern => {
-        // Create subtle movement animation
-        let angle = 0;
-        setInterval(() => {
-            angle += 0.5;
-            pattern.style.transform = `rotate(${angle}deg)`;
-        }, 100);
-    });
-    
-    // Heritage blessing animations
-    const blessings = document.querySelectorAll('.blessing-text');
-    blessings.forEach(blessing => {
-        blessing.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05)';
-            this.style.color = 'var(--color-primary)';
-        });
-        
-        blessing.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-            this.style.color = 'var(--color-accent)';
-        });
-    });
-}
-
-// Accessibility enhancements
-function initializeAccessibility() {
-    // Skip to main content link
-    const skipLink = document.createElement('a');
-    skipLink.href = '#main';
-    skipLink.className = 'skip-link';
-    skipLink.textContent = 'Skip to main content';
-    document.body.prepend(skipLink);
-    
-    // Focus management for modals and dropdowns
-    const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-    
-    // Trap focus in mobile menu when open
-    const navMenu = document.querySelector('.nav-menu');
-    if (navMenu) {
-        navMenu.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab' && this.classList.contains('active')) {
-                const focusableContent = this.querySelectorAll(focusableElements);
-                const firstFocusable = focusableContent[0];
-                const lastFocusable = focusableContent[focusableContent.length - 1];
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const email = formData.get('email');
+            
+            if (validateEmail(email)) {
+                // Show success message
+                showMessage('Thank you for subscribing to our heritage circle!', 'success');
+                this.reset();
                 
-                if (e.shiftKey) {
-                    if (document.activeElement === firstFocusable) {
-                        lastFocusable.focus();
-                        e.preventDefault();
-                    }
-                } else {
-                    if (document.activeElement === lastFocusable) {
-                        firstFocusable.focus();
-                        e.preventDefault();
-                    }
-                }
+                // Here you would typically send the data to your backend
+                // For now, we'll just simulate success
+                console.log('Newsletter signup:', email);
+            } else {
+                showMessage('Please enter a valid email address.', 'error');
             }
         });
     }
     
-    // Announce dynamic content changes to screen readers
-    const announcer = document.createElement('div');
-    announcer.setAttribute('aria-live', 'polite');
-    announcer.setAttribute('aria-atomic', 'true');
-    announcer.className = 'sr-only';
-    announcer.id = 'announcer';
-    document.body.appendChild(announcer);
-    
-    window.announceToScreenReader = function(message) {
-        announcer.textContent = message;
-    };
-    
-    // Reduce motion for users who prefer it
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.documentElement.style.scrollBehavior = 'auto';
+    // Contact Form Handling (if present)
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            // Basic validation
+            if (!name || !email || !message) {
+                showMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            if (!validateEmail(email)) {
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.classList.add('loading');
+                submitBtn.textContent = 'Sending...';
+            }
+            
+            // Simulate sending (replace with actual form handling)
+            setTimeout(() => {
+                showMessage('Thank you for your message! We\'ll get back to you soon.', 'success');
+                this.reset();
+                if (submitBtn) {
+                    submitBtn.classList.remove('loading');
+                    submitBtn.textContent = 'Send Message';
+                }
+            }, 2000);
+        });
     }
-}
-
-// Cart display update
-function updateCartDisplay() {
-    const cartCount = document.querySelector('.cart-count');
-    if (cartCount) {
-        const count = getCartItemCount();
-        cartCount.textContent = count;
-        cartCount.style.display = count > 0 ? 'block' : 'none';
-    }
-}
-
-// Helper function to get cart count (will be implemented in cart-management.js)
-function getCartItemCount() {
-    const cart = JSON.parse(localStorage.getItem('bahrNaturalsCart') || '[]');
-    return cart.reduce((total, item) => total + item.quantity, 0);
-}
-
-// Utility functions
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
+    
+    // Global Message System
+    function showMessage(text, type = 'info') {
+        // Remove existing messages
+        const existingMessage = document.querySelector('.global-message');
+        if (existingMessage) {
+            existingMessage.remove();
         }
-    };
-}
+        
+        // Create message element
+        const message = document.createElement('div');
+        message.className = `global-message ${type}`;
+        message.innerHTML = `
+            <span>${text}</span>
+            <button class="message-close" aria-label="Close message">&times;</button>
+        `;
+        
+        // Add to page
+        document.body.appendChild(message);
+        
+        // Show message
+        setTimeout(() => {
+            message.classList.add('show');
+        }, 100);
+        
+        // Close button functionality
+        const closeBtn = message.querySelector('.message-close');
+        closeBtn.addEventListener('click', () => {
+            hideMessage(message);
+        });
+        
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+            if (document.body.contains(message)) {
+                hideMessage(message);
+            }
+        }, 5000);
+    }
+    
+    function hideMessage(messageElement) {
+        messageElement.classList.remove('show');
+        setTimeout(() => {
+            if (messageElement && messageElement.parentNode) {
+                messageElement.parentNode.removeChild(messageElement);
+            }
+        }, 300);
+    }
+    
+    // Email Validation
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+    
+    // Product Image Gallery (for product pages)
+    document.querySelectorAll('.product-gallery').forEach(gallery => {
+        const mainImage = gallery.querySelector('.product-main-image');
+        const thumbnails = gallery.querySelectorAll('.product-thumbnail');
+        
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                // Remove active class from all thumbnails
+                thumbnails.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked thumbnail
+                this.classList.add('active');
+                
+                // Update main image
+                if (mainImage) {
+                    mainImage.src = this.src;
+                    mainImage.alt = this.alt;
+                }
+            });
+        });
+    });
+    
+    // Lazy Loading Images (fallback for older browsers)
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    }
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        lazyImages.forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+    
+    // Accessible Focus Management
+    document.addEventListener('keydown', function(e) {
+        // Skip link functionality
+        if (e.key === 'Tab' && !e.shiftKey) {
+            const skipLink = document.querySelector('.skip-link:focus');
+            if (skipLink) {
+                const target = document.querySelector(skipLink.getAttribute('href'));
+                if (target) {
+                    target.focus();
+                }
+            }
+        }
+        
+        // Escape key to close mobile menu
+        if (e.key === 'Escape') {
+            if (navMenu && navMenu.classList.contains('nav-menu--open')) {
+                navMenu.classList.remove('nav-menu--open');
+                if (navToggle) {
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.focus();
+                }
+            }
+        }
+    });
+    
+    // Console welcome message
+    console.log('%cWelcome to Bahr Naturals!', 'color: #4A7A8C; font-size: 18px; font-weight: bold;');
+    console.log('From the Nile to your home - handcrafted with heritage. 🧼✨');
+});
 
-// Export functions for use in other scripts
+// Utility Functions
 window.BahrNaturals = {
-    showFormMessage,
-    updateCartDisplay,
-    announceToScreenReader: window.announceToScreenReader,
-    debounce,
-    throttle
+    // Public API for other scripts
+    showMessage: function(text, type = 'info') {
+        const event = new CustomEvent('showMessage', {
+            detail: { text, type }
+        });
+        document.dispatchEvent(event);
+    },
+    
+    // Update cart count
+    updateCartCount: function(count) {
+        const cartCountElement = document.querySelector('.cart-count');
+        if (cartCountElement) {
+            cartCountElement.textContent = count;
+            
+            // Add animation
+            cartCountElement.style.transform = 'scale(1.3)';
+            setTimeout(() => {
+                cartCountElement.style.transform = 'scale(1)';
+            }, 150);
+        }
+    },
+    
+    // Scroll to element
+    scrollToElement: function(selector) {
+        const element = document.querySelector(selector);
+        if (element) {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
 };
+
+// Handle messages from other scripts
+document.addEventListener('showMessage', function(e) {
+    const { text, type } = e.detail;
+    showMessage(text, type);
+});
