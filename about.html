@@ -3,608 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Meet Ester Simon, founder of Bahr Naturals. Discover our journey from South Sudan to Calgary, honoring heritage through handcrafted natural soaps and authentic beauty traditions.">
-    <meta name="keywords" content="Ester Simon, Bahr Naturals founder, South Sudanese heritage, natural soap maker Calgary, cultural beauty traditions, handmade skincare story">
-    <meta name="author" content="Ester Simon, Bahr Naturals">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://altpeach.github.io/bahr-naturals/about.html">
-    <meta property="og:title" content="Our Heritage Story - Bahr Naturals">
-    <meta property="og:description" content="From the banks of the Nile to the heart of Calgary - discover the authentic journey behind Bahr Naturals handcrafted heritage soaps">
-    <meta property="og:image" content="https://altpeach.github.io/bahr-naturals/images/ester-simon-heritage-story.jpg">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://altpeach.github.io/bahr-naturals/about.html">
-    <meta property="twitter:title" content="Our Heritage Story - Bahr Naturals">
-    <meta property="twitter:description" content="From the banks of the Nile to the heart of Calgary - discover the authentic journey behind Bahr Naturals handcrafted heritage soaps">
-    <meta property="twitter:image" content="https://altpeach.github.io/bahr-naturals/images/ester-simon-heritage-story.jpg">
-
-    <title>Our Heritage Story - Bahr Naturals | From South Sudan to Calgary</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <meta name="description" content="Discover Ester Simon's journey from South Sudan to Canada and the heritage behind Bahr Naturals handcrafted soaps.">
+    <title>Our Heritage Story - Bahr Naturals</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;500;600&family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- CSS Files -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/heritage-colors.css">
     <link rel="stylesheet" href="css/typography.css">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AboutPage",
-      "mainEntity": {
-        "@type": "Person",
-        "name": "Ester Simon",
-        "jobTitle": "Founder & Master Soap Artisan",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Bahr Naturals"
-        },
-        "birthPlace": {
-          "@type": "Place",
-          "name": "South Sudan"
-        },
-        "location": {
-          "@type": "Place",
-          "name": "Calgary, AB, Canada"
-        },
-        "description": "Master soap artisan honoring South Sudanese heritage through authentic natural skincare"
-      }
-    }
-    </script>
+    <link rel="stylesheet" href="css/cultural-elements.css">
 </head>
 
 <body>
-    <!-- Skip Link for Accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
+    <!-- Cultural Pattern Background Element -->
+    <div class="cultural-pattern-bg" aria-hidden="true"></div>
+    
     <!-- Header -->
-    <header class="header" role="banner">
-        <nav class="nav-container" role="navigation" aria-label="Main navigation">
-            <div class="nav-brand">
-                <a href="index.html" class="logo-link" aria-label="Bahr Naturals Home">
-                    <img src="images/bahr-naturals-logo.svg" alt="Bahr Naturals Logo" class="logo" width="180" height="60">
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="index.html" class="logo" aria-label="Bahr Naturals Home">
+                    <span class="logo-text">Bahr Naturals</span>
+                    <div class="logo-wave" aria-hidden="true"></div>
                 </a>
-            </div>
-            
-            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
-                <span class="nav-toggle-icon"></span>
-                <span class="nav-toggle-icon"></span>
-                <span class="nav-toggle-icon"></span>
-            </button>
-            
-            <ul class="nav-menu" id="nav-menu" role="menubar">
-                <li class="nav-item" role="menuitem">
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="nav-menu">
                     <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item" role="menuitem">
-                    <a href="about.html" class="nav-link nav-link--active" aria-current="page">Heritage Story</a>
-                </li>
-                <li class="nav-item" role="menuitem">
+                    <a href="about.html" class="nav-link active">Heritage Story</a>
                     <a href="shop.html" class="nav-link">Products</a>
-                </li>
-                <li class="nav-item" role="menuitem">
+                    <a href="experiences.html" class="nav-link">Experiences</a>
                     <a href="resources.html" class="nav-link">Resources</a>
-                </li>
-                <li class="nav-item" role="menuitem">
                     <a href="contact.html" class="nav-link">Contact</a>
-                </li>
-            </ul>
+                    <a href="cart.html" class="cart-link" aria-label="Shopping cart">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <main id="main-content" role="main">
-        
+    <main>
         <!-- Hero Section -->
-        <section class="about-hero" aria-labelledby="about-hero-heading">
+        <section class="page-hero">
             <div class="container">
-                <div class="about-hero-content">
-                    <h1 id="about-hero-heading" class="about-hero-title">
-                        Our Heritage Story
-                    </h1>
-                    <p class="about-hero-subtitle">
-                        A journey of tradition, resilience, and the beauty that connects us across cultures
-                    </p>
-                </div>
+                <h1 class="page-title">A Journey of Heritage & Heart</h1>
+                <p class="page-subtitle">From the banks of the Nile to the heart of Canada</p>
+                <div class="cultural-divider" aria-hidden="true"></div>
             </div>
-            <div class="cultural-accent cultural-accent--about-hero" aria-hidden="true"></div>
         </section>
 
-        <!-- Founder Story Section -->
-        <section class="founder-story" aria-labelledby="founder-heading">
+        <!-- Founder Story -->
+        <section class="founder-story">
             <div class="container">
-                <div class="founder-content">
-                    <div class="founder-image">
-                        <img src="images/ester-simon-portrait.jpg" alt="Ester Simon, founder of Bahr Naturals, smiling warmly while holding traditional South Sudanese ingredients" class="founder-img" width="500" height="600" loading="eager">
-                        <div class="founder-quote-card">
-                            <blockquote class="founder-quote">
-                                <p class="quote-text">
-                                    "Every bar of soap carries the wisdom of my grandmothers and the promise of new beginnings"
-                                </p>
-                                <cite class="quote-author">— Ester Simon</cite>
-                            </blockquote>
+                <div class="story-content">
+                    <div class="story-image">
+                        <img src="images/cultural/founder-portrait.jpg" 
+                             alt="Ester Simon, founder of Bahr Naturals" 
+                             class="founder-portrait"
+                             loading="lazy">
+                        <div class="cultural-frame" aria-hidden="true"></div>
+                    </div>
+                    
+                    <div class="story-text">
+                        <h2 class="story-title">Meet Ester Simon</h2>
+                        <div class="blessing-quote">
+                            <p class="blessing-text">"Beauty traditions are not just routines - they are connections to our ancestors, our land, and our spirit."</p>
+                        </div>
+                        
+                        <div class="story-paragraphs">
+                            <p>Born along the banks of the White Nile in South Sudan, I grew up surrounded by the ancient beauty wisdom of my grandmothers. From childhood, I watched as the women in my family crafted their own skincare remedies using shea butter, natural clays, and botanical oils that had nourished our people for generations.</p>
+                            
+                            <p>When circumstances brought my family to Canada, I carried these precious traditions with me like seeds waiting to bloom in new soil. The transition wasn't easy - adapting to a new climate, culture, and way of life while trying to preserve the essence of who we were.</p>
+                            
+                            <p>It was during those early years in Canada that I discovered how much my new community hungered for authentic, natural skincare. Friends and neighbors began asking about the beautiful, fragrant soaps I made using my grandmother's recipes. They were amazed by the gentle power of shea butter and the nourishing qualities of traditional ingredients.</p>
+                            
+                            <p>Bahr Naturals was born from this intersection - honoring the wisdom of South Sudanese beauty traditions while embracing the quality and craftsmanship standards of my new Canadian home. Each bar of soap is a bridge between two worlds, carrying forward ancient knowledge while meeting modern needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Heritage Journey -->
+        <section class="heritage-journey">
+            <div class="container">
+                <h2 class="section-title">The Journey to Bahr Naturals</h2>
+                <div class="cultural-divider" aria-hidden="true"></div>
+                
+                <div class="journey-timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Roots in South Sudan</h3>
+                            <p class="timeline-description">Growing up learning traditional beauty secrets from grandmothers who understood the healing power of natural ingredients like shea butter, natural clays, and botanical oils.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Journey to Canada</h3>
+                            <p class="timeline-description">Arriving in Canada with precious family recipes and a deep desire to preserve and share the beauty traditions of South Sudanese culture.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Community Discovery</h3>
+                            <p class="timeline-description">Finding that friends and neighbors were drawn to the natural, effective skincare solutions that had been family secrets for generations.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Bahr Naturals Born</h3>
+                            <p class="timeline-description">Launching Bahr Naturals to bridge heritage and modern life, creating handcrafted soaps that honor tradition while meeting contemporary needs.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cultural Heritage -->
+        <section class="cultural-heritage">
+            <div class="container">
+                <div class="heritage-content">
+                    <div class="heritage-text">
+                        <h2 class="section-title">Honoring South Sudanese Beauty Traditions</h2>
+                        <p class="heritage-description">
+                            South Sudanese women have long understood the power of natural ingredients to nourish and protect the skin. Our ancestors used shea butter not just as a moisturizer, but as a sacred ritual of self-care and community bonding.
+                        </p>
+                        
+                        <div class="tradition-highlights">
+                            <div class="tradition-item">
+                                <h4>Shea Butter Ceremonies</h4>
+                                <p>Communal preparation of shea butter was a time for women to gather, share stories, and pass down beauty wisdom through generations.</p>
+                            </div>
+                            
+                            <div class="tradition-item">
+                                <h4>Natural Clay Treatments</h4>
+                                <p>River clays were used for detoxifying face and body treatments, understanding the earth's power to heal and purify.</p>
+                            </div>
+                            
+                            <div class="tradition-item">
+                                <h4>Botanical Knowledge</h4>
+                                <p>Deep understanding of which plants, oils, and natural materials could soothe, heal, and beautify the skin.</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="founder-text">
-                        <h2 id="founder-heading" class="section-title">
-                            Meet Ester Simon
-                        </h2>
-                        <p class="founder-intro">
-                            Born on the banks of the White Nile in South Sudan, I learned the ancient art of natural skincare 
-                            from my grandmother, who taught me that beauty comes from honoring both the earth and our heritage.
-                        </p>
-                        
-                        <div class="story-timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-marker" aria-hidden="true"></div>
-                                <div class="timeline-content">
-                                    <h3 class="timeline-title">Childhood by the Nile</h3>
-                                    <p class="timeline-description">
-                                        Growing up in South Sudan, I watched my grandmother create healing balms and cleansing bars 
-                                        from shea nuts and aromatic herbs. These weren't just beauty products – they were sacred 
-                                        rituals connecting us to our ancestors and the land.
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="timeline-marker" aria-hidden="true"></div>
-                                <div class="timeline-content">
-                                    <h3 class="timeline-title">Journey to Canada</h3>
-                                    <p class="timeline-description">
-                                        Like many South Sudanese families, we sought new opportunities in Canada. Calgary became 
-                                        our new home, but I carried with me the precious knowledge of traditional beauty practices 
-                                        and a deep longing to share our cultural wisdom.
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="timeline-marker" aria-hidden="true"></div>
-                                <div class="timeline-content">
-                                    <h3 class="timeline-title">Rediscovering Heritage</h3>
-                                    <p class="timeline-description">
-                                        In my Calgary kitchen, I began recreating my grandmother's recipes, blending authentic 
-                                        South Sudanese ingredients with the pristine botanicals of Canada. Each bar became a 
-                                        bridge between two homes, two cultures, one beautiful tradition.
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <div class="timeline-marker" aria-hidden="true"></div>
-                                <div class="timeline-content">
-                                    <h3 class="timeline-title">Bahr Naturals is Born</h3>
-                                    <p class="timeline-description">
-                                        "Bahr" means river in Arabic – the life-giving waters that nourished our ancestors. 
-                                        Today, Bahr Naturals flows from my heart to yours, carrying forward generations of 
-                                        wisdom while embracing the future of natural, sustainable beauty.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="heritage-visual">
+                        <img src="images/cultural/traditional-ingredients.jpg" 
+                             alt="Traditional South Sudanese beauty ingredients" 
+                             class="heritage-image"
+                             loading="lazy">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Mission & Values Section -->
-        <section class="mission-values" aria-labelledby="mission-heading">
+        <!-- Mission & Values -->
+        <section class="mission-values">
             <div class="container">
-                <header class="section-header">
-                    <h2 id="mission-heading" class="section-title">
-                        Our Mission & Values
-                    </h2>
-                    <p class="section-description">
-                        Guided by heritage, driven by authenticity, committed to excellence
-                    </p>
-                </header>
-                
-                <div class="mission-statement">
-                    <div class="mission-content">
-                        <h3 class="mission-title">Our Mission</h3>
-                        <p class="mission-text">
-                            To honor South Sudanese heritage through authentic, natural skincare that celebrates 
-                            the journey from the Nile to the North, creating beauty products that bridge cultures, 
-                            support communities, and nurture both skin and soul.
-                        </p>
-                    </div>
-                    <div class="mission-image">
-                        <img src="images/traditional-ingredients.jpg" alt="Beautiful arrangement of traditional South Sudanese beauty ingredients including shea nuts, aromatic herbs, and natural oils" class="mission-img" width="400" height="300" loading="lazy">
-                    </div>
-                </div>
+                <h2 class="section-title">Our Mission & Values</h2>
+                <div class="cultural-divider" aria-hidden="true"></div>
                 
                 <div class="values-grid">
-                    <article class="value-card">
-                        <div class="value-icon" aria-hidden="true">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
-                                <path d="M16 24c0-4.4 3.6-8 8-8s8 3.6 8 8c0 4.4-3.6 8-8 8s-8-3.6-8-8z" fill="currentColor"/>
-                            </svg>
-                        </div>
-                        <h3 class="value-title">Heritage</h3>
-                        <p class="value-description">
-                            Authentic South Sudanese cultural roots guide every recipe, honoring ancestral wisdom 
-                            while respecting traditional knowledge systems.
-                        </p>
-                    </article>
-                    
-                    <article class="value-card">
-                        <div class="value-icon" aria-hidden="true">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <path d="M24 4L30 18L44 18L33 27L36 42L24 34L12 42L15 27L4 18L18 18L24 4Z" stroke="currentColor" stroke-width="2" fill="currentColor"/>
-                            </svg>
-                        </div>
-                        <h3 class="value-title">Purity</h3>
-                        <p class="value-description">
-                            100% natural, chemical-free formulations using only the finest ingredients from 
-                            ethical sources that align with our cultural values.
-                        </p>
-                    </article>
-                    
-                    <article class="value-card">
-                        <div class="value-icon" aria-hidden="true">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <circle cx="24" cy="12" r="8" stroke="currentColor" stroke-width="2"/>
-                                <path d="M8 44c0-8.8 7.2-16 16-16s16 7.2 16 16" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <h3 class="value-title">Sustainability</h3>
-                        <p class="value-description">
-                            Ethically sourced Canadian ingredients complement traditional materials, supporting 
-                            both local communities and global sustainability efforts.
-                        </p>
-                    </article>
-                    
-                    <article class="value-card">
-                        <div class="value-icon" aria-hidden="true">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <rect x="8" y="12" width="32" height="24" rx="4" stroke="currentColor" stroke-width="2"/>
-                                <path d="M16 20h16M16 28h12" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <h3 class="value-title">Craftsmanship</h3>
-                        <p class="value-description">
-                            Small-batch, handmade excellence ensures every bar meets the highest standards of 
-                            quality while maintaining the personal touch of artisan care.
-                        </p>
-                    </article>
-                    
-                    <article class="value-card">
-                        <div class="value-icon" aria-hidden="true">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <circle cx="18" cy="20" r="8" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="30" cy="28" r="8" stroke="currentColor" stroke-width="2"/>
-                                <path d="M22 24l4 4" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <h3 class="value-title">Unity</h3>
-                        <p class="value-description">
-                            Bridging cultures through shared beauty rituals, creating connections that celebrate 
-                            diversity while honoring individual heritage stories.
-                        </p>
-                    </article>
-                    
-                    <article class="value-card">
-                        <div class="value-icon" aria-hidden="true">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <path d="M24 4v40M12 16l24 16M12 32l24-16" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <h3 class="value-title">Empowerment</h3>
-                        <p class="value-description">
-                            Supporting women's entrepreneurship and cultural pride, creating opportunities that 
-                            honor heritage while building sustainable futures.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Craftsmanship Process Section -->
-        <section class="craftsmanship" aria-labelledby="craftsmanship-heading">
-            <div class="container">
-                <header class="section-header">
-                    <h2 id="craftsmanship-heading" class="section-title">
-                        Our Craftsmanship Process
-                    </h2>
-                    <p class="section-description">
-                        Where ancient techniques meet modern standards of excellence
-                    </p>
-                </header>
-                
-                <div class="process-grid">
-                    <div class="process-step">
-                        <div class="process-number" aria-hidden="true">1</div>
-                        <h3 class="process-title">Heritage Selection</h3>
-                        <p class="process-description">
-                            We carefully source authentic shea butter and traditional South Sudanese botanicals, 
-                            working with trusted suppliers who understand the cultural significance of each ingredient.
-                        </p>
-                        <img src="images/process/ingredient-selection.jpg" alt="Careful selection of traditional shea nuts and aromatic herbs" class="process-image" width="300" height="200" loading="lazy">
+                    <div class="value-card">
+                        <h3 class="value-title">Cultural Respect</h3>
+                        <p class="value-description">We honor South Sudanese traditions with deep respect, ensuring authentic representation without appropriation.</p>
                     </div>
                     
-                    <div class="process-step">
-                        <div class="process-number" aria-hidden="true">2</div>
-                        <h3 class="process-title">Traditional Preparation</h3>
-                        <p class="process-description">
-                            Following ancestral methods passed down through generations, we prepare each ingredient 
-                            with the reverence and care that honors our cultural heritage and natural wisdom.
-                        </p>
-                        <img src="images/process/traditional-preparation.jpg" alt="Traditional preparation methods using cultural techniques" class="process-image" width="300" height="200" loading="lazy">
+                    <div class="value-card">
+                        <h3 class="value-title">Natural Purity</h3>
+                        <p class="value-description">Every ingredient is carefully sourced for its natural benefits and cultural significance.</p>
                     </div>
                     
-                    <div class="process-step">
-                        <div class="process-number" aria-hidden="true">3</div>
-                        <h3 class="process-title">Mindful Blending</h3>
-                        <p class="process-description">
-                            In our Calgary studio, Canadian botanicals are thoughtfully combined with traditional 
-                            ingredients, creating harmonious blends that bridge two worlds of natural beauty.
-                        </p>
-                        <img src="images/process/mindful-blending.jpg" alt="Careful blending of traditional and Canadian natural ingredients" class="process-image" width="300" height="200" loading="lazy">
+                    <div class="value-card">
+                        <h3 class="value-title">Artisan Quality</h3>
+                        <p class="value-description">Small-batch craftsmanship ensures each soap meets the highest standards of quality and care.</p>
                     </div>
                     
-                    <div class="process-step">
-                        <div class="process-number" aria-hidden="true">4</div>
-                        <h3 class="process-title">Hand Crafting</h3>
-                        <p class="process-description">
-                            Each bar is hand-poured and shaped with care, ensuring consistent quality while 
-                            maintaining the personal touch that makes every soap a unique expression of our heritage.
-                        </p>
-                        <img src="images/process/hand-crafting.jpg" alt="Artisan hands carefully shaping and finishing handcrafted soap bars" class="process-image" width="300" height="200" loading="lazy">
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="process-number" aria-hidden="true">5</div>
-                        <h3 class="process-title">Patient Curing</h3>
-                        <p class="process-description">
-                            Our soaps cure naturally for 4-6 weeks in controlled conditions, allowing the ingredients 
-                            to fully harmonize and develop the rich, gentle qualities our customers love.
-                        </p>
-                        <img src="images/process/patient-curing.jpg" alt="Neat rows of handcrafted soaps curing on wooden racks" class="process-image" width="300" height="200" loading="lazy">
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="process-number" aria-hidden="true">6</div>
-                        <h3 class="process-title">Heritage Packaging</h3>
-                        <p class="process-description">
-                            Finally, each soap is wrapped with care in sustainable packaging that reflects our 
-                            cultural aesthetics while protecting the environment for future generations.
-                        </p>
-                        <img src="images/process/heritage-packaging.jpg" alt="Beautiful sustainable packaging with cultural design elements" class="process-image" width="300" height="200" loading="lazy">
+                    <div class="value-card">
+                        <h3 class="value-title">Community Connection</h3>
+                        <p class="value-description">Building bridges between cultures while supporting both South Sudanese heritage preservation and Canadian communities.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Community Impact Section -->
-        <section class="community-impact" aria-labelledby="community-heading">
-            <div class="container">
-                <div class="impact-content">
-                    <div class="impact-text">
-                        <h2 id="community-heading" class="section-title">
-                            Celebrating Our Community
-                        </h2>
-                        <p class="impact-intro">
-                            Bahr Naturals is more than a business – it's a celebration of cultural resilience 
-                            and the beauty that emerges when communities support each other.
-                        </p>
-                        
-                        <div class="impact-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">500+</span>
-                                <span class="stat-label">Families Supported</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">15+</span>
-                                <span class="stat-label">Cultural Workshops</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">100%</span>
-                                <span class="stat-label">Ethical Sourcing</span>
-                            </div>
-                        </div>
-                        
-                        <div class="impact-initiatives">
-                            <h3 class="initiatives-title">Our Initiatives</h3>
-                            <ul class="initiatives-list">
-                                <li class="initiative-item">
-                                    <strong>Heritage Education:</strong> Workshops celebrating South Sudanese beauty traditions
-                                </li>
-                                <li class="initiative-item">
-                                    <strong>Women's Empowerment:</strong> Supporting immigrant women entrepreneurs in Calgary
-                                </li>
-                                <li class="initiative-item">
-                                    <strong>Cultural Preservation:</strong> Documenting and sharing traditional knowledge
-                                </li>
-                                <li class="initiative-item">
-                                    <strong>Community Building:</strong> Creating spaces for cultural exchange and learning
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <a href="experiences.html" class="btn btn--primary">
-                            Join Our Community
-                        </a>
-                    </div>
-                    
-                    <div class="impact-image">
-                        <img src="images/community-workshop.jpg" alt="Ester Simon leading a cultural beauty workshop with diverse community members learning traditional techniques" class="impact-img" width="500" height="400" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Cultural Heritage Section -->
-        <section class="cultural-heritage" aria-labelledby="heritage-heading">
-            <div class="container">
-                <header class="section-header">
-                    <h2 id="heritage-heading" class="section-title">
-                        Honoring South Sudanese Beauty Traditions
-                    </h2>
-                    <p class="section-description">
-                        Ancient wisdom meets modern care in every aspect of our practice
-                    </p>
-                </header>
-                
-                <div class="heritage-grid">
-                    <article class="heritage-card">
-                        <div class="heritage-card-image">
-                            <img src="images/heritage/shea-tradition.jpg" alt="Traditional shea nut processing methods passed down through generations" class="heritage-img" width="350" height="250" loading="lazy">
-                        </div>
-                        <div class="heritage-card-content">
-                            <h3 class="heritage-card-title">Shea Butter Wisdom</h3>
-                            <p class="heritage-card-description">
-                                For centuries, South Sudanese women have treasured shea butter as nature's perfect moisturizer. 
-                                We honor this tradition by using only the finest, ethically-sourced shea butter in our formulations.
-                            </p>
-                        </div>
-                    </article>
-                    
-                    <article class="heritage-card">
-                        <div class="heritage-card-image">
-                            <img src="images/heritage/aromatic-herbs.jpg" alt="Traditional aromatic herbs and botanicals used in South Sudanese beauty practices" class="heritage-img" width="350" height="250" loading="lazy">
-                        </div>
-                        <div class="heritage-card-content">
-                            <h3 class="heritage-card-title">Aromatic Botanicals</h3>
-                            <p class="heritage-card-description">
-                                Our ancestors understood the healing power of aromatic herbs. We carefully select botanicals 
-                                that echo these traditional remedies while meeting modern purity standards.
-                            </p>
-                        </div>
-                    </article>
-                    
-                    <article class="heritage-card">
-                        <div class="heritage-card-image">
-                            <img src="images/heritage/cultural-patterns.jpg" alt="Beautiful South Sudanese cultural patterns and designs that inspire our aesthetic" class="heritage-img" width="350" height="250" loading="lazy">
-                        </div>
-                        <div class="heritage-card-content">
-                            <h3 class="heritage-card-title">Sacred Rituals</h3>
-                            <p class="heritage-card-description">
-                                Beauty care in South Sudanese culture is deeply ritualistic, connecting us to ancestors and community. 
-                                Each bar of our soap carries forward this sacred approach to self-care.
-                            </p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action Section -->
-        <section class="about-cta" aria-labelledby="cta-heading">
+        <!-- Call to Action -->
+        <section class="heritage-cta">
             <div class="container">
                 <div class="cta-content">
-                    <h2 id="cta-heading" class="cta-title">
-                        Join Our Heritage Journey
-                    </h2>
+                    <h2 class="cta-title">Experience the Heritage</h2>
                     <p class="cta-description">
-                        Experience the beauty of authentic South Sudanese skincare traditions, 
-                        lovingly crafted in the heart of Calgary
+                        Discover how ancient wisdom and modern craftsmanship come together in every bar of Bahr Naturals soap.
                     </p>
                     <div class="cta-actions">
-                        <a href="shop.html" class="btn btn--primary btn--large">
-                            Explore Our Products
-                        </a>
-                        <a href="contact.html" class="btn btn--outline btn--large">
-                            Connect With Us
-                        </a>
+                        <a href="shop.html" class="btn btn-primary">Shop Our Collection</a>
+                        <a href="experiences.html" class="btn btn-secondary">Join Our Workshops</a>
                     </div>
                 </div>
             </div>
-            
-            <!-- Cultural accent pattern -->
-            <div class="cultural-accent cultural-accent--about-cta" aria-hidden="true"></div>
         </section>
-
     </main>
 
     <!-- Footer -->
-    <footer class="footer" role="contentinfo">
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                
-                <div class="footer-section footer-section--brand">
-                    <img src="images/bahr-naturals-logo-light.svg" alt="Bahr Naturals" class="footer-logo" width="150" height="50">
-                    <p class="footer-tagline">
-                        <span class="tagline-accent">From the Nile to Your Home</span><br>
-                        Honoring heritage through handcrafted excellence
+                <div class="footer-section">
+                    <h3 class="footer-title">Bahr Naturals</h3>
+                    <p class="footer-description">
+                        Honoring South Sudanese heritage through authentic, natural skincare.
                     </p>
-                    <div class="social-links" aria-label="Social media links">
-                        <a href="https://instagram.com/bahrnaturals" class="social-link" aria-label="Follow us on Instagram" target="_blank" rel="noopener">
-                            <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                        <a href="https://facebook.com/bahrnaturals" class="social-link" aria-label="Follow us on Facebook" target="_blank" rel="noopener">
-                            <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
+                    <div class="cultural-blessing">
+                        <p class="blessing-footer">May your skin be as radiant as your spirit</p>
                     </div>
                 </div>
                 
                 <div class="footer-section">
-                    <h3 class="footer-title">Products</h3>
-                    <ul class="footer-links">
-                        <li><a href="shop.html" class="footer-link">Heritage Collection</a></li>
-                        <li><a href="shop.html?category=signature" class="footer-link">Signature Soaps</a></li>
-                        <li><a href="shop.html?category=gift-sets" class="footer-link">Gift Sets</a></li>
-                        <li><a href="experiences.html" class="footer-link">Workshops</a></li>
-                    </ul>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <nav class="footer-nav">
+                        <a href="about.html">Heritage Story</a>
+                        <a href="shop.html">Products</a>
+                        <a href="experiences.html">Workshops</a>
+                        <a href="resources.html">Skincare Tips</a>
+                        <a href="contact.html">Contact Us</a>
+                    </nav>
                 </div>
                 
                 <div class="footer-section">
-                    <h3 class="footer-title">Company</h3>
-                    <ul class="footer-links">
-                        <li><a href="about.html" class="footer-link">Our Story</a></li>
-                        <li><a href="resources.html" class="footer-link">Ingredient Guide</a></li>
-                        <li><a href="contact.html" class="footer-link">Contact Us</a></li>
-                        <li><a href="shipping-policy.html" class="footer-link">Shipping Info</a></li>
-                    </ul>
+                    <h4 class="footer-heading">Customer Care</h4>
+                    <nav class="footer-nav">
+                        <a href="shipping-policy.html">Shipping Info</a>
+                        <a href="refund-policy.html">Returns & Refunds</a>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms-conditions.html">Terms & Conditions</a>
+                        <a href="accessibility-statement.html">Accessibility</a>
+                    </nav>
                 </div>
                 
                 <div class="footer-section">
-                    <h3 class="footer-title">Support</h3>
-                    <ul class="footer-links">
-                        <li><a href="contact.html" class="footer-link">Customer Service</a></li>
-                        <li><a href="refund-policy.html" class="footer-link">Returns & Refunds</a></li>
-                        <li><a href="terms-conditions.html" class="footer-link">Terms & Conditions</a></li>
-                        <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-                    </ul>
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook" class="social-link">📘</a>
+                        <a href="#" aria-label="Instagram" class="social-link">📷</a>
+                        <a href="#" aria-label="Email" class="social-link">✉️</a>
+                    </div>
+                    <div class="contact-info">
+                        <p>Email: hello@bahrnatural.com</p>
+                        <p>Phone: +1 (647) 555-0123</p>
+                    </div>
                 </div>
-                
             </div>
             
             <div class="footer-bottom">
-                <div class="footer-bottom-content">
-                    <p class="copyright">
-                        © 2025 Bahr Naturals. All rights reserved. Made with ❤️ in Calgary, AB
-                    </p>
-                    <p class="heritage-note">
-                        <span class="cultural-accent">بحر</span> • Celebrating South Sudanese Heritage
-                    </p>
-                </div>
+                <div class="cultural-pattern-footer" aria-hidden="true"></div>
+                <p class="copyright">
+                    © 2025 Bahr Naturals. All rights reserved. | Made with ❤️ in Canada
+                </p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript Files -->
-    <script src="js/main.js" defer></script>
-    <script src="js/navigation.js" defer></script>
-    
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/cart-management.js"></script>
+    <script src="js/form-handler.js"></script>
 </body>
 </html>
