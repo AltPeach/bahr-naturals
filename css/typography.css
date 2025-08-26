@@ -1,1 +1,130 @@
+/* typography.css */
+/* Bahr Naturals Typography System */
 
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;500;600&family=Dancing+Script:wght@400&display=swap');
+
+/* Font Family Variables */
+:root {
+  --font-primary: 'Playfair Display', serif;        /* Headers */
+  --font-secondary: 'Source Sans Pro', sans-serif;  /* Body text */
+  --font-accent: 'Dancing Script', cursive;         /* Accents */
+}
+
+/* Base Typography */
+html {
+  font-family: var(--font-secondary);
+  font-size: 16px;           /* 1rem = 16px */
+  line-height: 1.6;
+  color: var(--color-charcoal-black);
+}
+
+/* Headings */
+h1, .hero-title {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: clamp(2.25rem, 5vw, 3rem); /* 36px–48px */
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--color-charcoal-black);
+}
+
+h2, .section-title {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 2.25rem); /* 28px–36px */
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+  color: var(--color-charcoal-black);
+}
+
+h3, .value-title, .mission-title {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 1.5rem;  /* 24px */
+  margin-bottom: 0.5rem;
+  color: var(--color-charcoal-black);
+}
+
+h4, .product-title {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: 1.25rem; /* 20px */
+  margin-bottom: 0.5rem;
+  color: var(--color-charcoal-black);
+}
+
+/* Body Text */
+p, .section-description, .product-description, .heritage-description {
+  font-family: var(--font-secondary);
+  font-size: 1rem;    /* 16px */
+  margin-bottom: 1rem;
+  color: var(--color-charcoal-black);
+}
+
+/* Accent Text */
+.special, .quote-text, .newsletter-title {
+  font-family: var(--font-accent);
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem); /* 18px–24px */
+  color: var(--color-heritage-gold);
+}
+
+/* Links */
+a, .link {
+  font-family: var(--font-secondary);
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--color-river-blue);
+  transition: color 0.3s ease;
+}
+
+a:hover, .link:hover {
+  color: var(--color-heritage-gold);
+}
+
+/* Lists */
+ul, ol {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Form Elements */
+label {
+  display: block;
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  font-size: 0.875rem; /* 14px */
+  margin-bottom: 0.25rem;
+  color: var(--color-charcoal-black);
+}
+
+input, textarea, select, .form-input {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  color: var(--color-charcoal-black);
+}
+
+/* Buttons */
+.btn, button {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 1rem;     /* 16px */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
