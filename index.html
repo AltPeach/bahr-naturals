@@ -28,12 +28,12 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     
-    <!-- Fonts -->
+    <!-- Fonts - Load First -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- CSS Files -->
+    <!-- CSS Files in correct order -->
     <link rel="stylesheet" href="css/heritage-colors.css">
     <link rel="stylesheet" href="css/typography.css">
     <link rel="stylesheet" href="css/style.css">
@@ -139,23 +139,12 @@
                 
                 <div class="hero-visual">
                     <div class="product-showcase">
-                        <div class="hero-img-placeholder" style="
-                            background: linear-gradient(135deg, var(--color-background-light), var(--color-shea-light));
-                            border-radius: 12px;
-                            height: 500px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            box-shadow: var(--shadow-medium);
-                        ">
-                            <div style="text-align: center; color: var(--color-primary);">
-                                <div style="font-size: 4rem; margin-bottom: 1rem;">🧼</div>
-                                <p style="font-family: var(--font-heading); font-size: 1.5rem; margin: 0;">
-                                    Handcrafted Heritage Soaps
-                                </p>
-                                <p style="font-family: var(--font-accent); color: var(--color-accent); margin-top: 0.5rem;">
-                                    From the Nile's gift to your skin
-                                </p>
+                        <!-- Hero Product Display -->
+                        <div class="hero-product-display">
+                            <div class="product-visual">
+                                <div class="soap-icon">🧼</div>
+                                <h3>Handcrafted Heritage Soaps</h3>
+                                <p>From the Nile's gift to your skin</p>
                             </div>
                         </div>
                         <div class="heritage-accent" aria-hidden="true"></div>
@@ -204,29 +193,12 @@
                     </div>
                     
                     <div class="heritage-visual">
-                        <div class="founder-img-placeholder" style="
-                            background: linear-gradient(135deg, var(--color-background-light), rgba(212, 184, 150, 0.1));
-                            border-radius: 12px;
-                            height: 400px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            position: relative;
-                            overflow: hidden;
-                            box-shadow: var(--shadow-medium);
-                        ">
-                            <div style="text-align: center; color: var(--color-primary); padding: 2rem;">
-                                <div style="font-size: 3rem; margin-bottom: 1rem;">👩🏿‍🎨</div>
-                                <p style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 0.5rem;">
-                                    Ester Simon
-                                </p>
-                                <p style="font-family: var(--font-accent); color: var(--color-accent); font-size: 1.1rem;">
-                                    Founder & Artisan
-                                </p>
-                                <p style="margin-top: 1rem; font-style: italic; color: var(--color-text-secondary);">
-                                    Crafting beauty with heritage and heart
-                                </p>
-                            </div>
+                        <!-- Founder Placeholder -->
+                        <div class="founder-display">
+                            <div class="founder-icon">👩🏿‍🎨</div>
+                            <h4>Ester Simon</h4>
+                            <p class="founder-title">Founder & Artisan</p>
+                            <p class="founder-quote-short">Crafting beauty with heritage and heart</p>
                         </div>
                         <div class="cultural-frame" aria-hidden="true"></div>
                     </div>
@@ -248,19 +220,9 @@
                     <!-- Product 1: Nile Essence -->
                     <article class="product-card animate-on-scroll" itemscope itemtype="https://schema.org/Product">
                         <div class="product-image-container">
-                            <div class="product-img-placeholder" style="
-                                background: linear-gradient(135deg, #A394D6, rgba(163, 148, 214, 0.3));
-                                height: 250px;
-                                border-radius: 8px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                position: relative;
-                            ">
-                                <div style="text-align: center; color: white;">
-                                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🌙</div>
-                                    <p style="font-family: var(--font-heading); font-size: 1.1rem;">Nile Essence</p>
-                                </div>
+                            <div class="product-placeholder nile-essence">
+                                <div class="product-icon">🌙</div>
+                                <span class="product-visual-name">Nile Essence</span>
                             </div>
                             <div class="product-badge">Bestseller</div>
                         </div>
@@ -274,36 +236,22 @@
                                 <meta itemprop="priceCurrency" content="CAD">
                                 <meta itemprop="availability" content="https://schema.org/InStock">
                             </div>
-                            <div class="product-actions">
-                                <button class="btn btn-primary add-to-cart" 
-                                        data-product-id="nile-essence"
-                                        data-product-name="Nile Essence"
-                                        data-product-price="18.00"
-                                        data-product-image="images/products/nile-essence.jpg">
-                                    Add to Cart
-                                </button>
-                                <a href="shop.html#nile-essence" class="btn btn-secondary btn-small">
-                                    View Details
-                                </a>
-                            </div>
+                            <button class="btn btn-primary add-to-cart" 
+                                    data-product-id="nile-essence"
+                                    data-product-name="Nile Essence"
+                                    data-product-price="18.00"
+                                    data-product-image="images/products/nile-essence.jpg">
+                                Add to Cart
+                            </button>
                         </div>
                     </article>
 
                     <!-- Product 2: Heritage Honey -->
                     <article class="product-card animate-on-scroll" itemscope itemtype="https://schema.org/Product">
                         <div class="product-image-container">
-                            <div class="product-img-placeholder" style="
-                                background: linear-gradient(135deg, #E5CBA8, rgba(229, 203, 168, 0.3));
-                                height: 250px;
-                                border-radius: 8px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                            ">
-                                <div style="text-align: center; color: #8B4513;">
-                                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🍯</div>
-                                    <p style="font-family: var(--font-heading); font-size: 1.1rem;">Heritage Honey</p>
-                                </div>
+                            <div class="product-placeholder heritage-honey">
+                                <div class="product-icon">🍯</div>
+                                <span class="product-visual-name">Heritage Honey</span>
                             </div>
                         </div>
                         <div class="product-info">
@@ -316,36 +264,22 @@
                                 <meta itemprop="priceCurrency" content="CAD">
                                 <meta itemprop="availability" content="https://schema.org/InStock">
                             </div>
-                            <div class="product-actions">
-                                <button class="btn btn-primary add-to-cart" 
-                                        data-product-id="heritage-honey"
-                                        data-product-name="Heritage Honey"
-                                        data-product-price="16.00"
-                                        data-product-image="images/products/heritage-honey.jpg">
-                                    Add to Cart
-                                </button>
-                                <a href="shop.html#heritage-honey" class="btn btn-secondary btn-small">
-                                    View Details
-                                </a>
-                            </div>
+                            <button class="btn btn-primary add-to-cart" 
+                                    data-product-id="heritage-honey"
+                                    data-product-name="Heritage Honey"
+                                    data-product-price="16.00"
+                                    data-product-image="images/products/heritage-honey.jpg">
+                                Add to Cart
+                            </button>
                         </div>
                     </article>
 
                     <!-- Product 3: Cultural Clay -->
                     <article class="product-card animate-on-scroll" itemscope itemtype="https://schema.org/Product">
                         <div class="product-image-container">
-                            <div class="product-img-placeholder" style="
-                                background: linear-gradient(135deg, #B4926B, rgba(180, 146, 107, 0.3));
-                                height: 250px;
-                                border-radius: 8px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                            ">
-                                <div style="text-align: center; color: white;">
-                                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🏺</div>
-                                    <p style="font-family: var(--font-heading); font-size: 1.1rem;">Cultural Clay</p>
-                                </div>
+                            <div class="product-placeholder cultural-clay">
+                                <div class="product-icon">🏺</div>
+                                <span class="product-visual-name">Cultural Clay</span>
                             </div>
                         </div>
                         <div class="product-info">
@@ -358,18 +292,13 @@
                                 <meta itemprop="priceCurrency" content="CAD">
                                 <meta itemprop="availability" content="https://schema.org/InStock">
                             </div>
-                            <div class="product-actions">
-                                <button class="btn btn-primary add-to-cart" 
-                                        data-product-id="cultural-clay"
-                                        data-product-name="Cultural Clay"
-                                        data-product-price="20.00"
-                                        data-product-image="images/products/cultural-clay.jpg">
-                                    Add to Cart
-                                </button>
-                                <a href="shop.html#cultural-clay" class="btn btn-secondary btn-small">
-                                    View Details
-                                </a>
-                            </div>
+                            <button class="btn btn-primary add-to-cart" 
+                                    data-product-id="cultural-clay"
+                                    data-product-name="Cultural Clay"
+                                    data-product-price="20.00"
+                                    data-product-image="images/products/cultural-clay.jpg">
+                                Add to Cart
+                            </button>
                         </div>
                     </article>
                     
@@ -412,24 +341,11 @@
                     </div>
                     
                     <div class="spotlight-visual">
-                        <div class="ingredients-img-placeholder" style="
-                            background: linear-gradient(135deg, var(--color-earth-green), rgba(143, 160, 133, 0.2));
-                            border-radius: 12px;
-                            height: 400px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            box-shadow: var(--shadow-medium);
-                        ">
-                            <div style="text-align: center; color: white; padding: 2rem;">
-                                <div style="font-size: 3rem; margin-bottom: 1rem;">🌿</div>
-                                <p style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1rem;">
-                                    Natural Ingredients
-                                </p>
-                                <p style="font-style: italic; opacity: 0.9;">
-                                    Shea butter, essential oils, and traditional botanicals
-                                </p>
-                            </div>
+                        <!-- Ingredients Display -->
+                        <div class="ingredients-display">
+                            <div class="ingredient-visual">🌿</div>
+                            <h3>Natural Ingredients</h3>
+                            <p>Shea butter, essential oils, and traditional botanicals</p>
                         </div>
                     </div>
                 </div>
@@ -587,15 +503,164 @@
     <!-- JavaScript Files -->
     <script src="js/main.js" defer></script>
     <script src="js/cart-management.js" defer></script>
-    <script src="js/payment-integration.js" defer></script>
+    <script src="js/form-handler.js" defer></script>
     
     <!-- Initialize Cart -->
     <script>
         // Initialize cart when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            window.cart = new BahrNaturalsCart();
+            if (typeof BahrNaturalsCart !== 'undefined') {
+                window.cart = new BahrNaturalsCart();
+            }
+            
+            // Show message function for cart
+            window.showMessage = function(text, type = 'info') {
+                if (window.BahrNaturals && window.BahrNaturals.showMessage) {
+                    window.BahrNaturals.showMessage(text, type);
+                } else {
+                    console.log(`${type.toUpperCase()}: ${text}`);
+                }
+            };
         });
     </script>
+    
+    <style>
+        /* Additional styles for visual placeholders */
+        .hero-product-display {
+            background: linear-gradient(135deg, var(--color-background-light), var(--color-shea-light));
+            border-radius: 12px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+        }
+        
+        .product-visual {
+            text-align: center;
+            color: var(--color-primary);
+            z-index: 2;
+        }
+        
+        .soap-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .product-visual h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        
+        .product-visual p {
+            font-family: var(--font-accent);
+            color: var(--color-accent);
+            margin-top: 0.5rem;
+        }
+        
+        .founder-display {
+            background: linear-gradient(135deg, var(--color-background-light), rgba(212, 184, 150, 0.1));
+            border-radius: 12px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-primary);
+            padding: 2rem;
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .founder-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .founder-display h4 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .founder-title {
+            font-family: var(--font-accent);
+            color: var(--color-accent);
+            font-size: 1.1rem;
+        }
+        
+        .founder-quote-short {
+            margin-top: 1rem;
+            font-style: italic;
+            color: var(--color-text-secondary);
+        }
+        
+        .product-placeholder {
+            height: 250px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .nile-essence {
+            background: linear-gradient(135deg, #A394D6, rgba(163, 148, 214, 0.3));
+        }
+        
+        .heritage-honey {
+            background: linear-gradient(135deg, #E5CBA8, rgba(229, 203, 168, 0.3));
+        }
+        
+        .cultural-clay {
+            background: linear-gradient(135deg, #B4926B, rgba(180, 146, 107, 0.3));
+        }
+        
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        .product-visual-name {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: white;
+        }
+        
+        .ingredients-display {
+            background: linear-gradient(135deg, var(--color-earth-green), rgba(143, 160, 133, 0.2));
+            border-radius: 12px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-medium);
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+        
+        .ingredient-visual {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .ingredients-display h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .ingredients-display p {
+            font-style: italic;
+            opacity: 0.9;
+        }
+    </style>
     
 </body>
 </html>
