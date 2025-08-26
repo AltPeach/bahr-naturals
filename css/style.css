@@ -1,1 +1,245 @@
+/* style.css */
+/* Main Bahr Naturals Stylesheet - Bring Together Design System, Base, Components, and Layout */
 
+/* === Reset & Base === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-secondary);
+  background-color: var(--color-pure-white);
+  color: var(--color-charcoal-black);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* === Utility Classes === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-sm);
+}
+
+.section-title {
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-subtitle {
+  margin-bottom: var(--spacing-md);
+  font-style: italic;
+  color: var(--color-earth-green);
+}
+
+/* === Layout === */
+.header {
+  background-color: var(--color-shea-cream);
+  border-bottom: 1px solid var(--color-soft-gray);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 0;
+}
+
+.nav-menu {
+  display: none;
+  list-style: none;
+}
+
+.nav-menu.nav-menu--open {
+  display: flex;
+}
+
+.nav-item + .nav-item {
+  margin-left: var(--spacing-md);
+}
+
+/* Mobile Menu Toggle */
+.nav-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle-icon {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-charcoal-black);
+  margin: 4px 0;
+  transition: background var(--transition-smooth);
+}
+
+/* === Hero === */
+.hero,
+.page-hero,
+.about-hero,
+.contact-hero,
+.thank-you-hero {
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+  background-color: var(--color-shea-cream);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Accent Patterns */
+.cultural-accent {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  background-image: url('../images/cultural/pattern.svg');
+  opacity: var(--pattern-subtle);
+  bottom: 0;
+  left: 0;
+}
+
+/* === Components === */
+.btn {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--button-radius);
+  transition: background var(--transition-smooth), color var(--transition-smooth);
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn--primary {
+  background-color: var(--color-heritage-gold);
+  color: var(--color-charcoal-black);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-river-blue);
+  color: var(--color-pure-white);
+}
+
+.btn--outline {
+  background: transparent;
+  border: 2px solid var(--color-heritage-gold);
+  color: var(--color-heritage-gold);
+}
+
+.btn--outline:hover {
+  background-color: var(--color-heritage-gold);
+  color: var(--color-pure-white);
+}
+
+/* === Products Grid === */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.product-card {
+  background-color: var(--color-pure-white);
+  border: 1px solid var(--color-soft-gray);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-soft);
+}
+
+.product-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.product-content {
+  padding: var(--spacing-md);
+}
+
+/* === Forms === */
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-soft-gray);
+  border-radius: var(--button-radius);
+  font-size: 1rem;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-heritage-gold);
+}
+
+/* === Accessibility === */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: var(--spacing-sm);
+  background: var(--color-heritage-gold);
+  color: var(--color-charcoal-black);
+  z-index: 1000;
+  text-decoration: none;
+}
+
+/* === Footer === */
+.footer {
+  background-color: var(--color-charcoal-black);
+  color: var(--color-pure-white);
+  padding: var(--spacing-lg) 0;
+}
+
+.footer .footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer .footer-links li + li {
+  margin-top: var(--spacing-xs);
+}
+
+.footer-link {
+  color: var(--color-pure-white);
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: var(--color-heritage-gold);
+}
+
+/* === Responsive === */
+@media (min-width: 768px) {
+  .nav-menu {
+    display: flex;
+  }
+  
+  .nav-toggle {
+    display: none;
+  }
+}
