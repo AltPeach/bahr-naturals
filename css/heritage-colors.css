@@ -1,17 +1,19 @@
-/* Heritage Color Palette - Clean & Light Version */
-/* Modernized South Sudanese cultural colors with clean minimalism */
+/* Soap Making Color Palette - Natural & Clean */
+/* Colors inspired by natural soap ingredients and craftsmanship */
 
 :root {
-    /* Primary Heritage Colors - Lighter & Softer */
-    --color-primary: #4A7A8C;          /* Soft River Blue - lighter Nile representation */
-    --color-accent: #D4B896;           /* Warm Cream Gold - softer traditional beadwork */
-    --color-background-light: #FDFCF8; /* Pure Shea Cream - warmer white background */
+    /* Primary Soap Colors - Natural & Soothing */
+    --color-primary: #5D8A7E;          /* Sage Green - natural ingredients */
+    --color-accent: #D7B89C;           /* Shea Butter - warm natural base */
+    --color-background-light: #FDFBF8; /* Pure Cream - clean white with warm undertone */
     
-    /* Supporting Colors - Clean & Modern */
-    --color-text-primary: #444444;     /* Soft Charcoal - easier on eyes */
-    --color-text-secondary: #6B7280;   /* Warm Gray - readable secondary text */
-    --color-lavender: #A394D6;         /* Light Lavender - gentle wellness */
-    --color-earth-green: #8FA085;      /* Sage Green - natural sustainability */
+    /* Supporting Colors - Natural Ingredients Palette */
+    --color-text-primary: #444444;     /* Soft Charcoal - readable but gentle */
+    --color-text-secondary: #6B7280;   /* Warm Gray - secondary text */
+    --color-lavender: #A89DC6;         /* Lavender Blossom - gentle floral */
+    --color-honey: #D9A465;            /* Honey Gold - natural sweetness */
+    --color-mint: #7EB09B;             /* Mint Leaf - fresh and clean */
+    --color-clay: #B4926B;             /* Natural Clay - earthy element */
     
     /* Neutral Variations - Clean & Light */
     --color-white: #FFFFFF;
@@ -19,52 +21,52 @@
     --color-medium-gray: #E9ECEF;
     --color-dark-gray: #6C757D;
     
-    /* Cultural Context Colors - Softer Approach */
-    --color-nile-blue: #6BA3B8;        /* Gentle water blue */
-    --color-sunset-gold: #E5CBA8;      /* Soft warm gold */
-    --color-clay-brown: #B4926B;       /* Light clay representation */
-    --color-shea-light: #FEFDFB;       /* Lightest shea background */
+    /* Soap Ingredient Colors - Specific References */
+    --color-olive-oil: #A0A76A;        /* Olive Oil Green */
+    --color-coconut: #E5E1D6;          /* Coconut White */
+    --color-essential-oil: #8A6B8F;    /* Essential Oil Purple */
+    --color-oatmeal: #E0D4B9;          /* Oatmeal Beige */
     
-    /* Semantic Colors - Softer & Friendlier */
-    --color-success: #28A745;          /* Softer success green */
-    --color-warning: #FFC107;          /* Warm warning yellow */
-    --color-error: #FF6B6B;            /* Gentle error red */
-    --color-info: #4FC3F7;             /* Light information blue */
+    /* Semantic Colors - Natural & Friendly */
+    --color-success: #4CAF50;          /* Natural success green */
+    --color-warning: #FF9800;          /* Warm warning orange */
+    --color-error: #F44336;            /* Gentle error red */
+    --color-info: #42A5F5;             /* Clear information blue */
     
-    /* Cultural Pattern Colors - Subtle & Clean */
-    --pattern-primary: rgba(74, 122, 140, 0.05);    /* Very subtle primary patterns */
-    --pattern-accent: rgba(212, 184, 150, 0.08);    /* Gentle accent patterns */
-    --pattern-overlay: rgba(253, 252, 248, 0.95);   /* Clean overlay backgrounds */
+    /* Soap Pattern Colors - Subtle & Natural */
+    --pattern-primary: rgba(93, 138, 126, 0.05);    /* Very subtle sage patterns */
+    --pattern-accent: rgba(215, 184, 156, 0.08);    /* Gentle shea butter patterns */
+    --pattern-overlay: rgba(253, 251, 248, 0.95);   /* Clean overlay backgrounds */
     
-    /* Gradient Definitions - Soft & Elegant */
-    --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-nile-blue) 100%);
-    --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, var(--color-sunset-gold) 100%);
-    --gradient-background: linear-gradient(135deg, var(--color-background-light) 0%, var(--color-shea-light) 100%);
-    --gradient-cultural: linear-gradient(45deg, 
+    /* Gradient Definitions - Natural & Soothing */
+    --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-mint) 100%);
+    --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, var(--color-oatmeal) 100%);
+    --gradient-background: linear-gradient(135deg, var(--color-background-light) 0%, var(--color-coconut) 100%);
+    --gradient-natural: linear-gradient(45deg, 
         var(--pattern-primary) 0%, 
         transparent 25%, 
         var(--pattern-accent) 50%, 
         transparent 75%, 
         var(--pattern-primary) 100%);
     
-    /* Shadow Definitions - Softer & Cleaner */
-    --shadow-light: 0 2px 12px rgba(0, 0, 0, 0.08);
-    --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.12);
-    --shadow-heavy: 0 8px 32px rgba(0, 0, 0, 0.16);
-    --shadow-cultural: 0 4px 20px rgba(74, 122, 140, 0.08);
-    --shadow-accent: 0 4px 20px rgba(212, 184, 150, 0.15);
+    /* Shadow Definitions - Soft & Natural */
+    --shadow-light: 0 2px 12px rgba(0, 0, 0, 0.06);
+    --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-heavy: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --shadow-natural: 0 4px 20px rgba(93, 138, 126, 0.08);
+    --shadow-accent: 0 4px 20px rgba(215, 184, 156, 0.12);
     
-    /* Border Definitions - Cleaner */
+    /* Border Definitions - Clean & Natural */
     --border-light: 1px solid var(--color-medium-gray);
     --border-primary: 1px solid var(--color-primary);
     --border-accent: 1px solid var(--color-accent);
-    --border-cultural: 1px solid var(--pattern-primary);
+    --border-natural: 1px solid var(--pattern-primary);
 }
 
 /* Dark Mode Support (Optional Future Implementation) */
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-background-light: #2C3E40;
+        --color-background-light: #2A3634;
         --color-text-primary: #F8F9FA;
         --color-text-secondary: #CED4DA;
         --color-white: #212529;
@@ -76,8 +78,8 @@
 /* High Contrast Mode Support */
 @media (prefers-contrast: high) {
     :root {
-        --color-primary: #2C5F7A;
-        --color-accent: #B8954F;
+        --color-primary: #3D6B5E;
+        --color-accent: #C19E7A;
         --color-text-primary: #000000;
         --color-text-secondary: #333333;
     }
@@ -96,7 +98,7 @@
     }
 }
 
-/* Cultural Color Context Classes */
+/* Natural Color Context Classes */
 .color-primary { color: var(--color-primary); }
 .color-accent { color: var(--color-accent); }
 .color-background-light { background-color: var(--color-background-light); }
@@ -108,22 +110,33 @@
 .bg-light { background-color: var(--color-background-light); }
 .bg-white { background-color: var(--color-white); }
 
+/* Ingredient-specific color classes */
+.color-lavender { color: var(--color-lavender); }
+.color-honey { color: var(--color-honey); }
+.color-mint { color: var(--color-mint); }
+.color-clay { color: var(--color-clay); }
+
+.bg-lavender { background-color: var(--color-lavender); }
+.bg-honey { background-color: var(--color-honey); }
+.bg-mint { background-color: var(--color-mint); }
+.bg-clay { background-color: var(--color-clay); }
+
 /* Border Color Classes */
 .border-primary { border-color: var(--color-primary); }
 .border-accent { border-color: var(--color-accent); }
 .border-light { border-color: var(--color-medium-gray); }
 
-/* Cultural Pattern Applications */
-.cultural-pattern {
-    background-image: var(--gradient-cultural);
+/* Natural Pattern Applications */
+.natural-pattern {
+    background-image: var(--gradient-natural);
     background-size: 120px 120px;
 }
 
-.heritage-gradient {
+.soap-gradient {
     background: var(--gradient-accent);
 }
 
-.nile-gradient {
+.ingredient-gradient {
     background: var(--gradient-primary);
 }
 
@@ -145,15 +158,15 @@
     border-radius: 4px;
 }
 
-/* Button Hover States - Cleaner */
+/* Button Hover States - Natural */
 .btn-primary {
-    background: var(--color-accent);
-    color: var(--color-text-primary);
+    background: var(--color-primary);
+    color: white;
     border: none;
 }
 
 .btn-primary:hover {
-    background: #C5A885;
+    background: #4C7267;
     transform: translateY(-1px);
 }
 
@@ -166,6 +179,30 @@
 .btn-secondary:hover {
     background: var(--color-primary);
     color: white;
+}
+
+/* Ingredient Tag Styles */
+.ingredient-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.tag-lavender {
+    background-color: rgba(168, 157, 198, 0.15);
+    color: var(--color-lavender);
+}
+
+.tag-honey {
+    background-color: rgba(217, 164, 101, 0.15);
+    color: var(--color-honey);
+}
+
+.tag-mint {
+    background-color: rgba(126, 176, 155, 0.15);
+    color: var(--color-mint);
 }
 
 /* Print Styles */
