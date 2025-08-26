@@ -9,10 +9,10 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500&family=Itim&display=swap" rel="stylesheet">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧼</text></svg>">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
@@ -24,32 +24,62 @@
     <style>
         /* Cart-specific styles */
         .cart-page {
-            padding: 2rem 0 4rem;
+            padding: var(--spacing-xxl) 0;
             background: var(--color-background-light);
             min-height: 60vh;
+            position: relative;
         }
         
         .cart-container {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 3rem;
+            gap: var(--spacing-xl);
             align-items: start;
         }
         
         .cart-items {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
             box-shadow: var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cart-items::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+        }
+        
+        .cart-header {
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--color-medium-gray);
+        }
+        
+        .cart-header h2 {
+            color: var(--color-primary);
+            font-size: var(--text-2xl);
+            margin: 0;
         }
         
         .cart-item {
             display: grid;
             grid-template-columns: 80px 1fr auto auto auto;
-            gap: 1rem;
+            gap: var(--spacing-md);
             align-items: center;
-            padding: 1.5rem 0;
+            padding: var(--spacing-lg) 0;
             border-bottom: 1px solid var(--color-medium-gray);
+            transition: all var(--transition-normal);
+        }
+        
+        .cart-item:hover {
+            background: rgba(var(--color-primary-rgb), 0.02);
         }
         
         .cart-item:last-child {
@@ -60,63 +90,68 @@
             width: 80px;
             height: 80px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-medium-gray);
         }
         
         .item-details {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: var(--spacing-xs);
         }
         
         .item-name {
             font-family: var(--font-heading);
-            font-size: 1.1rem;
+            font-size: var(--text-lg);
             color: var(--color-primary);
             margin: 0;
+            font-weight: var(--font-semibold);
         }
         
         .item-price {
             color: var(--color-text-secondary);
-            font-weight: 500;
+            font-weight: var(--font-medium);
         }
         
         .item-quantity {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: var(--spacing-sm);
         }
         
         .quantity-btn {
             width: 32px;
             height: 32px;
             border: 1px solid var(--color-medium-gray);
-            background: white;
-            border-radius: 4px;
+            background: var(--color-white);
+            border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all var(--transition-normal);
+            font-weight: var(--font-bold);
         }
         
         .quantity-btn:hover {
             border-color: var(--color-accent);
             background: var(--color-accent);
-            color: white;
+            color: var(--color-white);
         }
         
         .quantity-input {
             width: 60px;
             text-align: center;
-            padding: 0.5rem;
+            padding: var(--spacing-sm);
             border: 1px solid var(--color-medium-gray);
-            border-radius: 4px;
+            border-radius: var(--radius-sm);
+            font-weight: var(--font-medium);
         }
         
         .item-total {
-            font-weight: 600;
+            font-weight: var(--font-bold);
             color: var(--color-primary);
+            font-size: var(--text-lg);
         }
         
         .remove-item {
@@ -124,126 +159,224 @@
             border: none;
             font-size: 1.2rem;
             cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-normal);
+            color: var(--color-text-secondary);
         }
         
         .remove-item:hover {
-            background: #ff6b6b20;
+            background: rgba(255, 107, 107, 0.1);
+            color: var(--color-error);
         }
         
         .cart-summary {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
             box-shadow: var(--shadow-light);
             height: fit-content;
             position: sticky;
             top: 100px;
         }
         
+        .cart-summary h3 {
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-lg);
+            font-size: var(--text-xl);
+        }
+        
         .summary-line {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--color-medium-gray);
         }
         
         .total-line {
             border-top: 2px solid var(--color-medium-gray);
-            padding-top: 1rem;
-            font-size: 1.2rem;
+            padding-top: var(--spacing-md);
+            font-size: var(--text-lg);
+            font-weight: var(--font-bold);
         }
         
         .checkout-btn {
             width: 100%;
-            margin-top: 1.5rem;
-            padding: 1rem;
-            font-size: 1.1rem;
+            margin-top: var(--spacing-lg);
+            padding: var(--spacing-md);
+            font-size: var(--text-lg);
+            font-weight: var(--font-semibold);
         }
         
         .shipping-note {
             text-align: center;
-            margin-top: 1rem;
+            margin-top: var(--spacing-md);
             color: var(--color-text-secondary);
+            font-size: var(--text-sm);
         }
         
         .empty-cart {
             text-align: center;
-            padding: 4rem 2rem;
+            padding: var(--spacing-xxl) var(--spacing-xl);
         }
         
         .empty-cart h3 {
             color: var(--color-primary);
-            margin-bottom: 1rem;
+            margin-bottom: var(--spacing-md);
+            font-size: var(--text-2xl);
+        }
+        
+        .empty-cart p {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-lg);
         }
         
         .cart-actions {
             display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-xl);
         }
         
         .shipping-calculator {
             background: var(--color-light-gray);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-top: 2rem;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            margin-top: var(--spacing-lg);
         }
         
         .shipping-calculator h4 {
-            margin-bottom: 1rem;
+            margin-bottom: var(--spacing-md);
             color: var(--color-primary);
+            font-size: var(--text-lg);
         }
         
         .postal-code-input {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
         }
         
         .postal-code-input input {
             flex: 1;
-            padding: 0.75rem;
+            padding: var(--spacing-md);
             border: 1px solid var(--color-medium-gray);
-            border-radius: 4px;
+            border-radius: var(--radius-sm);
             text-transform: uppercase;
         }
         
         .estimate-btn {
-            padding: 0.75rem 1.5rem;
+            padding: var(--spacing-md) var(--spacing-lg);
             background: var(--color-primary);
-            color: white;
+            color: var(--color-white);
             border: none;
-            border-radius: 4px;
+            border-radius: var(--radius-sm);
             cursor: pointer;
+            font-weight: var(--font-medium);
+            transition: all var(--transition-normal);
+        }
+        
+        .estimate-btn:hover {
+            background: var(--color-primary-hover);
         }
         
         .shipping-estimate {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: white;
-            border-radius: 4px;
+            margin-top: var(--spacing-md);
+            padding: var(--spacing-md);
+            background: var(--color-white);
+            border-radius: var(--radius-sm);
             border-left: 4px solid var(--color-accent);
+            font-size: var(--text-sm);
         }
         
+        .heritage-message {
+            text-align: center;
+            margin-top: var(--spacing-xxl);
+            padding: var(--spacing-xl);
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-light);
+            position: relative;
+        }
+        
+        .heritage-message::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+        
+        .blessing-text {
+            font-family: var(--font-accent);
+            font-size: var(--text-lg);
+            color: var(--color-accent);
+            font-style: italic;
+            margin: 0;
+            line-height: var(--leading-relaxed);
+        }
+        
+        /* Cultural elements */
+        .cart-cultural-accent {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        .cultural-divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+            margin: var(--spacing-lg) auto;
+            border-radius: 2px;
+            position: relative;
+        }
+        
+        .cultural-divider::before,
+        .cultural-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            transform: translateY(-50%);
+        }
+        
+        .cultural-divider::before {
+            left: -12px;
+        }
+        
+        .cultural-divider::after {
+            right: -12px;
+        }
+        
+        /* Responsive design */
         @media (max-width: 768px) {
             .cart-container {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: var(--spacing-lg);
             }
             
             .cart-item {
                 grid-template-columns: 60px 1fr;
-                gap: 1rem;
+                gap: var(--spacing-md);
             }
             
             .item-quantity,
             .item-total {
                 grid-column: 1 / -1;
                 justify-self: start;
-                margin-top: 1rem;
+                margin-top: var(--spacing-md);
             }
             
             .remove-item {
@@ -251,6 +384,56 @@
                 justify-self: end;
                 margin-top: -2rem;
             }
+            
+            .postal-code-input {
+                flex-direction: column;
+            }
+            
+            .cart-actions {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .cart-items,
+            .cart-summary {
+                padding: var(--spacing-lg);
+            }
+            
+            .cart-item {
+                grid-template-columns: 50px 1fr;
+                padding: var(--spacing-md) 0;
+            }
+            
+            .item-image img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .item-name {
+                font-size: var(--text-base);
+            }
+            
+            .empty-cart {
+                padding: var(--spacing-xl) var(--spacing-md);
+            }
+        }
+        
+        /* Animation for cart updates */
+        @keyframes itemAdded {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .cart-item-added {
+            animation: itemAdded 0.5s ease;
+        }
+        
+        /* Loading state */
+        .cart-loading {
+            opacity: 0.7;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -295,6 +478,7 @@
         <section class="page-hero">
             <div class="container">
                 <h1 class="page-title">Your Shopping Cart</h1>
+                <p class="page-subtitle">Review your handcrafted heritage selections</p>
                 <div class="cultural-divider" aria-hidden="true"></div>
             </div>
         </section>
@@ -319,9 +503,11 @@
                         </div>
                         
                         <div class="cart-actions" style="display: none;">
-                            <button class="btn btn-secondary continue-shopping">Continue Shopping</button>
+                            <a href="shop.html" class="btn btn-secondary">Continue Shopping</a>
                             <button class="btn btn-secondary clear-cart">Clear Cart</button>
                         </div>
+                        
+                        <div class="cart-cultural-accent" aria-hidden="true"></div>
                     </div>
 
                     <!-- Cart Summary -->
@@ -371,7 +557,7 @@
                 </div>
                 
                 <!-- Heritage Message -->
-                <div class="heritage-message" style="text-align: center; margin-top: 3rem; padding: 2rem; background: white; border-radius: 12px; box-shadow: var(--shadow-light);">
+                <div class="heritage-message">
                     <p class="blessing-text">
                         "Each purchase supports the preservation of South Sudanese heritage and empowers artisan craftsmanship"
                     </p>
@@ -462,7 +648,51 @@
             
             // Update visibility when cart changes
             setInterval(updateCartActionsVisibility, 500);
+            
+            // Clear cart functionality
+            const clearCartBtn = document.querySelector('.clear-cart');
+            if (clearCartBtn) {
+                clearCartBtn.addEventListener('click', function() {
+                    if (window.cart && confirm('Are you sure you want to clear your cart?')) {
+                        window.cart.clearCart();
+                        window.BahrNaturals.showMessage('Cart cleared', 'info');
+                    }
+                });
+            }
         });
+        
+        // Shipping estimate function
+        function updateShippingEstimate(postalCode) {
+            const estimateElement = document.querySelector('.shipping-estimate');
+            if (!postalCode) {
+                estimateElement.innerHTML = '<p>Please enter a valid Canadian postal code</p>';
+                return;
+            }
+            
+            // Simple validation for Canadian postal code format
+            const postalRegex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
+            if (!postalRegex.test(postalCode)) {
+                estimateElement.innerHTML = '<p>Please enter a valid Canadian postal code (e.g., A1A 1A1)</p>';
+                return;
+            }
+            
+            // Show loading state
+            estimateElement.innerHTML = '<p>Calculating shipping...</p>';
+            
+            // Simulate API call
+            setTimeout(() => {
+                const subtotal = window.cart ? window.cart.getTotal() : 0;
+                
+                if (subtotal >= 50) {
+                    estimateElement.innerHTML = '<p>🎉 Your order qualifies for <strong>free shipping</strong>!</p>';
+                } else {
+                    estimateElement.innerHTML = `
+                        <p>Standard shipping: <strong>$8.99 CAD</strong></p>
+                        <p class="text-sm">Add $${(50 - subtotal).toFixed(2)} more to qualify for free shipping!</p>
+                    `;
+                }
+            }, 1000);
+        }
     </script>
 </body>
 </html>
