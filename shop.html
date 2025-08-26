@@ -1,1 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Shop Bahr Naturals handcrafted heritage soaps. Explore our full collection of natural South Sudanese–inspired soaps, ethically sourced and meticulously crafted.">
+  <meta name="keywords" content="shop Bahr Naturals, natural soap, handmade soap, heritage collection, shea butter, Nile mint, honey soap">
+  <meta name="author" content="Bahr Naturals">
+  <meta name="robots" content="index, follow">
 
+  <title>Shop | Bahr Naturals Heritage Soaps</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/cultural-elements.css">
+
+  <!-- PayPal SDK -->
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=CAD&components=buttons"></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="header" role="banner">
+    <nav class="nav-container" role="navigation" aria-label="Main navigation">
+      <div class="nav-brand">
+        <a href="index.html" class="logo-link" aria-label="Bahr Naturals Home">
+          <img src="images/bahr-naturals-logo.svg" alt="Bahr Naturals Logo" width="180" height="60">
+        </a>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+        <span class="nav-toggle-icon"></span>
+        <span class="nav-toggle-icon"></span>
+        <span class="nav-toggle-icon"></span>
+      </button>
+      <ul class="nav-menu" id="nav-menu" role="menubar">
+        <li role="menuitem"><a href="index.html" class="nav-link">Home</a></li>
+        <li role="menuitem"><a href="about.html" class="nav-link">Heritage Story</a></li>
+        <li role="menuitem"><a href="shop.html" class="nav-link nav-link--active" aria-current="page">Products</a></li>
+        <li role="menuitem"><a href="resources.html" class="nav-link">Resources</a></li>
+        <li role="menuitem"><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" role="main">
+    <!-- Page Hero -->
+    <section class="page-hero" aria-labelledby="shop-heading">
+      <div class="container">
+        <h1 id="shop-heading" class="section-title">Heritage Collection</h1>
+        <p class="section-subtitle">Explore our handcrafted soaps, inspired by South Sudanese traditions and Canadian craft.</p>
+      </div>
+      <div class="cultural-accent cultural-accent--shop-hero" aria-hidden="true"></div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section" aria-labelledby="products-heading">
+      <div class="container">
+        <div class="products-grid" role="region" aria-label="Product catalog">
+
+          <!-- Product Card Template -->
+          <!-- Repeat for each product -->
+          <article class="product-card" itemscope itemtype="https://schema.org/Product">
+            <div class="product-image">
+              <img src="images/products/shea-lavender-soap.jpg" alt="Shea Lavender Heritage Soap" class="product-img" width="300" height="300" loading="lazy" itemprop="image">
+              <span class="product-badge">Signature</span>
+            </div>
+            <div class="product-content">
+              <h2 class="product-title" itemprop="name">Shea Lavender Heritage Soap</h2>
+              <p class="product-description" itemprop="description">
+                A soothing blend of traditional shea butter and fragrant Canadian lavender.
+              </p>
+              <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <span class="price" itemprop="price" content="12.99">$12.99 CAD</span>
+                <meta itemprop="priceCurrency" content="CAD">
+                <meta itemprop="availability" content="https://schema.org/InStock">
+              </div>
+              <div class="product-actions">
+                <div id="paypal-button-shea-lavender" class="paypal-button-container" aria-label="Buy Shea Lavender Heritage Soap"></div>
+                <a href="product.html?id=shea-lavender" class="btn btn--outline btn--small">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" itemscope itemtype="https://schema.org/Product">
+            <div class="product-image">
+              <img src="images/products/nile-mint-soap.jpg" alt="Nile Mint Traditional Soap" class="product-img" width="300" height="300" loading="lazy" itemprop="image">
+              <span class="product-badge">Traditional</span>
+            </div>
+            <div class="product-content">
+              <h2 class="product-title" itemprop="name">Nile Mint Traditional Soap</h2>
+              <p class="product-description" itemprop="description">
+                Refreshing mint infused with ancient cleansing botanicals.
+              </p>
+              <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <span class="price" itemprop="price" content="14.99">$14.99 CAD</span>
+                <meta itemprop="priceCurrency" content="CAD">
+                <meta itemprop="availability" content="https://schema.org/InStock">
+              </div>
+              <div class="product-actions">
+                <div id="paypal-button-nile-mint" class="paypal-button-container" aria-label="Buy Nile Mint Traditional Soap"></div>
+                <a href="product.html?id=nile-mint" class="btn btn--outline btn--small">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" itemscope itemtype="https://schema.org/Product">
+            <div class="product-image">
+              <img src="images/products/heritage-honey-soap.jpg" alt="Heritage Honey Cleansing Soap" class="product-img" width="300" height="300" loading="lazy" itemprop="image">
+              <span class="product-badge">Premium</span>
+            </div>
+            <div class="product-content">
+              <h2 class="product-title" itemprop="name">Heritage Honey Cleansing Soap</h2>
+              <p class="product-description" itemprop="description">
+                Luxurious honey and traditional botanicals for deep nourishment.
+              </p>
+              <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <span class="price" itemprop="price" content="16.99">$16.99 CAD</span>
+                <meta itemprop="priceCurrency" content="CAD">
+                <meta itemprop="availability" content="https://schema.org/InStock">
+              </div>
+              <div class="product-actions">
+                <div id="paypal-button-heritage-honey" class="paypal-button-container" aria-label="Buy Heritage Honey Cleansing Soap"></div>
+                <a href="product.html?id=heritage-honey" class="btn btn--outline btn--small">View Details</a>
+              </div>
+            </div>
+          </article>
+          
+        </div>
+
+        <div class="section-footer">
+          <a href="shop.html" class="btn btn--primary btn--large">Browse All Products</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <!-- Footer brand & navigation (same as index.html) -->
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>© 2025 Bahr Naturals. All rights reserved.</p>
+          <p><span class="cultural-accent">بحر</span> • Celebrating South Sudanese Heritage</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js" defer></script>
+  <script src="js/payment-integration.js" defer></script>
+  <script src="js/navigation.js" defer></script>
+</body>
+</html>
