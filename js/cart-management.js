@@ -1,5 +1,5 @@
-// Cart Management for Bahr Naturals
-// Handles adding/removing items, cart persistence, and checkout preparation
+// cart-management.js
+// Complete implementation for Bahr Naturals shopping cart
 
 class BahrNaturalsCart {
     constructor() {
@@ -13,18 +13,26 @@ class BahrNaturalsCart {
         this.updateCartDisplay();
     }
     
-    // Load cart from memory (since localStorage is not available)
+    // Load cart from localStorage
     loadCart() {
-        // In a real implementation, this would load from localStorage
-        // For now, we'll use a session-based cart
-        if (window.cartData) {
-            this.items = window.cartData;
+        try {
+            const cartData = localStorage.getItem('bahrNaturalsCart');
+            if (cartData) {
+                this.items = JSON.parse(cartData);
+            }
+        } catch (error) {
+            console.error('Error loading cart from localStorage:', error);
+            this.items = [];
         }
     }
     
-    // Save cart to memory
+    // Save cart to localStorage
     saveCart() {
-        window.cartData = this.items;
+        try {
+            localStorage.setItem('bahrNaturalsCart', JSON.stringify(this.items));
+        } catch (error) {
+            console.error('Error saving cart to localStorage:', error);
+        }
     }
     
     // Bind event handlers
@@ -52,19 +60,27 @@ class BahrNaturalsCart {
                 this.handleQuantityChange(e.target);
             }
         });
+        
+        // Clear cart button
+        const clearCartBtn = document.querySelector('.clear-cart');
+        if (clearCartBtn) {
+            clearCartBtn.addEventListener('click', () => {
+                this.clearCart();
+            });
+        }
     }
     
     // Handle add to cart
     handleAddToCart(button) {
         const productData = {
-            id: button.dataset.productId,
-            name: button.dataset.productName,
-            price: parseFloat(button.dataset.productPrice),
+            id: button.dataset.productId || this.generateProductId(button),
+            name: button.dataset.productName || this.getProductName(button),
+            price: parseFloat(button.dataset.productPrice || this.getProductPrice(button)),
             image: button.dataset.productImage || '',
             quantity: parseInt(button.dataset.quantity || '1')
         };
         
-        if (!productData.id || !productData.name || !productData.price) {
+        if (!productData.id || !productData.name || isNaN(productData.price)) {
             console.error('Missing product data:', productData);
             this.showMessage('Error adding product to cart', 'error');
             return;
@@ -74,13 +90,51 @@ class BahrNaturalsCart {
         this.showMessage(`${productData.name} added to cart!`, 'success');
         
         // Add loading state to button
+        const originalText = button.textContent;
         button.classList.add('loading');
         button.textContent = 'Added!';
         
         setTimeout(() => {
             button.classList.remove('loading');
-            button.textContent = 'Add to Cart';
+            button.textContent = originalText;
         }, 1500);
+    }
+    
+    // Generate product ID if not provided
+    generateProductId(button) {
+        const productCard = button.closest('.product-card, .gift-set-card');
+        if (productCard) {
+            const nameElement = productCard.querySelector('.product-name, .set-name');
+            if (nameElement) {
+                return 'product-' + nameElement.textContent.toLowerCase().replace(/\s+/g, '-');
+            }
+        }
+        return 'product-' + Date.now();
+    }
+    
+    // Get product name if not provided
+    getProductName(button) {
+        const productCard = button.closest('.product-card, .gift-set-card');
+        if (productCard) {
+            const nameElement = productCard.querySelector('.product-name, .set-name');
+            if (nameElement) {
+                return nameElement.textContent;
+            }
+        }
+        return 'Unknown Product';
+    }
+    
+    // Get product price if not provided
+    getProductPrice(button) {
+        const productCard = button.closest('.product-card, .gift-set-card');
+        if (productCard) {
+            const priceElement = productCard.querySelector('.product-price, .sale-price');
+            if (priceElement) {
+                const priceText = priceElement.textContent.replace(/[^0-9.]/g, '');
+                return parseFloat(priceText) || 0;
+            }
+        }
+        return 0;
     }
     
     // Add item to cart
@@ -179,10 +233,13 @@ class BahrNaturalsCart {
             
             // Add animation
             if (count > 0) {
+                element.style.display = 'inline-block';
                 element.style.transform = 'scale(1.2)';
                 setTimeout(() => {
                     element.style.transform = 'scale(1)';
                 }, 150);
+            } else {
+                element.style.display = 'none';
             }
         });
     }
@@ -191,6 +248,8 @@ class BahrNaturalsCart {
     updateCartPage() {
         const cartContainer = document.querySelector('.cart-items-container');
         const cartSummary = document.querySelector('.cart-summary');
+        const cartActions = document.querySelector('.cart-actions');
+        const checkoutBtn = document.querySelector('.checkout-btn');
         
         if (cartContainer) {
             this.renderCartItems(cartContainer);
@@ -198,6 +257,17 @@ class BahrNaturalsCart {
         
         if (cartSummary) {
             this.renderCartSummary(cartSummary);
+        }
+        
+        // Show/hide cart actions based on cart contents
+        if (cartActions && checkoutBtn) {
+            if (this.items.length > 0) {
+                cartActions.style.display = 'flex';
+                checkoutBtn.disabled = false;
+            } else {
+                cartActions.style.display = 'none';
+                checkoutBtn.disabled = true;
+            }
         }
     }
     
@@ -232,7 +302,7 @@ class BahrNaturalsCart {
                             aria-label="Decrease quantity">-</button>
                     <input type="number" 
                            value="${item.quantity}" 
-                           min="0" 
+                           min="1" 
                            class="quantity-input" 
                            data-product-id="${item.id}"
                            aria-label="Quantity">
@@ -247,7 +317,7 @@ class BahrNaturalsCart {
                 <button class="remove-item remove-from-cart" 
                         data-product-id="${item.id}"
                         aria-label="Remove item">
-                    🗑️
+                    ×
                 </button>
             </div>
         `).join('');
@@ -262,33 +332,36 @@ class BahrNaturalsCart {
         const taxes = this.calculateTaxes(subtotal);
         const total = subtotal + shipping + taxes;
         
-        container.innerHTML = `
-            <div class="cart-summary-content">
-                <h3>Order Summary</h3>
-                <div class="summary-line">
-                    <span>Subtotal (${this.getItemCount()} items)</span>
-                    <span>$${subtotal.toFixed(2)} CAD</span>
-                </div>
-                <div class="summary-line">
-                    <span>Shipping</span>
-                    <span>${shipping > 0 ? '$' + shipping.toFixed(2) + ' CAD' : 'Free'}</span>
-                </div>
-                <div class="summary-line">
-                    <span>Taxes (HST)</span>
-                    <span>$${taxes.toFixed(2)} CAD</span>
-                </div>
-                <div class="summary-line total-line">
-                    <span><strong>Total</strong></span>
-                    <span><strong>$${total.toFixed(2)} CAD</strong></span>
-                </div>
-                <button class="btn btn-primary checkout-btn" onclick="cart.proceedToCheckout()">
-                    Proceed to Checkout
-                </button>
-                <div class="shipping-note">
-                    <small>Free shipping on orders over $50 CAD</small>
-                </div>
+        const summaryHTML = `
+            <h3>Order Summary</h3>
+            <div class="summary-line">
+                <span>Subtotal (${this.getItemCount()} items)</span>
+                <span>$${subtotal.toFixed(2)} CAD</span>
+            </div>
+            <div class="summary-line">
+                <span>Shipping</span>
+                <span>${shipping > 0 ? '$' + shipping.toFixed(2) + ' CAD' : 'Free'}</span>
+            </div>
+            <div class="summary-line">
+                <span>Taxes (HST)</span>
+                <span>$${taxes.toFixed(2)} CAD</span>
+            </div>
+            <div class="summary-line total-line">
+                <span><strong>Total</strong></span>
+                <span><strong>$${total.toFixed(2)} CAD</strong></span>
+            </div>
+            <button class="btn btn-primary checkout-btn" onclick="cart.proceedToCheckout()">
+                Proceed to Checkout
+            </button>
+            <div class="shipping-note">
+                <small>Free shipping on orders over $50 CAD</small>
             </div>
         `;
+        
+        // Only update if the content has changed to prevent flickering
+        if (container.innerHTML !== summaryHTML) {
+            container.innerHTML = summaryHTML;
+        }
     }
     
     // Calculate shipping
@@ -324,12 +397,26 @@ class BahrNaturalsCart {
     
     // Clear cart
     clearCart() {
-        this.items = [];
-        this.saveCart();
-        this.updateCartDisplay();
+        if (confirm('Are you sure you want to clear your cart?')) {
+            this.items = [];
+            this.saveCart();
+            this.updateCartDisplay();
+            this.showMessage('Cart cleared', 'info');
+        }
     }
     
     // Show message using the global message system
     showMessage(text, type = 'info') {
         if (window.BahrNaturals && window.BahrNaturals.showMessage) {
-            window.Ba
+            window.BahrNaturals.showMessage(text, type);
+        } else {
+            // Fallback message display
+            alert(`${type.toUpperCase()}: ${text}`);
+        }
+    }
+}
+
+// Initialize cart when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    window.cart = new BahrNaturalsCart();
+});
