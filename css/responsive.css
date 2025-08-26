@@ -1,1 +1,136 @@
+/* responsive.css */
+/* Mobile-First Responsive Overrides for Bahr Naturals */
 
+/* ==== Layout Containers ==== */
+.container {
+  padding: 0 1rem;
+}
+
+/* ==== Typography Adjustments ==== */
+h1, .hero-title {
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
+h2, .section-title {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+.hero-subtitle,
+.section-subtitle {
+  font-size: 1rem;
+}
+
+/* ==== Navigation ==== */
+/* Mobile: toggle menu */
+.nav-menu {
+  flex-direction: column;
+  background-color: var(--color-shea-cream);
+  position: absolute;
+  top: 64px;
+  right: 0;
+  width: 80%;
+  max-width: 300px;
+  transform: translateX(100%);
+  transition: transform var(--transition-smooth);
+}
+
+.nav-menu.nav-menu--open {
+  transform: translateX(0);
+}
+
+.nav-menu .nav-item {
+  margin: var(--spacing-sm) 0;
+  text-align: right;
+}
+
+/* ==== Hero Section ==== */
+.hero,
+.page-hero {
+  padding: var(--spacing-lg) 0;
+}
+
+.hero-image,
+.about-hero-content,
+.contact-hero,
+.thank-you-hero {
+  text-align: center;
+}
+
+/* ==== Grid Adjustments ==== */
+.products-grid {
+  grid-template-columns: 1fr;
+}
+
+.testimonials-grid,
+.process-grid,
+.heritage-grid {
+  grid-template-columns: 1fr;
+}
+
+/* ==== Forms ==== */
+.contact-form,
+.newsletter-form {
+  width: 100%;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+}
+
+/* ==== Utility ==== */
+.text-center {
+  text-align: center;
+}
+
+/* ==== Larger Breakpoints ==== */
+@media (min-width: 600px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .testimonials-grid,
+  .heritage-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (min-width: 900px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .testimonials-grid,
+  .heritage-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .process-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .contact-grid {
+    grid-template-columns: 1fr 2fr;
+  }
+  
+  .hero, .page-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--spacing-lg);
+  }
+  .hero-title, .hero-content {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+}
