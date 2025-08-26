@@ -1,460 +1,677 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cultural Elements - Bahr Naturals</title>
-    <style>
-        /* Base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fdfbf8;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 20px;
-            background: linear-gradient(135deg, #5D8A7E 0%, #3a6559 100%);
-            color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            margin: 30px 0 15px;
-            color: #5D8A7E;
-            border-bottom: 2px solid #D7B89C;
-            padding-bottom: 8px;
-        }
-        
-        h3 {
-            color: #3a6559;
-            margin: 20px 0 10px;
-        }
-        
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        
-        .example-box {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            margin-bottom: 30px;
-            transition: transform 0.3s ease;
-        }
-        
-        .example-box:hover {
-            transform: translateY(-5px);
-        }
-        
-        .preview {
-            border: 1px solid #eee;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 15px 0;
-            background: #f9f9f9;
-            min-height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        code {
-            background: #f5f5f5;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: monospace;
-        }
-        
-        .code-block {
-            background: #2d2d2d;
-            color: #f8f8f2;
-            padding: 15px;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin: 15px 0;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-        
-        .cultural-pattern {
-            width: 100%;
-            height: 80px;
-            margin: 15px 0;
-            border-radius: 6px;
-        }
-        
-        .cultural-border {
-            padding: 20px;
-            margin: 15px 0;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px 5px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            color: #5D8A7E;
-            font-size: 0.9rem;
-        }
-        
-        /* Cultural Patterns */
-        .pattern-nile-waves {
-            background: linear-gradient(135deg, #5D8A7E 25%, #4a786b 25%, #4a786b 50%, #5D8A7E 50%, #5D8A7E 75%, #4a786b 75%, #4a786b 100%);
-            background-size: 40px 40px;
-        }
-        
-        .pattern-african-textile {
-            background: repeating-radial-gradient(circle at 50% 50%, #D7B89C, #c9a888 10px, #D7B89C 10px, #c9a888 20px);
-        }
-        
-        .pattern-sudanese-geometric {
-            background: 
-                linear-gradient(45deg, #3a6559 25%, transparent 25%, transparent 75%, #3a6559 75%),
-                linear-gradient(-45deg, #3a6559 25%, transparent 25%, transparent 75%, #3a6559 75%);
-            background-size: 20px 20px;
-            background-color: #5D8A7E;
-        }
-        
-        /* Cultural Borders */
-        .border-heritage {
-            border: 2px solid #D7B89C;
-            position: relative;
-            border-radius: 8px;
-        }
-        
-        .border-heritage::before {
-            content: "";
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            border: 1px solid #5D8A7E;
-            border-radius: 10px;
-            pointer-events: none;
-        }
-        
-        .border-nile {
-            border: none;
-            border-bottom: 3px solid #5D8A7E;
-            border-top: 3px solid #5D8A7E;
-            position: relative;
-        }
-        
-        .border-nile::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 10%;
-            right: 10%;
-            background: linear-gradient(to right, transparent, #D7B89C, transparent);
-            opacity: 0.3;
-        }
-        
-        /* Cultural Buttons */
-        .btn-cultural {
-            background: linear-gradient(to bottom, #5D8A7E, #3a6559);
-            color: white;
-            border: none;
-            box-shadow: 0 3px 0 #2c4d43;
-        }
-        
-        .btn-cultural:hover {
-            background: linear-gradient(to bottom, #4a786b, #2c4d43);
-            transform: translateY(2px);
-            box-shadow: 0 1px 0 #2c4d43;
-        }
-        
-        .btn-accent {
-            background: #D7B89C;
-            color: #3a6559;
-            border: 2px solid #c9a888;
-            font-weight: 600;
-        }
-        
-        .btn-accent:hover {
-            background: #c9a888;
-            color: #2c4d43;
-        }
-        
-        /* Cultural Elements */
-        .cultural-divider {
-            height: 4px;
-            background: linear-gradient(to right, transparent, #D7B89C, #5D8A7E, #D7B89C, transparent);
-            margin: 25px 0;
-            border: none;
-            border-radius: 2px;
-        }
-        
-        .cultural-icon {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: #5D8A7E;
-            mask-size: contain;
-            mask-position: center;
-            mask-repeat: no-repeat;
-            -webkit-mask-size: contain;
-            -webkit-mask-position: center;
-            -webkit-mask-repeat: no-repeat;
-            background: linear-gradient(45deg, #5D8A7E, #3a6559);
-            margin: 0 10px;
-            vertical-align: middle;
-        }
-        
-        .cultural-icon.nile {
-            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"/></svg>');
-            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"/></svg>');
-        }
-        
-        .cultural-icon.shea {
-            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>');
-            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>');
-        }
-        
-        /* Animation */
-        @keyframes flow {
-            0% { background-position: 0 0; }
-            100% { background-position: 40px 0; }
-        }
-        
-        .animated-flow {
-            animation: flow 2s linear infinite;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Cultural Elements for Bahr Naturals</h1>
-        <p>CSS styles to enhance cultural authenticity and visual appeal</p>
-    </header>
+/* Cultural Elements CSS for Bahr Naturals - Updated */
+/* South Sudanese design motifs with respectful modern interpretation */
+/* Aligned with Bahr Naturals design system */
+
+:root {
+  /* Cultural element colors aligned with main palette */
+  --cultural-primary: var(--color-primary); /* #5D8A7E */
+  --cultural-accent: var(--color-accent);   /* #D7B89C */
+  --cultural-background: var(--color-background-light); /* #FDFBF8 */
+  
+  /* Cultural pattern variables */
+  --pattern-opacity-light: 0.08;
+  --pattern-opacity-medium: 0.12;
+  --pattern-opacity-strong: 0.15;
+  
+  /* Animation timing */
+  --cultural-animation-duration: 3s;
+}
+
+/* Cultural Pattern Elements - Subtler and more aligned with main design */
+.cultural-pattern {
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(var(--cultural-primary-rgb), var(--pattern-opacity-light)) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(var(--cultural-accent-rgb), var(--pattern-opacity-light)) 0%, transparent 50%);
+    background-size: 120px 120px, 180px 180px;
+}
+
+.cultural-pattern-subtle {
+    background-image: 
+        linear-gradient(45deg, 
+            rgba(var(--cultural-primary-rgb), var(--pattern-opacity-light)) 0%, 
+            transparent 25%, 
+            rgba(var(--cultural-accent-rgb), var(--pattern-opacity-light)) 50%, 
+            transparent 75%);
+    background-size: 60px 60px;
+}
+
+/* River Flow Elements - Representing the Nile - More subtle */
+.river-flow {
+    position: relative;
+    overflow: hidden;
+}
+
+.river-flow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100px;
+    width: 200px;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        transparent 0%, 
+        rgba(var(--cultural-primary-rgb), var(--pattern-opacity-light)) 50%, 
+        transparent 100%
+    );
+    animation: riverFlow var(--cultural-animation-duration) ease-in-out infinite;
+}
+
+@keyframes riverFlow {
+    0% { transform: translateX(-100px); opacity: 0.5; }
+    50% { opacity: 0.8; }
+    100% { transform: translateX(calc(100vw + 100px)); opacity: 0.5; }
+}
+
+/* Cultural Dividers - Aligned with main design */
+.cultural-divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(
+        90deg, 
+        var(--cultural-accent) 0%, 
+        var(--cultural-primary) 50%, 
+        var(--cultural-accent) 100%
+    );
+    margin: var(--spacing-md) auto;
+    border-radius: var(--radius-sm);
+    position: relative;
+}
+
+.cultural-divider::before,
+.cultural-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: var(--spacing-md);
+    height: var(--spacing-md);
+    border-radius: 50%;
+    background: var(--cultural-primary);
+    transform: translateY(-50%);
+    opacity: 0.7;
+}
+
+.cultural-divider::before {
+    left: -20px;
+}
+
+.cultural-divider::after {
+    right: -20px;
+}
+
+/* Heritage Accent Elements - More subtle */
+.heritage-accent {
+    position: relative;
+}
+
+.heritage-accent::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(
+        circle, 
+        rgba(var(--cultural-primary-rgb), var(--pattern-opacity-medium)) 0%, 
+        rgba(var(--cultural-primary-rgb), var(--pattern-opacity-light)) 50%, 
+        transparent 100%
+    );
+    border-radius: 50%;
+    z-index: -1;
+}
+
+/* Cultural Blessing Styles - Aligned with typography */
+.cultural-blessing {
+    position: relative;
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+    text-align: center;
+    font-family: var(--font-accent);
+    font-size: var(--text-lg);
+    color: var(--cultural-accent);
+    font-style: italic;
+}
+
+.cultural-blessing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(
+        90deg, 
+        transparent 0%, 
+        var(--cultural-primary) 50%, 
+        transparent 100%
+    );
+}
+
+.cultural-blessing::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(
+        90deg, 
+        transparent 0%, 
+        var(--cultural-primary) 50%, 
+        transparent 100%
+    );
+}
+
+/* Traditional Pattern Borders - More subtle */
+.pattern-border {
+    position: relative;
+    border: 1px solid rgba(var(--cultural-primary-rgb), 0.15);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.pattern-border::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(
+        45deg,
+        rgba(var(--cultural-primary-rgb), var(--pattern-opacity-light)) 0%,
+        transparent 25%,
+        rgba(var(--cultural-accent-rgb), var(--pattern-opacity-light)) 50%,
+        transparent 75%,
+        rgba(var(--cultural-primary-rgb), var(--pattern-opacity-light)) 100%
+    );
+    background-size: 40px 40px;
+    border-radius: var(--radius-lg);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Geometric Pattern Elements - Simplified */
+.geometric-accent {
+    position: relative;
+}
+
+.geometric-accent::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid rgba(var(--cultural-primary-rgb), var(--pattern-opacity-medium));
+}
+
+.geometric-accent::after {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 20px;
+    height: 20px;
+    background: rgba(var(--cultural-accent-rgb), var(--pattern-opacity-light));
+    border-radius: var(--radius-sm);
+    transform: rotate(45deg);
+}
+
+/* Cultural Card Elements - Aligned with main design */
+.cultural-card {
+    position: relative;
+    background: var(--cultural-background);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-light);
+    border: 1px solid rgba(var(--cultural-primary-rgb), 0.1);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.cultural-card:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+}
+
+.cultural-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+        90deg, 
+        var(--cultural-accent) 0%, 
+        var(--cultural-primary) 100%
+    );
+}
+
+/* Heritage Story Elements - Cleaner implementation */
+.heritage-story-element {
+    position: relative;
+    margin: var(--spacing-lg) 0;
+    padding-left: 2.5rem;
+}
+
+.heritage-story-element::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 16px;
+    height: 16px;
+    background: var(--cultural-primary);
+    border-radius: 50%;
+}
+
+.heritage-story-element::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 26px;
+    width: 2px;
+    height: calc(100% - 16px);
+    background: linear-gradient(
+        to bottom,
+        var(--cultural-primary) 0%,
+        transparent 100%
+    );
+}
+
+.heritage-story-element:last-child::after {
+    display: none;
+}
+
+/* Cultural Icons - Simplified */
+.cultural-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(
+        135deg, 
+        var(--cultural-primary) 0%, 
+        rgba(var(--cultural-primary-rgb), 0.8) 100%
+    );
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: var(--text-xl);
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    box-shadow: var(--shadow-light);
+}
+
+.cultural-icon::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(var(--cultural-primary-rgb), 0.2);
+}
+
+/* Nile Water Animation - More subtle */
+.nile-water-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.nile-water-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(var(--cultural-primary-rgb), var(--pattern-opacity-light)) 50%,
+        transparent 100%
+    );
+    animation: nileWave 4s ease-in-out infinite;
+}
+
+@keyframes nileWave {
+    0% { transform: translateX(-50px) scaleY(1); opacity: 0.3; }
+    50% { transform: translateX(calc(100vw + 50px)) scaleY(1.05); opacity: 0.5; }
+    100% { transform: translateX(calc(200vw + 50px)) scaleY(1); opacity: 0.3; }
+}
+
+/* Traditional Beadwork Pattern - More subtle */
+.beadwork-pattern {
+    position: relative;
+    background-image: 
+        radial-gradient(circle at 0% 0%, rgba(var(--cultural-primary-rgb), var(--pattern-opacity-light)) 0%, transparent 25%),
+        radial-gradient(circle at 100% 0%, rgba(var(--cultural-accent-rgb), var(--pattern-opacity-light)) 0%, transparent 25%),
+        radial-gradient(circle at 0% 100%, rgba(var(--cultural-primary-rgb), var(--pattern-opacity-light)) 0%, transparent 25%),
+        radial-gradient(circle at 100% 100%, rgba(var(--cultural-accent-rgb), var(--pattern-opacity-light)) 0%, transparent 25%);
+    background-size: 80px 80px;
+}
+
+/* Cultural Section Backgrounds */
+.heritage-section {
+    position: relative;
+    background: var(--cultural-background);
+}
+
+.heritage-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(45deg, transparent 49%, rgba(var(--cultural-primary-rgb), 0.015) 50%, transparent 51%),
+        linear-gradient(-45deg, transparent 49%, rgba(var(--cultural-accent-rgb), 0.01) 50%, transparent 51%);
+    background-size: 120px 120px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Cultural Quote Styling - Aligned with typography */
+.cultural-quote {
+    position: relative;
+    background: var(--cultural-background);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    font-family: var(--font-body);
+    font-style: italic;
+    text-align: center;
+    margin: var(--spacing-xl) 0;
+    color: var(--color-text-secondary);
+    border-left: 4px solid var(--cultural-accent);
+}
+
+.cultural-quote::before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: var(--text-4xl);
+    color: rgba(var(--cultural-primary-rgb), 0.2);
+    font-family: var(--font-heading);
+    font-weight: var(--font-bold);
+}
+
+.cultural-quote::after {
+    content: '"';
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    font-size: var(--text-4xl);
+    color: rgba(var(--cultural-primary-rgb), 0.2);
+    font-family: var(--font-heading);
+    font-weight: var(--font-bold);
+}
+
+/* Footer Cultural Pattern */
+.footer-cultural-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg, 
+        var(--cultural-accent) 0%, 
+        transparent 25%, 
+        var(--cultural-primary) 50%, 
+        transparent 75%, 
+        var(--cultural-accent) 100%
+    );
+    background-size: 200px 2px;
+}
+
+/* Responsive Cultural Elements */
+@media (max-width: 768px) {
+    .cultural-pattern {
+        background-size: 80px 80px, 120px 120px;
+    }
     
-    <div class="container">
-        <div class="column">
-            <h2>Cultural Patterns</h2>
-            
-            <div class="example-box">
-                <h3>Nile Waves Pattern</h3>
-                <div class="preview">
-                    <div class="cultural-pattern pattern-nile-waves animated-flow"></div>
-                </div>
-                <div class="code-block">
-                    .pattern-nile-waves {<br>
-                    &nbsp;&nbsp;background: linear-gradient(135deg, #5D8A7E 25%, #4a786b 25%, #4a786b 50%, #5D8A7E 50%, #5D8A7E 75%, #4a786b 75%, #4a786b 100%);<br>
-                    &nbsp;&nbsp;background-size: 40px 40px;<br>
-                    }
-                </div>
-            </div>
-            
-            <div class="example-box">
-                <h3>African Textile Pattern</h3>
-                <div class="preview">
-                    <div class="cultural-pattern pattern-african-textile"></div>
-                </div>
-                <div class="code-block">
-                    .pattern-african-textile {<br>
-                    &nbsp;&nbsp;background: repeating-radial-gradient(circle at 50% 50%, #D7B89C, #c9a888 10px, #D7B89C 10px, #c9a888 20px);<br>
-                    }
-                </div>
-            </div>
-            
-            <div class="example-box">
-                <h3>Sudanese Geometric Pattern</h3>
-                <div class="preview">
-                    <div class="cultural-pattern pattern-sudanese-geometric"></div>
-                </div>
-                <div class="code-block">
-                    .pattern-sudanese-geometric {<br>
-                    &nbsp;&nbsp;background: <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;linear-gradient(45deg, #3a6559 25%, transparent 25%, transparent 75%, #3a6559 75%),<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;linear-gradient(-45deg, #3a6559 25%, transparent 25%, transparent 75%, #3a6559 75%);<br>
-                    &nbsp;&nbsp;background-size: 20px 20px;<br>
-                    &nbsp;&nbsp;background-color: #5D8A7E;<br>
-                    }
-                </div>
-            </div>
-            
-            <h2>Cultural Borders</h2>
-            
-            <div class="example-box">
-                <h3>Heritage Border</h3>
-                <div class="preview">
-                    <div class="cultural-border border-heritage">
-                        <p>This container has a cultural-inspired border that complements the Bahr Naturals brand.</p>
-                    </div>
-                </div>
-                <div class="code-block">
-                    .border-heritage {<br>
-                    &nbsp;&nbsp;border: 2px solid #D7B89C;<br>
-                    &nbsp;&nbsp;position: relative;<br>
-                    &nbsp;&nbsp;border-radius: 8px;<br>
-                    }<br><br>
-                    .border-heritage::before {<br>
-                    &nbsp;&nbsp;content: "";<br>
-                    &nbsp;&nbsp;position: absolute;<br>
-                    &nbsp;&nbsp;top: -5px;<br>
-                    &nbsp;&nbsp;left: -5px;<br>
-                    &nbsp;&nbsp;right: -5px;<br>
-                    &nbsp;&nbsp;bottom: -5px;<br>
-                    &nbsp;&nbsp;border: 1px solid #5D8A7E;<br>
-                    &nbsp;&nbsp;border-radius: 10px;<br>
-                    &nbsp;&nbsp;pointer-events: none;<br>
-                    }
-                </div>
-            </div>
-        </div>
-        
-        <div class="column">
-            <h2>Cultural Buttons</h2>
-            
-            <div class="example-box">
-                <h3>Primary Cultural Button</h3>
-                <div class="preview">
-                    <a class="btn btn-cultural">Shop Now</a>
-                    <a class="btn btn-cultural">Learn More</a>
-                </div>
-                <div class="code-block">
-                    .btn-cultural {<br>
-                    &nbsp;&nbsp;background: linear-gradient(to bottom, #5D8A7E, #3a6559);<br>
-                    &nbsp;&nbsp;color: white;<br>
-                    &nbsp;&nbsp;border: none;<br>
-                    &nbsp;&nbsp;box-shadow: 0 3px 0 #2c4d43;<br>
-                    }<br><br>
-                    .btn-cultural:hover {<br>
-                    &nbsp;&nbsp;background: linear-gradient(to bottom, #4a786b, #2c4d43);<br>
-                    &nbsp;&nbsp;transform: translateY(2px);<br>
-                    &nbsp;&nbsp;box-shadow: 0 1px 0 #2c4d43;<br>
-                    }
-                </div>
-            </div>
-            
-            <div class="example-box">
-                <h3>Accent Cultural Button</h3>
-                <div class="preview">
-                    <a class="btn btn-accent">Add to Cart</a>
-                    <a class="btn btn-accent">View Details</a>
-                </div>
-                <div class="code-block">
-                    .btn-accent {<br>
-                    &nbsp;&nbsp;background: #D7B89C;<br>
-                    &nbsp;&nbsp;color: #3a6559;<br>
-                    &nbsp;&nbsp;border: 2px solid #c9a888;<br>
-                    &nbsp;&nbsp;font-weight: 600;<br>
-                    }<br><br>
-                    .btn-accent:hover {<br>
-                    &nbsp;&nbsp;background: #c9a888;<br>
-                    &nbsp;&nbsp;color: #2c4d43;<br>
-                    }
-                </div>
-            </div>
-            
-            <h2>Cultural Elements</h2>
-            
-            <div class="example-box">
-                <h3>Cultural Divider</h3>
-                <div class="preview">
-                    <p>Content above the divider</p>
-                    <hr class="cultural-divider">
-                    <p>Content below the divider</p>
-                </div>
-                <div class="code-block">
-                    .cultural-divider {<br>
-                    &nbsp;&nbsp;height: 4px;<br>
-                    &nbsp;&nbsp;background: linear-gradient(to right, transparent, #D7B89C, #5D8A7E, #D7B89C, transparent);<br>
-                    &nbsp;&nbsp;margin: 25px 0;<br>
-                    &nbsp;&nbsp;border: none;<br>
-                    &nbsp;&nbsp;border-radius: 2px;<br>
-                    }
-                </div>
-            </div>
-            
-            <div class="example-box">
-                <h3>Cultural Icons</h3>
-                <div class="preview">
-                    <span class="cultural-icon nile"></span>
-                    <span class="cultural-icon shea"></span>
-                </div>
-                <div class="code-block">
-                    .cultural-icon {<br>
-                    &nbsp;&nbsp;display: inline-block;<br>
-                    &nbsp;&nbsp;width: 40px;<br>
-                    &nbsp;&nbsp;height: 40px;<br>
-                    &nbsp;&nbsp;background: linear-gradient(45deg, #5D8A7E, #3a6559);<br>
-                    &nbsp;&nbsp;mask-size: contain;<br>
-                    &nbsp;&nbsp;mask-position: center;<br>
-                    &nbsp;&nbsp;mask-repeat: no-repeat;<br>
-                    &nbsp;&nbsp;-webkit-mask-size: contain;<br>
-                    &nbsp;&nbsp;-webkit-mask-position: center;<br>
-                    &nbsp;&nbsp;-webkit-mask-repeat: no-repeat;<br>
-                    }<br><br>
-                    .cultural-icon.nile {<br>
-                    &nbsp;&nbsp;-webkit-mask-image: url('data:image/svg+xml;utf8,&lt;svg...&gt;');<br>
-                    &nbsp;&nbsp;mask-image: url('data:image/svg+xml;utf8,&lt;svg...&gt;');<br>
-                    }
-                </div>
-            </div>
-            
-            <div class="example-box">
-                <h3>How to Use These Styles</h3>
-                <p>To use these cultural elements in your Bahr Naturals website:</p>
-                <ol>
-                    <li>Copy the CSS code into your <code>cultural-elements.css</code> file</li>
-                    <li>Link the CSS file in your HTML: <code>&lt;link rel="stylesheet" href="css/cultural-elements.css"&gt;</code></li>
-                    <li>Apply the classes to your HTML elements</li>
-                    <li>Customize colors and sizes to match your specific needs</li>
-                </ol>
-                <p>These elements are designed to work with the existing color scheme and enhance the cultural authenticity of your website.</p>
-            </div>
-        </div>
-    </div>
+    .cultural-card {
+        padding: var(--spacing-lg);
+    }
     
-    <footer>
-        <p>Bahr Naturals - Cultural Elements CSS | Created for enhanced brand authenticity</p>
-    </footer>
-</body>
-</html>
+    .heritage-story-element {
+        padding-left: 2rem;
+    }
+    
+    .cultural-icon {
+        width: 45px;
+        height: 45px;
+        font-size: var(--text-lg);
+    }
+    
+    .cultural-quote {
+        padding: var(--spacing-lg);
+    }
+    
+    .cultural-quote::before,
+    .cultural-quote::after {
+        font-size: var(--text-3xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .cultural-divider {
+        width: 60px;
+    }
+    
+    .cultural-divider::before {
+        left: -15px;
+    }
+    
+    .cultural-divider::after {
+        right: -15px;
+    }
+    
+    .cultural-blessing {
+        padding: var(--spacing-lg);
+        margin: var(--spacing-lg) 0;
+    }
+    
+    .heritage-accent::before {
+        width: 40px;
+        height: 40px;
+        top: -10px;
+        right: -10px;
+    }
+    
+    .cultural-card {
+        padding: var(--spacing-md);
+    }
+    
+    .cultural-pattern {
+        background-size: 60px 60px, 80px 80px;
+    }
+    
+    .heritage-story-element {
+        padding-left: 1.5rem;
+        margin: var(--spacing-md) 0;
+    }
+    
+    .heritage-story-element::before {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .heritage-story-element::after {
+        left: 5px;
+    }
+    
+    .cultural-icon {
+        width: 40px;
+        height: 40px;
+        font-size: var(--text-md);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .cultural-quote {
+        padding: var(--spacing-md);
+        margin: var(--spacing-lg) 0;
+    }
+    
+    .cultural-quote::before {
+        top: 5px;
+        left: 15px;
+        font-size: var(--text-2xl);
+    }
+    
+    .cultural-quote::after {
+        bottom: -15px;
+        right: 15px;
+        font-size: var(--text-2xl);
+    }
+    
+    .beadwork-pattern {
+        background-size: 60px 60px;
+    }
+    
+    .heritage-section::before {
+        background-size: 80px 80px;
+    }
+}
+
+/* Print Styles for Cultural Elements */
+@media print {
+    .cultural-pattern,
+    .beadwork-pattern,
+    .heritage-section::before,
+    .river-flow::before,
+    .nile-water-effect::before {
+        display: none;
+    }
+    
+    .cultural-divider {
+        background: var(--color-text-primary);
+    }
+    
+    .cultural-divider::before,
+    .cultural-divider::after {
+        background: var(--color-text-primary);
+    }
+    
+    .cultural-icon {
+        background: var(--color-text-primary);
+        color: var(--color-white);
+    }
+    
+    .heritage-accent::before {
+        background: rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .cultural-pattern,
+    .beadwork-pattern {
+        display: none;
+    }
+    
+    .cultural-divider,
+    .cultural-icon {
+        background: currentColor;
+    }
+    
+    .heritage-accent::before {
+        background: currentColor;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .river-flow::before,
+    .nile-water-effect::before {
+        animation: none;
+        display: none;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .cultural-card {
+        background: var(--color-surface);
+        border: 1px solid var(--color-card-border);
+    }
+    
+    .cultural-quote {
+        background: var(--color-surface);
+        color: var(--color-text-secondary);
+    }
+    
+    .cultural-pattern {
+        background-image: 
+            radial-gradient(circle at 20% 20%, rgba(var(--cultural-primary-rgb), 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(var(--cultural-accent-rgb), 0.04) 0%, transparent 50%);
+    }
+    
+    .cultural-icon {
+        color: var(--color-btn-primary-text);
+    }
+    
+    .cultural-quote::before,
+    .cultural-quote::after {
+        color: rgba(var(--cultural-primary-rgb), 0.2);
+    }
+}
+
+[data-color-scheme="dark"] {
+    .cultural-card {
+        background: var(--color-surface);
+        border: 1px solid var(--color-card-border);
+    }
+    
+    .cultural-quote {
+        background: var(--color-surface);
+        color: var(--color-text-secondary);
+    }
+    
+    .cultural-pattern {
+        background-image: 
+            radial-gradient(circle at 20% 20%, rgba(var(--cultural-primary-rgb), 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(var(--cultural-accent-rgb), 0.04) 0%, transparent 50%);
+    }
+    
+    .cultural-icon {
+        color: var(--color-btn-primary-text);
+    }
+    
+    .cultural-quote::before,
+    .cultural-quote::after {
+        color: rgba(var(--cultural-primary-rgb), 0.2);
+    }
+}
+
+[data-color-scheme="light"] {
+    .cultural-card {
+        background: var(--color-surface);
+        border: 1px solid var(--color-card-border);
+    }
+    
+    .cultural-quote {
+        background: var(--color-surface);
+        color: var(--color-text-secondary);
+    }
+    
+    .cultural-icon {
+        color: var(--color-btn-primary-text);
+    }
+    
+    .cultural-quote::before,
+    .cultural-quote::after {
+        color: rgba(var(--cultural-primary-rgb), 0.2);
+    }
+}
