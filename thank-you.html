@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Thank you for your order at Bahr Naturals! Learn what happens next and explore more heritage soaps.">
+  <meta name="keywords" content="thank you, order confirmation, Bahr Naturals, soap order">
+  <meta name="author" content="Bahr Naturals">
+  <meta name="robots" content="noindex, follow">
 
+  <title>Thank You | Bahr Naturals</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/cultural-elements.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="header" role="banner">
+    <nav class="nav-container" role="navigation" aria-label="Main navigation">
+      <div class="nav-brand">
+        <a href="index.html" class="logo-link" aria-label="Home">
+          <img src="images/bahr-naturals-logo.svg" alt="Bahr Naturals Logo" width="180" height="60">
+        </a>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+        <span class="nav-toggle-icon"></span>
+        <span class="nav-toggle-icon"></span>
+        <span class="nav-toggle-icon"></span>
+      </button>
+      <ul class="nav-menu" id="nav-menu" role="menubar">
+        <li role="menuitem"><a href="index.html" class="nav-link">Home</a></li>
+        <li role="menuitem"><a href="about.html" class="nav-link">Heritage Story</a></li>
+        <li role="menuitem"><a href="shop.html" class="nav-link">Products</a></li>
+        <li role="menuitem"><a href="resources.html" class="nav-link">Resources</a></li>
+        <li role="menuitem"><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" role="main">
+    <section class="thank-you-hero" aria-labelledby="thank-you-heading">
+      <div class="container">
+        <h1 id="thank-you-heading" class="section-title">Thank You for Your Order!</h1>
+        <p class="section-subtitle">Your heritage soap is on its way.</p>
+        <p class="thank-you-message">
+          We appreciate your support and can’t wait for you to experience the natural beauty of 
+          Bahr Naturals. You will receive an email confirmation shortly with your order details.
+        </p>
+        <div class="thank-you-actions">
+          <a href="shop.html" class="btn btn--primary">Continue Shopping</a>
+          <a href="index.html" class="btn btn--outline">Return Home</a>
+        </div>
+      </div>
+      <div class="cultural-accent cultural-accent--thank-you" aria-hidden="true"></div>
+    </section>
+
+    <!-- Order Summary (optional dynamic) -->
+    <section class="order-summary" aria-labelledby="summary-heading">
+      <div class="container">
+        <h2 id="summary-heading" class="section-title">Order Summary</h2>
+        <p class="order-id">Order Number: <strong id="order-id">#<script>document.write(new URLSearchParams(location.search).get('order') || 'N/A');</script></strong></p>
+        <p class="order-details">
+          If you have any questions about your order, please <a href="contact.html" class="link">contact us</a> and reference your order number.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <!-- Footer structure same as other pages -->
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>© 2025 Bahr Naturals. All rights reserved.</p>
+          <p><span class="cultural-accent">بحر</span> • Celebrating South Sudanese Heritage</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="js/main.js" defer></script>
+  <script src="js/navigation.js" defer></script>
+</body>
+</html>
