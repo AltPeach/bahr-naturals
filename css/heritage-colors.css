@@ -1,1 +1,76 @@
+/* heritage-colors.css */
+/* Bahr Naturals Heritage Color Palette */
 
+/* Primary Heritage Colors */
+:root {
+  /* River Blue: Nile River heritage, trust and stability */
+  --color-river-blue: #2C5F7A;
+  --color-river-blue-rgb: 44, 95, 122;
+
+  /* Shea Cream: traditional shea butter, purity and calm */
+  --color-shea-cream: #F7F3E9;
+  --color-shea-cream-rgb: 247, 243, 233;
+
+  /* Heritage Gold: ceremonial beadwork, warmth and premium */
+  --color-heritage-gold: #C8A882;
+  --color-heritage-gold-rgb: 200, 168, 130;
+
+  /* Charcoal Black: modern sophistication, readability */
+  --color-charcoal-black: #2D2D2D;
+  --color-charcoal-black-rgb: 45, 45, 45;
+
+  /* Lavender Calm: wellness, gentle accent */
+  --color-lavender-calm: #8B7FC7;
+  --color-lavender-calm-rgb: 139, 127, 199;
+
+  /* Earth Green: sustainability, eco-conscious */
+  --color-earth-green: #7A8471;
+  --color-earth-green-rgb: 122, 132, 113;
+
+  /* Pure White: cleanliness and simplicity */
+  --color-pure-white: #FFFFFF;
+  --color-pure-white-rgb: 255, 255, 255;
+
+  /* Soft Gray: soft minimalist backgrounds */
+  --color-soft-gray: #F8F8F8;
+  --color-soft-gray-rgb: 248, 248, 248;
+}
+
+/* Text Colors */
+.text-river-blue      { color: var(--color-river-blue); }
+.text-heritage-gold   { color: var(--color-heritage-gold); }
+.text-charcoal-black  { color: var(--color-charcoal-black); }
+.text-lavender-calm   { color: var(--color-lavender-calm); }
+.text-earth-green     { color: var(--color-earth-green); }
+.text-soft-gray       { color: var(--color-soft-gray); }
+
+/* Background Colors */
+.bg-river-blue        { background-color: var(--color-river-blue); }
+.bg-shea-cream        { background-color: var(--color-shea-cream); }
+.bg-heritage-gold     { background-color: var(--color-heritage-gold); }
+.bg-charcoal-black    { background-color: var(--color-charcoal-black); }
+.bg-lavender-calm     { background-color: var(--color-lavender-calm); }
+.bg-earth-green       { background-color: var(--color-earth-green); }
+.bg-pure-white        { background-color: var(--color-pure-white); }
+.bg-soft-gray         { background-color: var(--color-soft-gray); }
+
+/* Border Colors */
+.border-river-blue     { border-color: var(--color-river-blue); }
+.border-heritage-gold  { border-color: var(--color-heritage-gold); }
+.border-charcoal-black { border-color: var(--color-charcoal-black); }
+
+/* Button Background Utilities */
+.btn--river-blue       { background-color: var(--color-river-blue); color: var(--color-pure-white); }
+.btn--heritage-gold    { background-color: var(--color-heritage-gold); color: var(--color-charcoal-black); }
+
+/* Link Hover Color */
+a:hover,
+button:hover {
+  color: var(--color-heritage-gold);
+}
+
+/* Accessibility Helpers */
+.high-contrast-inverse {
+  background-color: var(--color-charcoal-black);
+  color: var(--color-pure-white);
+}
