@@ -1,13 +1,14 @@
-/* Typography System for Bahr Naturals */
-/* Cultural heritage meets modern readability */
+/* Modern Bubbly Typography System for Bahr Naturals */
+/* Clean, friendly, and approachable style for soap brand */
 
 :root {
-    /* Font Family Definitions */
-    --font-heading: 'Playfair Display', serif;     /* Heritage elegance */
-    --font-body: 'Source Sans Pro', sans-serif;    /* Modern readability */
-    --font-accent: 'Dancing Script', cursive;      /* Cultural touch */
+    /* Font Family Definitions - More modern and friendly */
+    --font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-accent: 'Comic Neue', 'Short Stack', cursive;
+    --font-display: 'Itim', 'Gaegu', cursive;
     
-    /* Font Size Scale */
+    /* Font Size Scale - More balanced progression */
     --text-xs: 0.75rem;      /* 12px */
     --text-sm: 0.875rem;     /* 14px */
     --text-base: 1rem;       /* 16px */
@@ -17,31 +18,39 @@
     --text-3xl: 1.875rem;    /* 30px */
     --text-4xl: 2.25rem;     /* 36px */
     --text-5xl: 3rem;        /* 48px */
-    --text-6xl: 4rem;        /* 64px */
+    --text-6xl: 3.75rem;     /* 60px */
     
-    /* Line Height Scale */
-    --leading-tight: 1.25;
-    --leading-snug: 1.375;
+    /* Line Height Scale - More breathing room */
+    --leading-tight: 1.2;
+    --leading-snug: 1.3;
     --leading-normal: 1.5;
-    --leading-relaxed: 1.625;
-    --leading-loose: 2;
+    --leading-relaxed: 1.6;
+    --leading-loose: 1.8;
     
-    /* Letter Spacing */
-    --tracking-tight: -0.025em;
+    /* Letter Spacing - Slightly more open */
+    --tracking-tighter: -0.02em;
+    --tracking-tight: -0.01em;
     --tracking-normal: 0;
-    --tracking-wide: 0.025em;
-    --tracking-wider: 0.05em;
-    --tracking-widest: 0.1em;
+    --tracking-wide: 0.01em;
+    --tracking-wider: 0.02em;
+    --tracking-widest: 0.05em;
     
-    /* Font Weights */
+    /* Font Weights - Modern weight scale */
+    --font-extralight: 200;
     --font-light: 300;
     --font-normal: 400;
     --font-medium: 500;
     --font-semibold: 600;
     --font-bold: 700;
+    --font-extrabold: 800;
+    
+    /* Text Shadows for bubbly effect */
+    --text-shadow-soft: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --text-shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.12);
+    --text-shadow-strong: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Base Typography */
+/* Base Typography - Clean and modern */
 body {
     font-family: var(--font-body);
     font-size: var(--text-base);
@@ -50,145 +59,181 @@ body {
     font-weight: var(--font-normal);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
 }
 
-/* Heading Styles */
+/* Heading Styles - Modern and friendly */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    font-weight: var(--font-semibold);
+    font-weight: var(--font-bold);
     line-height: var(--leading-tight);
     color: var(--color-primary);
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: var(--tracking-tight);
 }
 
 h1 {
     font-size: var(--text-5xl);
-    font-weight: var(--font-bold);
-    letter-spacing: var(--tracking-tight);
+    font-weight: var(--font-extrabold);
+    text-shadow: var(--text-shadow-soft);
 }
 
 h2 {
     font-size: var(--text-4xl);
-    letter-spacing: var(--tracking-tight);
+    font-weight: var(--font-bold);
 }
 
 h3 {
     font-size: var(--text-3xl);
-    letter-spacing: var(--tracking-normal);
+    font-weight: var(--font-semibold);
 }
 
 h4 {
     font-size: var(--text-2xl);
-    letter-spacing: var(--tracking-normal);
+    font-weight: var(--font-semibold);
 }
 
 h5 {
     font-size: var(--text-xl);
-    letter-spacing: var(--tracking-wide);
+    font-weight: var(--font-medium);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
 }
 
 h6 {
     font-size: var(--text-lg);
-    letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
+    font-weight: var(--font-medium);
+    color: var(--color-accent);
+    letter-spacing: var(--tracking-wider);
 }
 
-/* Paragraph Styles */
+/* Paragraph Styles - More readable */
 p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     line-height: var(--leading-relaxed);
+    max-width: 65ch;
 }
 
 p.lead {
-    font-size: var(--text-lg);
+    font-size: var(--text-xl);
     font-weight: var(--font-light);
     line-height: var(--leading-loose);
     color: var(--color-text-secondary);
+    letter-spacing: var(--tracking-wide);
 }
 
 p.small {
     font-size: var(--text-sm);
     line-height: var(--leading-normal);
+    color: var(--color-text-secondary);
 }
 
-/* Cultural Typography Elements */
+/* Cultural Typography Elements - More playful */
 .heritage-title {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: var(--text-4xl);
-    font-weight: var(--font-bold);
+    font-weight: var(--font-normal);
     color: var(--color-primary);
     line-height: var(--leading-tight);
-    letter-spacing: var(--tracking-tight);
+    letter-spacing: var(--tracking-normal);
     margin-bottom: 1.5rem;
 }
 
 .cultural-accent {
     font-family: var(--font-accent);
     color: var(--color-accent);
-    font-size: var(--text-lg);
+    font-size: var(--text-xl);
     font-weight: var(--font-normal);
+    transform: rotate(-2deg);
+    display: inline-block;
 }
 
 .blessing-text {
     font-family: var(--font-accent);
-    font-size: var(--text-xl);
+    font-size: var(--text-2xl);
     color: var(--color-accent);
     font-style: italic;
     text-align: center;
     line-height: var(--leading-relaxed);
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(215, 184, 156, 0.1) 0%, transparent 100%);
+    border-radius: 24px;
+    margin: 2rem 0;
 }
 
 .founder-quote {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-size: var(--text-2xl);
-    font-style: italic;
     color: var(--color-primary);
     line-height: var(--leading-relaxed);
-    position: relative;
     padding: 2rem;
     text-align: center;
+    background: rgba(253, 251, 248, 0.8);
+    border-radius: 24px;
+    border: 2px dashed var(--color-accent);
+    position: relative;
+    margin: 2rem 0;
 }
 
 .founder-quote::before,
 .founder-quote::after {
     content: '"';
-    font-size: var(--text-6xl);
+    font-size: var(--text-5xl);
     color: var(--color-accent);
     position: absolute;
-    opacity: 0.3;
+    opacity: 0.5;
+    font-family: var(--font-accent);
 }
 
 .founder-quote::before {
     top: -10px;
-    left: 10px;
+    left: 20px;
 }
 
 .founder-quote::after {
-    bottom: -40px;
-    right: 10px;
+    bottom: -30px;
+    right: 20px;
 }
 
-/* Link Styles */
+/* Link Styles - More playful */
 a {
     color: var(--color-accent);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
-    transition: color 0.3s ease;
+    text-decoration: none;
+    font-weight: var(--font-medium);
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 a:hover {
     color: var(--color-primary);
-    text-decoration-thickness: 2px;
+    transform: translateY(-1px);
 }
 
 a:focus-visible {
     outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-    border-radius: 2px;
+    outline-offset: 4px;
+    border-radius: 6px;
 }
 
-/* Navigation Links */
+/* Navigation Links - More modern */
 .nav-link {
     font-family: var(--font-body);
     font-weight: var(--font-medium);
@@ -196,107 +241,137 @@ a:focus-visible {
     letter-spacing: var(--tracking-wide);
     text-decoration: none;
     color: var(--color-text-primary);
-    transition: color 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
 }
 
 .nav-link:hover,
 .nav-link.active {
     color: var(--color-primary);
+    background: rgba(93, 138, 126, 0.1);
+    transform: translateY(-2px);
 }
 
-/* Button Typography */
+/* Button Typography - More bubbly */
 .btn {
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     font-weight: var(--font-semibold);
     font-size: var(--text-base);
     letter-spacing: var(--tracking-wide);
     text-transform: none;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover {
+    transform: translateY(-2px) scale(1.02);
 }
 
 .btn-large {
     font-size: var(--text-lg);
+    padding: 1rem 2rem;
+    border-radius: 16px;
 }
 
 .btn-small {
     font-size: var(--text-sm);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
 }
 
-/* Form Typography */
+/* Form Typography - Clean and modern */
 label {
     font-family: var(--font-body);
     font-weight: var(--font-medium);
     font-size: var(--text-sm);
     letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
     color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    display: block;
 }
 
 input, select, textarea {
     font-family: var(--font-body);
     font-size: var(--text-base);
     line-height: var(--leading-normal);
+    border-radius: 12px;
+    border: 2px solid var(--color-medium-gray);
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(215, 184, 156, 0.1);
+    outline: none;
 }
 
 ::placeholder {
     color: var(--color-text-secondary);
     opacity: 0.7;
+    font-style: italic;
 }
 
-/* List Styles */
+/* List Styles - More modern */
 ul, ol {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     padding-left: 1.5rem;
 }
 
 li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     line-height: var(--leading-relaxed);
+    position: relative;
 }
 
 ul li {
     list-style-type: none;
-    position: relative;
 }
 
 ul li::before {
-    content: '→';
+    content: '•';
+    color: var(--color-accent);
+    font-weight: var(--font-bold);
+    font-size: 1.2em;
+    position: absolute;
+    left: -1.25rem;
+    top: 0;
+}
+
+ol {
+    counter-reset: list-counter;
+}
+
+ol li {
+    counter-increment: list-counter;
+    list-style-type: none;
+}
+
+ol li::before {
+    content: counter(list-counter) '.';
     color: var(--color-accent);
     font-weight: var(--font-bold);
     position: absolute;
     left: -1.5rem;
 }
 
-/* Code and Preformatted Text */
-code {
-    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-    font-size: var(--text-sm);
-    background: var(--color-background-light);
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    color: var(--color-primary);
-}
-
-pre {
-    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-    font-size: var(--text-sm);
-    line-height: var(--leading-relaxed);
-    background: var(--color-background-light);
-    padding: 1rem;
-    border-radius: 8px;
-    overflow-x: auto;
-    margin-bottom: 1rem;
-}
-
-/* Blockquotes */
+/* Blockquotes - More modern */
 blockquote {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-size: var(--text-xl);
     font-style: italic;
     color: var(--color-primary);
     border-left: 4px solid var(--color-accent);
     padding-left: 2rem;
-    margin: 2rem 0;
+    margin: 2.5rem 0;
     line-height: var(--leading-relaxed);
+    background: rgba(253, 251, 248, 0.5);
+    padding: 2rem;
+    border-radius: 16px;
+    border-left: 8px solid var(--color-accent);
 }
 
 blockquote cite {
@@ -313,29 +388,6 @@ blockquote cite::before {
     content: '— ';
 }
 
-/* Table Typography */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 2rem;
-    font-size: var(--text-base);
-}
-
-th {
-    font-family: var(--font-heading);
-    font-weight: var(--font-semibold);
-    color: var(--color-primary);
-    text-align: left;
-    padding: 1rem;
-    border-bottom: 2px solid var(--color-accent);
-}
-
-td {
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--color-medium-gray);
-    line-height: var(--leading-normal);
-}
-
 /* Special Typography Classes */
 .text-xs { font-size: var(--text-xs); }
 .text-sm { font-size: var(--text-sm); }
@@ -348,11 +400,13 @@ td {
 .text-5xl { font-size: var(--text-5xl); }
 .text-6xl { font-size: var(--text-6xl); }
 
+.font-extralight { font-weight: var(--font-extralight); }
 .font-light { font-weight: var(--font-light); }
 .font-normal { font-weight: var(--font-normal); }
 .font-medium { font-weight: var(--font-medium); }
 .font-semibold { font-weight: var(--font-semibold); }
 .font-bold { font-weight: var(--font-bold); }
+.font-extrabold { font-weight: var(--font-extrabold); }
 
 .leading-tight { line-height: var(--leading-tight); }
 .leading-snug { line-height: var(--leading-snug); }
@@ -360,6 +414,7 @@ td {
 .leading-relaxed { line-height: var(--leading-relaxed); }
 .leading-loose { line-height: var(--leading-loose); }
 
+.tracking-tighter { letter-spacing: var(--tracking-tighter); }
 .tracking-tight { letter-spacing: var(--tracking-tight); }
 .tracking-normal { letter-spacing: var(--tracking-normal); }
 .tracking-wide { letter-spacing: var(--tracking-wide); }
@@ -379,6 +434,29 @@ td {
 .capitalize { text-transform: capitalize; }
 .normal-case { text-transform: none; }
 
+/* Bubbly Text Effects */
+.text-bubbly {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, var(--color-accent) 0%, rgba(215, 184, 156, 0.8) 100%);
+    color: white;
+    border-radius: 20px;
+    transform: rotate(-1deg);
+    box-shadow: 0 4px 12px rgba(215, 184, 156, 0.3);
+}
+
+.text-soft {
+    text-shadow: var(--text-shadow-soft);
+}
+
+.text-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-lift:hover {
+    transform: translateY(-3px);
+}
+
 /* Cultural Typography Modifiers */
 .heritage-font {
     font-family: var(--font-heading);
@@ -392,21 +470,27 @@ td {
     font-family: var(--font-accent);
 }
 
+.display-font {
+    font-family: var(--font-display);
+}
+
 .cultural-emphasis {
     font-family: var(--font-accent);
     color: var(--color-accent);
     font-size: 1.1em;
+    transform: rotate(-1deg);
+    display: inline-block;
 }
 
 /* Responsive Typography */
 @media (max-width: 768px) {
     :root {
-        --text-5xl: 2.5rem;     /* Smaller on mobile */
+        --text-6xl: 3rem;
+        --text-5xl: 2.5rem;
         --text-4xl: 2rem;
         --text-3xl: 1.75rem;
         --text-2xl: 1.5rem;
         --text-xl: 1.25rem;
-        --text-lg: 1.125rem;
     }
     
     .heritage-title {
@@ -415,17 +499,27 @@ td {
     
     .founder-quote {
         font-size: var(--text-xl);
-        padding: 1rem;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
     }
     
     .blessing-text {
+        font-size: var(--text-xl);
+        padding: 1rem;
+        margin: 1.5rem 0;
+    }
+    
+    blockquote {
         font-size: var(--text-lg);
+        padding: 1.5rem;
+        margin: 2rem 0;
     }
 }
 
 @media (max-width: 480px) {
     :root {
-        --text-5xl: 2rem;       /* Even smaller on small mobile */
+        --text-6xl: 2.5rem;
+        --text-5xl: 2rem;
         --text-4xl: 1.75rem;
         --text-3xl: 1.5rem;
     }
@@ -437,14 +531,88 @@ td {
     h1 { font-size: var(--text-4xl); }
     h2 { font-size: var(--text-3xl); }
     h3 { font-size: var(--text-2xl); }
+    h4 { font-size: var(--text-xl); }
+    
+    .founder-quote {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .founder-quote::before,
+    .founder-quote::after {
+        font-size: var(--text-3xl);
+    }
 }
 
-/* Print Typography */
+/* Animation for bubbly text */
+@keyframes bubble {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.05) rotate(1deg);
+    }
+}
+
+.text-animate-bubble {
+    animation: bubble 3s ease-in-out infinite;
+}
+
+/* Custom selection colors */
+::selection {
+    background: var(--color-accent);
+    color: white;
+    text-shadow: none;
+}
+
+::-moz-selection {
+    background: var(--color-accent);
+    color: white;
+    text-shadow: none;
+}
+
+/* Focus styles for accessibility */
+.focus-visible:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+    
+    .text-lift:hover {
+        transform: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --color-text-primary: #000000;
+        --color-text-secondary: #333333;
+    }
+    
+    a {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+    }
+    
+    .text-bubbly {
+        border: 2px solid #000000;
+    }
+}
+
+/* Print styles */
 @media print {
     :root {
-        --font-heading: 'Times', serif;
-        --font-body: 'Times', serif;
-        --font-accent: 'Times', serif;
+        --font-heading: 'Times New Roman', serif;
+        --font-body: 'Times New Roman', serif;
+        --font-accent: 'Times New Roman', serif;
     }
     
     body {
@@ -458,52 +626,21 @@ td {
         page-break-after: avoid;
     }
     
-    p {
-        orphans: 3;
-        widows: 3;
-    }
-    
-    blockquote {
-        page-break-inside: avoid;
-    }
-}
-
-/* Accessibility Enhancements */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        transition: none !important;
-        animation: none !important;
-    }
-}
-
-/* Focus indicators for screen readers */
-.focus-visible:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-    :root {
-        --color-text-primary: #000000;
-        --color-text-secondary: #000000;
-        --color-primary: #000000;
-        --color-accent: #000000;
+    .text-bubbly,
+    .cultural-accent,
+    .cultural-emphasis {
+        background: none !important;
+        color: black !important;
+        transform: none !important;
+        box-shadow: none !important;
     }
     
     a {
+        color: black;
         text-decoration: underline;
-        text-decoration-thickness: 2px;
     }
-}
-
-/* Custom selection colors */
-::selection {
-    background: var(--color-accent);
-    color: white;
-}
-
-::-moz-selection {
-    background: var(--color-accent);
-    color: white;
+    
+    a::after {
+        display: none;
+    }
 }
