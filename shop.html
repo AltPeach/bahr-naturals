@@ -1,169 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="description" content="Shop Bahr Naturals handcrafted heritage soaps. Explore our full collection of natural South Sudanese–inspired soaps, ethically sourced and meticulously crafted.">
-  <meta name="keywords" content="shop Bahr Naturals, natural soap, handmade soap, heritage collection, shea butter, Nile mint, honey soap">
-  <meta name="author" content="Bahr Naturals">
-  <meta name="robots" content="index, follow">
-
-  <title>Shop | Bahr Naturals Heritage Soaps</title>
-
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <!-- CSS Files -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop Bahr Naturals handcrafted natural soaps. Premium quality ingredients honoring South Sudanese heritage.">
+    <title>Shop Natural Soaps - Bahr Naturals</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/heritage-colors.css">
     <link rel="stylesheet" href="css/typography.css">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-
-  <!-- PayPal SDK -->
-  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=CAD&components=buttons"></script>
+    <link rel="stylesheet" href="css/cultural-elements.css">
+    <link rel="stylesheet" href="css/payment-forms.css">
 </head>
+
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-
-  <!-- Header -->
-  <header class="header" role="banner">
-    <nav class="nav-container" role="navigation" aria-label="Main navigation">
-      <div class="nav-brand">
-        <a href="index.html" class="logo-link" aria-label="Bahr Naturals Home">
-          <img src="images/bahr-naturals-logo.svg" alt="Bahr Naturals Logo" width="180" height="60">
-        </a>
-      </div>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
-        <span class="nav-toggle-icon"></span>
-        <span class="nav-toggle-icon"></span>
-        <span class="nav-toggle-icon"></span>
-      </button>
-      <ul class="nav-menu" id="nav-menu" role="menubar">
-        <li role="menuitem"><a href="index.html" class="nav-link">Home</a></li>
-        <li role="menuitem"><a href="about.html" class="nav-link">Heritage Story</a></li>
-        <li role="menuitem"><a href="shop.html" class="nav-link nav-link--active" aria-current="page">Products</a></li>
-        <li role="menuitem"><a href="resources.html" class="nav-link">Resources</a></li>
-        <li role="menuitem"><a href="contact.html" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Main Content -->
-  <main id="main-content" role="main">
-    <!-- Page Hero -->
-    <section class="page-hero" aria-labelledby="shop-heading">
-      <div class="container">
-        <h1 id="shop-heading" class="section-title">Heritage Collection</h1>
-        <p class="section-subtitle">Explore our handcrafted soaps, inspired by South Sudanese traditions and Canadian craft.</p>
-      </div>
-      <div class="cultural-accent cultural-accent--shop-hero" aria-hidden="true"></div>
-    </section>
-
-    <!-- Products Grid -->
-    <section class="products-section" aria-labelledby="products-heading">
-      <div class="container">
-        <div class="products-grid" role="region" aria-label="Product catalog">
-
-          <!-- Product Card Template -->
-          <!-- Repeat for each product -->
-          <article class="product-card" itemscope itemtype="https://schema.org/Product">
-            <div class="product-image">
-              <img src="images/products/shea-lavender-soap.jpg" alt="Shea Lavender Heritage Soap" class="product-img" width="300" height="300" loading="lazy" itemprop="image">
-              <span class="product-badge">Signature</span>
+    <!-- Cultural Pattern Background Element -->
+    <div class="cultural-pattern-bg" aria-hidden="true"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="index.html" class="logo" aria-label="Bahr Naturals Home">
+                    <span class="logo-text">Bahr Naturals</span>
+                    <div class="logo-wave" aria-hidden="true"></div>
+                </a>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">Heritage Story</a>
+                    <a href="shop.html" class="nav-link active">Products</a>
+                    <a href="experiences.html" class="nav-link">Experiences</a>
+                    <a href="resources.html" class="nav-link">Resources</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="cart.html" class="cart-link" aria-label="Shopping cart">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
             </div>
-            <div class="product-content">
-              <h2 class="product-title" itemprop="name">Shea Lavender Heritage Soap</h2>
-              <p class="product-description" itemprop="description">
-                A soothing blend of traditional shea butter and fragrant Canadian lavender.
-              </p>
-              <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                <span class="price" itemprop="price" content="12.99">$12.99 CAD</span>
-                <meta itemprop="priceCurrency" content="CAD">
-                <meta itemprop="availability" content="https://schema.org/InStock">
-              </div>
-              <div class="product-actions">
-                <div id="paypal-button-shea-lavender" class="paypal-button-container" aria-label="Buy Shea Lavender Heritage Soap"></div>
-                <a href="product.html?id=shea-lavender" class="btn btn--outline btn--small">View Details</a>
-              </div>
-            </div>
-          </article>
+        </nav>
+    </header>
 
-          <article class="product-card" itemscope itemtype="https://schema.org/Product">
-            <div class="product-image">
-              <img src="images/products/nile-mint-soap.jpg" alt="Nile Mint Traditional Soap" class="product-img" width="300" height="300" loading="lazy" itemprop="image">
-              <span class="product-badge">Traditional</span>
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Handcrafted Natural Soaps</h1>
+                <p class="page-subtitle">Pure ingredients, traditional methods, modern quality</p>
+                <div class="cultural-divider" aria-hidden="true"></div>
             </div>
-            <div class="product-content">
-              <h2 class="product-title" itemprop="name">Nile Mint Traditional Soap</h2>
-              <p class="product-description" itemprop="description">
-                Refreshing mint infused with ancient cleansing botanicals.
-              </p>
-              <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                <span class="price" itemprop="price" content="14.99">$14.99 CAD</span>
-                <meta itemprop="priceCurrency" content="CAD">
-                <meta itemprop="availability" content="https://schema.org/InStock">
-              </div>
-              <div class="product-actions">
-                <div id="paypal-button-nile-mint" class="paypal-button-container" aria-label="Buy Nile Mint Traditional Soap"></div>
-                <a href="product.html?id=nile-mint" class="btn btn--outline btn--small">View Details</a>
-              </div>
+        </section>
+
+        <!-- Product Grid -->
+        <section class="products-catalog">
+            <div class="container">
+                <div class="catalog-header">
+                    <p class="catalog-intro">
+                        Each soap is handcrafted in small batches using traditional South Sudanese beauty wisdom 
+                        combined with premium Canadian ingredients. Free shipping on orders over $50 CAD.
+                    </p>
+                </div>
+                
+                <div class="products-grid">
+                    <!-- Nile Essence Soap -->
+                    <article class="product-card">
+                        <div class="product-image-container">
+                            <img src="images/products/nile-essence-soap.jpg" 
+                                 alt="Nile Essence Soap with shea butter" 
+                                 class="product-image"
+                                 loading="lazy">
+                            <div class="product-badge bestseller">Bestseller</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Nile Essence</h3>
+                            <p class="product-description">Rich shea butter with lavender and chamomile for ultimate relaxation. Perfect for sensitive skin and evening routines.</p>
+                            <div class="product-ingredients">
+                                <strong>Key Ingredients:</strong> Shea butter, lavender essential oil, chamomile extract
+                            </div>
+                            <div class="product-price">$18.00 CAD</div>
+                            <button class="btn btn-primary add-to-cart" 
+                                    data-product-id="nile-essence"
+                                    data-product-name="Nile Essence"
+                                    data-product-price="18.00"
+                                    data-product-image="images/products/nile-essence-soap.jpg">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Heritage Honey Soap -->
+                    <article class="product-card">
+                        <div class="product-image-container">
+                            <img src="images/products/heritage-honey-soap.jpg" 
+                                 alt="Heritage Honey Soap with natural honey" 
+                                 class="product-image"
+                                 loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Heritage Honey</h3>
+                            <p class="product-description">Canadian honey with oatmeal and coconut oil for gentle exfoliation and deep moisture. Ideal for dry skin.</p>
+                            <div class="product-ingredients">
+                                <strong>Key Ingredients:</strong> Raw Canadian honey, oatmeal, coconut oil
+                            </div>
+                            <div class="product-price">$16.00 CAD</div>
+                            <button class="btn btn-primary add-to-cart" 
+                                    data-product-id="heritage-honey"
+                                    data-product-name="Heritage Honey"
+                                    data-product-price="16.00"
+                                    data-product-image="images/products/heritage-honey-soap.jpg">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Cultural Clay Soap -->
+                    <article class="product-card">
+                        <div class="product-image-container">
+                            <img src="images/products/cultural-clay-soap.jpg" 
+                                 alt="Cultural Clay Soap with bentonite clay" 
+                                 class="product-image"
+                                 loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Cultural Clay</h3>
+                            <p class="product-description">Detoxifying bentonite clay with tea tree oil for deep cleansing. Perfect for oily and acne-prone skin.</p>
+                            <div class="product-ingredients">
+                                <strong>Key Ingredients:</strong> Bentonite clay, tea tree oil, activated charcoal
+                            </div>
+                            <div class="product-price">$20.00 CAD</div>
+                            <button class="btn btn-primary add-to-cart" 
+                                    data-product-id="cultural-clay"
+                                    data-product-name="Cultural Clay"
+                                    data-product-price="20.00"
+                                    data-product-image="images/products/cultural-clay-soap.jpg">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- River Mint Soap -->
+                    <article class="product-card">
+                        <div class="product-image-container">
+                            <img src="images/products/river-mint-soap.jpg" 
+                                 alt="River Mint Soap with peppermint" 
+                                 class="product-image"
+                                 loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">River Mint</h3>
+                            <p class="product-description">Energizing peppermint with eucalyptus for an invigorating morning cleanse. Stimulates circulation.</p>
+                            <div class="product-ingredients">
+                                <strong>Key Ingredients:</strong> Peppermint oil, eucalyptus, menthol crystals
+                            </div>
+                            <div class="product-price">$17.00 CAD</div>
+                            <button class="btn btn-primary add-to-cart" 
+                                    data-product-id="river-mint"
+                                    data-product-name="River Mint"
+                                    data-product-price="17.00"
+                                    data-product-image="images/products/river-mint-soap.jpg">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Golden Turmeric Soap -->
+                    <article class="product-card">
+                        <div class="product-image-container">
+                            <img src="images/products/golden-turmeric-soap.jpg" 
+                                 alt="Golden Turmeric Soap with turmeric" 
+                                 class="product-image"
+                                 loading="lazy">
+                            <div class="product-badge">Limited Edition</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Golden Turmeric</h3>
+                            <p class="product-description">Anti-inflammatory turmeric with ginger for brightening and healing. Traditional recipe for glowing skin.</p>
+                            <div class="product-ingredients">
+                                <strong>Key Ingredients:</strong> Turmeric powder, ginger extract, coconut milk
+                            </div>
+                            <div class="product-price">$22.00 CAD</div>
+                            <button class="btn btn-primary add-to-cart" 
+                                    data-product-id="golden-turmeric"
+                                    data-product-name="Golden Turmeric"
+                                    data-product-price="22.00"
+                                    data-product-image="images/products/golden-turmeric-soap.jpg">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Gentle Baby Soap -->
+                    <article class="product-card">
+                        <div class="product-image-container">
+                            <img src="images/products/gentle-baby-soap.jpg" 
+                                 alt="Gentle Baby Soap for sensitive skin" 
+                                 class="product-image"
+                                 loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Gentle Baby</h3>
+                            <p class="product-description">Ultra-mild formula with calendula and chamomile. Safe for babies and the most sensitive skin.</p>
+                            <div class="product-ingredients">
+                                <strong>Key Ingredients:</strong> Calendula, chamomile, extra virgin olive oil
+                            </div>
+                            <div class="product-price">$15.00 CAD</div>
+                            <button class="btn btn-primary add-to-cart" 
+                                    data-product-id="gentle-baby"
+                                    data-product-name="Gentle Baby"
+                                    data-product-price="15.00"
+                                    data-product-image="images/products/gentle-baby-soap.jpg">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+                </div>
             </div>
-          </article>
+        </section>
 
-          <article class="product-card" itemscope itemtype="https://schema.org/Product">
-            <div class="product-image">
-              <img src="images/products/heritage-honey-soap.jpg" alt="Heritage Honey Cleansing Soap" class="product-img" width="300" height="300" loading="lazy" itemprop="image">
-              <span class="product-badge">Premium</span>
+        <!-- Gift Sets -->
+        <section class="gift-sets">
+            <div class="container">
+                <h2 class="section-title">Heritage Gift Sets</h2>
+                <div class="cultural-divider" aria-hidden="true"></div>
+                
+                <div class="gift-sets-grid">
+                    <article class="gift-set-card">
+                        <div class="gift-set-image">
+                            <img src="images/products/starter-gift-set.jpg" 
+                                 alt="Starter Heritage Gift Set" 
+                                 class="set-image"
+                                 loading="lazy">
+                        </div>
+                        <div class="gift-set-info">
+                            <h3 class="set-name">Starter Heritage Set</h3>
+                            <p class="set-description">Perfect introduction to our heritage collection. Includes Nile Essence, Heritage Honey, and a cotton soap bag.</p>
+                            <div class="set-contents">
+                                <strong>Contains:</strong> 2 soaps + gift packaging + care instructions
+                            </div>
+                            <div class="set-pricing">
+                                <span class="original-price">$34.00 CAD</span>
+                                <span class="sale-price">$28.00 CAD</span>
+                                <span class="savings">Save $6</span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart" 
+                                    data-product-id="starter-gift-set"
+                                    data-product-name="Starter Heritage Set"
+                                    data-product-price="28.00"
+                                    data-product-image="images/products/starter-gift-set.jpg">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="gift-set-card">
+                        <div class="gift-set-image">
+                            <img src="images/products/complete-collection-set.jpg" 
+                                 alt="Complete Heritage Collection" 
+                                 class="set-image"
+                                 loading="lazy">
+                        </div>
+                        <div class="gift-set-info">
+                            <h3 class="set-name">Complete Heritage Collection</h3>
+                            <p class="set-description">Experience our entire range with this luxury collection. Beautifully packaged with heritage story booklet.</p>
+                            <div class="set-contents">
+                                <strong>Contains:</strong> All 6 soaps + luxury packaging + heritage booklet
+                            </div>
+                            <div class="set-pricing">
+                                <span class="original-price">$108.00 CAD</span>
+                                <span class="sale-price">$85.00 CAD</span>
+                                <span class="savings">Save $23</span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart" 
+                                    data-product-id="complete-collection-set"
+                                    data-product-name="Complete Heritage Collection"
+                                    data-product-price="85.00"
+                                    data-product-image="images/products/complete-collection-set.jpg">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+                </div>
             </div>
-            <div class="product-content">
-              <h2 class="product-title" itemprop="name">Heritage Honey Cleansing Soap</h2>
-              <p class="product-description" itemprop="description">
-                Luxurious honey and traditional botanicals for deep nourishment.
-              </p>
-              <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                <span class="price" itemprop="price" content="16.99">$16.99 CAD</span>
-                <meta itemprop="priceCurrency" content="CAD">
-                <meta itemprop="availability" content="https://schema.org/InStock">
-              </div>
-              <div class="product-actions">
-                <div id="paypal-button-heritage-honey" class="paypal-button-container" aria-label="Buy Heritage Honey Cleansing Soap"></div>
-                <a href="product.html?id=heritage-honey" class="btn btn--outline btn--small">View Details</a>
-              </div>
-            </div>
-          </article>
-          
-        </div>
+        </section>
 
-        <div class="section-footer">
-          <a href="shop.html" class="btn btn--primary btn--large">Browse All Products</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-content">
-        <!-- Footer brand & navigation (same as index.html) -->
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-bottom-content">
-          <p>© 2025 Bahr Naturals. All rights reserved.</p>
-          <p><span class="cultural-accent">بحر</span> • Celebrating South Sudanese Heritage</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- JavaScript -->
-  <script src="js/main.js" defer></script>
-  <script src="js/payment-integration.js" defer></script>
-  <script src="js/navigation.js" defer></script>
-</body>
-</html>
+        <!-- Shipping Information -->
+        <section class="shipping-info">
+            <div class="container">
+                <div class="shipping-content">
+                    <h2 class="section-title">Shipping & Care Information</h2>
+                    <div class="cultural-divider" aria-hidden="true"></div>
+                    
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h3>Free Shipping</h3>
+                            <p>Complimentary shipping on all orders over $50 CAD within Canada. Express shipping available.</p>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h3>Handcrafted Quality</h3>
+                            <p>Each soap is made in small batches and cured for 6 weeks to ensure premium quality and longevity.</p>
+                        </div>
