@@ -1,42 +1,42 @@
-/* Heritage Color Palette */
-/* Based on South Sudanese cultural colors and modern minimalism */
+/* Heritage Color Palette - Clean & Light Version */
+/* Modernized South Sudanese cultural colors with clean minimalism */
 
 :root {
-    /* Primary Heritage Colors */
-    --color-primary: #2C5F7A;          /* River Blue - Nile representation */
-    --color-accent: #C8A882;           /* Heritage Gold - Traditional beadwork */
-    --color-background-light: #F7F3E9;  /* Shea Cream - Natural shea butter */
+    /* Primary Heritage Colors - Lighter & Softer */
+    --color-primary: #4A7A8C;          /* Soft River Blue - lighter Nile representation */
+    --color-accent: #D4B896;           /* Warm Cream Gold - softer traditional beadwork */
+    --color-background-light: #FDFCF8; /* Pure Shea Cream - warmer white background */
     
-    /* Supporting Colors */
-    --color-text-primary: #2D2D2D;     /* Charcoal Black - Modern sophistication */
-    --color-text-secondary: #6B7280;    /* Warm Gray - Readable secondary text */
-    --color-lavender: #8B7FC7;          /* Lavender Calm - Natural ingredients */
-    --color-earth-green: #7A8471;       /* Earth Green - Sustainability */
+    /* Supporting Colors - Clean & Modern */
+    --color-text-primary: #444444;     /* Soft Charcoal - easier on eyes */
+    --color-text-secondary: #6B7280;   /* Warm Gray - readable secondary text */
+    --color-lavender: #A394D6;         /* Light Lavender - gentle wellness */
+    --color-earth-green: #8FA085;      /* Sage Green - natural sustainability */
     
-    /* Neutral Variations */
+    /* Neutral Variations - Clean & Light */
     --color-white: #FFFFFF;
-    --color-light-gray: #F9FAFB;
-    --color-medium-gray: #E5E7EB;
-    --color-dark-gray: #374151;
+    --color-light-gray: #F8F9FA;
+    --color-medium-gray: #E9ECEF;
+    --color-dark-gray: #6C757D;
     
-    /* Cultural Context Colors */
-    --color-nile-blue: #4A90A4;        /* Lighter blue for water elements */
-    --color-sunset-gold: #D4B896;       /* Warmer gold for highlights */
-    --color-clay-brown: #8B6F47;        /* Natural clay representation */
-    --color-shea-light: #FAF7F0;        /* Lighter shea for backgrounds */
+    /* Cultural Context Colors - Softer Approach */
+    --color-nile-blue: #6BA3B8;        /* Gentle water blue */
+    --color-sunset-gold: #E5CBA8;      /* Soft warm gold */
+    --color-clay-brown: #B4926B;       /* Light clay representation */
+    --color-shea-light: #FEFDFB;       /* Lightest shea background */
     
-    /* Semantic Colors */
-    --color-success: #10B981;           /* Success states */
-    --color-warning: #F59E0B;           /* Warning states */
-    --color-error: #EF4444;             /* Error states */
-    --color-info: #3B82F6;              /* Information states */
+    /* Semantic Colors - Softer & Friendlier */
+    --color-success: #28A745;          /* Softer success green */
+    --color-warning: #FFC107;          /* Warm warning yellow */
+    --color-error: #FF6B6B;            /* Gentle error red */
+    --color-info: #4FC3F7;             /* Light information blue */
     
-    /* Cultural Pattern Colors */
-    --pattern-primary: rgba(44, 95, 122, 0.1);    /* Subtle primary patterns */
-    --pattern-accent: rgba(200, 168, 130, 0.15);   /* Subtle accent patterns */
-    --pattern-overlay: rgba(247, 243, 233, 0.9);   /* Overlay backgrounds */
+    /* Cultural Pattern Colors - Subtle & Clean */
+    --pattern-primary: rgba(74, 122, 140, 0.05);    /* Very subtle primary patterns */
+    --pattern-accent: rgba(212, 184, 150, 0.08);    /* Gentle accent patterns */
+    --pattern-overlay: rgba(253, 252, 248, 0.95);   /* Clean overlay backgrounds */
     
-    /* Gradient Definitions */
+    /* Gradient Definitions - Soft & Elegant */
     --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-nile-blue) 100%);
     --gradient-accent: linear-gradient(135deg, var(--color-accent) 0%, var(--color-sunset-gold) 100%);
     --gradient-background: linear-gradient(135deg, var(--color-background-light) 0%, var(--color-shea-light) 100%);
@@ -47,37 +47,37 @@
         transparent 75%, 
         var(--pattern-primary) 100%);
     
-    /* Shadow Definitions */
-    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.15);
-    --shadow-heavy: 0 8px 32px rgba(0, 0, 0, 0.2);
-    --shadow-cultural: 0 4px 16px rgba(44, 95, 122, 0.1);
-    --shadow-accent: 0 4px 16px rgba(200, 168, 130, 0.2);
+    /* Shadow Definitions - Softer & Cleaner */
+    --shadow-light: 0 2px 12px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.12);
+    --shadow-heavy: 0 8px 32px rgba(0, 0, 0, 0.16);
+    --shadow-cultural: 0 4px 20px rgba(74, 122, 140, 0.08);
+    --shadow-accent: 0 4px 20px rgba(212, 184, 150, 0.15);
     
-    /* Border Definitions */
+    /* Border Definitions - Cleaner */
     --border-light: 1px solid var(--color-medium-gray);
-    --border-primary: 2px solid var(--color-primary);
-    --border-accent: 2px solid var(--color-accent);
+    --border-primary: 1px solid var(--color-primary);
+    --border-accent: 1px solid var(--color-accent);
     --border-cultural: 1px solid var(--pattern-primary);
 }
 
-/* Dark Mode Support (Future Implementation) */
+/* Dark Mode Support (Optional Future Implementation) */
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-background-light: #1F2937;
-        --color-text-primary: #F9FAFB;
-        --color-text-secondary: #D1D5DB;
-        --color-white: #111827;
-        --color-light-gray: #374151;
-        --color-medium-gray: #4B5563;
+        --color-background-light: #2C3E40;
+        --color-text-primary: #F8F9FA;
+        --color-text-secondary: #CED4DA;
+        --color-white: #212529;
+        --color-light-gray: #495057;
+        --color-medium-gray: #6C757D;
     }
 }
 
 /* High Contrast Mode Support */
 @media (prefers-contrast: high) {
     :root {
-        --color-primary: #1a4a5c;
-        --color-accent: #b8954f;
+        --color-primary: #2C5F7A;
+        --color-accent: #B8954F;
         --color-text-primary: #000000;
         --color-text-secondary: #333333;
     }
@@ -116,7 +116,7 @@
 /* Cultural Pattern Applications */
 .cultural-pattern {
     background-image: var(--gradient-cultural);
-    background-size: 100px 100px;
+    background-size: 120px 120px;
 }
 
 .heritage-gradient {
@@ -142,6 +142,30 @@
 .focus-visible:focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Button Hover States - Cleaner */
+.btn-primary {
+    background: var(--color-accent);
+    color: var(--color-text-primary);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #C5A885;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background: var(--color-primary);
+    color: white;
 }
 
 /* Print Styles */
