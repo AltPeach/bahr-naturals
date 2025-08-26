@@ -17,321 +17,12 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/heritage-colors.css">
-    <link rel="stylesheet" href="css/typography.css">
-    <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/cultural-elements.css">
-</head>
-
-<body>
-    <!-- Cultural Pattern Background Element -->
-    <div class="cultural-pattern-bg" aria-hidden="true"></div>
-    
-    <!-- Skip Link -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <a href="index.html" class="logo" aria-label="Bahr Naturals Home">
-                    <span class="logo-text">Bahr Naturals</span>
-                    <div class="logo-wave" aria-hidden="true"></div>
-                </a>
-                
-                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                
-                <div class="nav-menu">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="about.html" class="nav-link">Heritage Story</a>
-                    <a href="shop.html" class="nav-link">Products</a>
-                    <a href="experiences.html" class="nav-link">Experiences</a>
-                    <a href="resources.html" class="nav-link">Resources</a>
-                    <a href="contact.html" class="nav-link active">Contact</a>
-                    <a href="cart.html" class="cart-link" aria-label="Shopping cart">
-                        <span class="cart-icon">🛒</span>
-                        <span class="cart-count">0</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main id="main-content">
-        <!-- Page Hero -->
-        <section class="hero contact-hero">
-            <div class="container">
-                <div class="hero-content text-center">
-                    <h1 class="hero-main">Connect With Us</h1>
-                    <p class="hero-sub">We'd love to hear from you</p>
-                    <div class="cultural-divider" aria-hidden="true"></div>
-                    <p class="hero-description">
-                        Have questions about our heritage soaps or want to discuss a custom order? 
-                        Reach out and we'll respond within 24 hours.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Content -->
-        <section class="section contact-content">
-            <div class="container">
-                <div class="heritage-content">
-                    <!-- Contact Form -->
-                    <div class="heritage-text">
-                        <h2 class="heritage-subtitle">Send Us a Message</h2>
-                        <p class="heritage-description">
-                            Whether you have questions about our products, want to learn more about our heritage, 
-                            or are interested in custom orders, we're here to help.
-                        </p>
-                        
-                        <form class="contact-form" id="contact-form">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="name">Full Name *</label>
-                                    <input type="text" id="name" name="name" class="form-control" required>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="email">Email Address *</label>
-                                    <input type="email" id="email" name="email" class="form-control" required>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" class="form-control">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="subject">Subject *</label>
-                                <select id="subject" name="subject" class="form-control" required>
-                                    <option value="">Please select a topic</option>
-                                    <option value="product-inquiry">Product Inquiry</option>
-                                    <option value="custom-order">Custom Order</option>
-                                    <option value="workshop-booking">Workshop Booking</option>
-                                    <option value="wholesale">Wholesale Inquiry</option>
-                                    <option value="media">Media & Press</option>
-                                    <option value="feedback">Feedback & Reviews</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="message">Message *</label>
-                                <textarea id="message" name="message" rows="6" class="form-control" required 
-                                          placeholder="Tell us how we can help you..."></textarea>
-                            </div>
-                            
-                            <div class="form-group checkbox-group">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" id="newsletter" name="newsletter">
-                                    <span class="checkbox-custom"></span>
-                                    I'd like to receive updates about new products and heritage stories
-                                </label>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                            
-                            <div class="form-message" id="form-message"></div>
-                        </form>
-                    </div>
-                    
-                    <!-- Contact Information -->
-                    <div class="heritage-visual">
-                        <div class="cultural-card">
-                            <h2 class="heritage-subtitle">Get In Touch</h2>
-                            
-                            <div class="contact-methods">
-                                <div class="contact-method">
-                                    <div class="cultural-icon">✉️</div>
-                                    <h3 class="method-title">Email Us</h3>
-                                    <p class="method-details">
-                                        <a href="mailto:hello@bahrnaturals.com">hello@bahrnaturals.com</a><br>
-                                        We typically respond within 24 hours
-                                    </p>
-                                </div>
-                                
-                                <div class="contact-method">
-                                    <div class="cultural-icon">📞</div>
-                                    <h3 class="method-title">Call Us</h3>
-                                    <p class="method-details">
-                                        <a href="tel:+16475550123">+1 (647) 555-0123</a><br>
-                                        Monday - Friday: 9 AM - 6 PM EST
-                                    </p>
-                                </div>
-                                
-                                <div class="contact-method">
-                                    <div class="cultural-icon">📍</div>
-                                    <h3 class="method-title">Visit Our Studio</h3>
-                                    <p class="method-details">
-                                        123 Heritage Lane<br>
-                                        Toronto, ON M5V 3A8<br>
-                                        Canada
-                                    </p>
-                                    <p class="method-note">
-                                        <em>Studio visits by appointment only. Please call ahead.</em>
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div class="business-hours">
-                                <h3 class="hours-title">Business Hours</h3>
-                                <div class="hours-list">
-                                    <div class="hours-item">
-                                        <span class="day">Monday - Friday</span>
-                                        <span class="time">9:00 AM - 6:00 PM</span>
-                                    </div>
-                                    <div class="hours-item">
-                                        <span class="day">Saturday</span>
-                                        <span class="time">10:00 AM - 4:00 PM</span>
-                                    </div>
-                                    <div class="hours-item">
-                                        <span class="day">Sunday</span>
-                                        <span class="time">Closed</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="social-contact">
-                                <h3 class="social-title">Follow Our Journey</h3>
-                                <div class="social-links">
-                                    <a href="#" class="social-link" aria-label="Facebook">📘</a>
-                                    <a href="#" class="social-link" aria-label="Instagram">📷</a>
-                                    <a href="#" class="social-link" aria-label="YouTube">🎥</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section class="section contact-faq">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Frequently Asked Questions</h2>
-                    <p class="section-subtitle">Quick answers to common questions</p>
-                    <div class="cultural-divider" aria-hidden="true"></div>
-                </div>
-                
-                <div class="products-grid">
-                    <div class="cultural-card faq-item">
-                        <h3 class="faq-question">How are your soaps different from commercial brands?</h3>
-                        <p class="faq-answer">Our soaps are handcrafted in small batches using traditional South Sudanese beauty wisdom combined with premium Canadian ingredients. We cure each bar for 6 weeks and use only natural, ethically sourced materials.</p>
-                    </div>
-                    
-                    <div class="cultural-card faq-item">
-                        <h3 class="faq-question">Do you offer custom soap orders?</h3>
-                        <p class="faq-answer">Yes! We love creating custom soaps for special occasions, weddings, or corporate gifts. Contact us with your requirements and we'll create something unique that honors both your needs and our heritage traditions.</p>
-                    </div>
-                    
-                    <div class="cultural-card faq-item">
-                        <h3 class="faq-question">Can I visit your soap-making studio?</h3>
-                        <p class="faq-answer">We offer studio visits by appointment where you can see our soap-making process and learn about South Sudanese beauty traditions. Please call ahead to schedule your visit.</p>
-                    </div>
-                    
-                    <div class="cultural-card faq-item">
-                        <h3 class="faq-question">Do you ship internationally?</h3>
-                        <p class="faq-answer">Currently we ship within Canada with free shipping on orders over $50. We're working on international shipping options - please contact us for special requests.</p>
-                    </div>
-                    
-                    <div class="cultural-card faq-item">
-                        <h3 class="faq-question">Are your products suitable for sensitive skin?</h3>
-                        <p class="faq-answer">Our soaps are made with natural ingredients and are generally suitable for sensitive skin. Our Gentle Baby soap is specifically formulated for the most sensitive skin types. If you have specific allergies, please review our ingredient lists or contact us.</p>
-                    </div>
-                    
-                    <div class="cultural-card faq-item">
-                        <h3 class="faq-question">How do I care for handmade soap?</h3>
-                        <p class="faq-answer">Keep your soap in a dry place between uses, preferably on a soap dish that allows drainage. Our cotton soap bags help extend the life of each bar. With proper care, each soap lasts 4-6 weeks.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Cultural Blessing -->
-        <section class="section contact-blessing">
-            <div class="container">
-                <div class="cultural-blessing">
-                    <p class="blessing-text">"In our culture, every conversation is a bridge between hearts. Thank you for reaching out to us."</p>
-                    <cite class="blessing-attribution">- Ester Simon, Founder</cite>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 class="footer-title">Bahr Naturals</h3>
-                    <p class="footer-description">
-                        Honoring South Sudanese heritage through authentic, natural skincare.
-                    </p>
-                    <div class="cultural-blessing">
-                        <p class="blessing-footer">May your skin be as radiant as your spirit</p>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4 class="footer-heading">Quick Links</h4>
-                    <nav class="footer-nav">
-                        <a href="about.html">Heritage Story</a>
-                        <a href="shop.html">Products</a>
-                        <a href="experiences.html">Workshops</a>
-                        <a href="resources.html">Skincare Tips</a>
-                        <a href="contact.html">Contact Us</a>
-                    </nav>
-                </div>
-                
-                <div class="footer-section">
-                    <h4 class="footer-heading">Customer Care</h4>
-                    <nav class="footer-nav">
-                        <a href="shipping-policy.html">Shipping Info</a>
-                        <a href="refund-policy.html">Returns & Refunds</a>
-                        <a href="privacy-policy.html">Privacy Policy</a>
-                        <a href="terms-conditions.html">Terms & Conditions</a>
-                        <a href="accessibility-statement.html">Accessibility</a>
-                    </nav>
-                </div>
-                
-                <div class="footer-section">
-                    <h4 class="footer-heading">Connect With Us</h4>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook" class="social-link">📘</a>
-                        <a href="#" aria-label="Instagram" class="social-link">📷</a>
-                        <a href="#" aria-label="Email" class="social-link">✉️</a>
-                    </div>
-                    <div class="contact-info">
-                        <p>Email: hello@bahrnaturals.com</p>
-                        <p>Phone: +1 (647) 555-0123</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="cultural-pattern-footer" aria-hidden="true"></div>
-                <p class="copyright">
-                    © 2025 Bahr Naturals. All rights reserved. | Made with ❤️ in Canada
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
-    <script src="js/cart-management.js"></script>
-    <script src="js/form-handler.js"></script>
     
     <style>
         /* Contact page specific styles */
         .contact-hero {
-            padding: var(--spacing-xxl) 0;
+            padding: var(--spacing-xxxl) 0;
             background: linear-gradient(135deg, var(--color-background-light), var(--color-coconut));
             text-align: center;
         }
@@ -618,5 +309,345 @@
             }
         }
     </style>
+</head>
+
+<body>
+    <!-- Cultural Pattern Background Element -->
+    <div class="cultural-pattern-bg" aria-hidden="true"></div>
+    
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Updated Header to match other pages -->
+    <header class="header" role="banner">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="index.html" class="logo" aria-label="Bahr Naturals Home">
+                    <span class="logo-text">Bahr Naturals</span>
+                    <div class="logo-wave" aria-hidden="true"></div>
+                </a>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">Our Story</a>
+                    <a href="shop.html" class="nav-link">Shop</a>
+                    <a href="resources.html" class="nav-link">Resources</a>
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                    <a href="cart.html" class="cart-link" aria-label="Shopping cart">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Page Hero -->
+        <section class="hero contact-hero">
+            <div class="container">
+                <div class="hero-content text-center">
+                    <h1 class="hero-main">Connect With Us</h1>
+                    <p class="hero-sub">We'd love to hear from you</p>
+                    <div class="cultural-divider" aria-hidden="true"></div>
+                    <p class="hero-description">
+                        Have questions about our heritage soaps or want to discuss a custom order? 
+                        Reach out and we'll respond within 24 hours.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Content -->
+        <section class="section contact-content">
+            <div class="container">
+                <div class="heritage-content">
+                    <!-- Contact Form -->
+                    <div class="heritage-text">
+                        <h2 class="heritage-subtitle">Send Us a Message</h2>
+                        <p class="heritage-description">
+                            Whether you have questions about our products, want to learn more about our heritage, 
+                            or are interested in custom orders, we're here to help.
+                        </p>
+                        
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Full Name *</label>
+                                    <input type="text" id="name" name="name" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" class="form-control" required>
+                                    <option value="">Please select a topic</option>
+                                    <option value="product-inquiry">Product Inquiry</option>
+                                    <option value="custom-order">Custom Order</option>
+                                    <option value="workshop-booking">Workshop Booking</option>
+                                    <option value="wholesale">Wholesale Inquiry</option>
+                                    <option value="media">Media & Press</option>
+                                    <option value="feedback">Feedback & Reviews</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="6" class="form-control" required 
+                                          placeholder="Tell us how we can help you..."></textarea>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <span class="checkbox-custom"></span>
+                                    I'd like to receive updates about new products and heritage stories
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            
+                            <div class="form-message" id="form-message"></div>
+                        </form>
+                    </div>
+                    
+                    <!-- Contact Information -->
+                    <div class="heritage-visual">
+                        <div class="cultural-card">
+                            <h2 class="heritage-subtitle">Get In Touch</h2>
+                            
+                            <div class="contact-methods">
+                                <div class="contact-method">
+                                    <div class="cultural-icon">✉️</div>
+                                    <h3 class="method-title">Email Us</h3>
+                                    <p class="method-details">
+                                        <a href="mailto:hello@bahrnaturals.com">hello@bahrnaturals.com</a><br>
+                                        We typically respond within 24 hours
+                                    </p>
+                                </div>
+                                
+                                <div class="contact-method">
+                                    <div class="cultural-icon">📞</div>
+                                    <h3 class="method-title">Call Us</h3>
+                                    <p class="method-details">
+                                        <a href="tel:+16475550123">+1 (647) 555-0123</a><br>
+                                        Monday - Friday: 9 AM - 6 PM EST
+                                    </p>
+                                </div>
+                                
+                                <div class="contact-method">
+                                    <div class="cultural-icon">📍</div>
+                                    <h3 class="method-title">Visit Our Studio</h3>
+                                    <p class="method-details">
+                                        123 Heritage Lane<br>
+                                        Toronto, ON M5V 3A8<br>
+                                        Canada
+                                    </p>
+                                    <p class="method-note">
+                                        <em>Studio visits by appointment only. Please call ahead.</em>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="business-hours">
+                                <h3 class="hours-title">Business Hours</h3>
+                                <div class="hours-list">
+                                    <div class="hours-item">
+                                        <span class="day">Monday - Friday</span>
+                                        <span class="time">9:00 AM - 6:00 PM</span>
+                                    </div>
+                                    <div class="hours-item">
+                                        <span class="day">Saturday</span>
+                                        <span class="time">10:00 AM - 4:00 PM</span>
+                                    </div>
+                                    <div class="hours-item">
+                                        <span class="day">Sunday</span>
+                                        <span class="time">Closed</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="social-contact">
+                                <h3 class="social-title">Follow Our Journey</h3>
+                                <div class="social-links">
+                                    <a href="#" class="social-link" aria-label="Facebook">📘</a>
+                                    <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                                    <a href="#" class="social-link" aria-label="YouTube">🎥</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section contact-faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Quick answers to common questions</p>
+                    <div class="cultural-divider" aria-hidden="true"></div>
+                </div>
+                
+                <div class="products-grid">
+                    <div class="cultural-card faq-item">
+                        <h3 class="faq-question">How are your soaps different from commercial brands?</h3>
+                        <p class="faq-answer">Our soaps are handcrafted in small batches using traditional South Sudanese beauty wisdom combined with premium Canadian ingredients. We cure each bar for 6 weeks and use only natural, ethically sourced materials.</p>
+                    </div>
+                    
+                    <div class="cultural-card faq-item">
+                        <h3 class="faq-question">Do you offer custom soap orders?</h3>
+                        <p class="faq-answer">Yes! We love creating custom soaps for special occasions, weddings, or corporate gifts. Contact us with your requirements and we'll create something unique that honors both your needs and our heritage traditions.</p>
+                    </div>
+                    
+                    <div class="cultural-card faq-item">
+                        <h3 class="faq-question">Can I visit your soap-making studio?</h3>
+                        <p class="faq-answer">We offer studio visits by appointment where you can see our soap-making process and learn about South Sudanese beauty traditions. Please call ahead to schedule your visit.</p>
+                    </div>
+                    
+                    <div class="cultural-card faq-item">
+                        <h3 class="faq-question">Do you ship internationally?</h3>
+                        <p class="faq-answer">Currently we ship within Canada with free shipping on orders over $50. We're working on international shipping options - please contact us for special requests.</p>
+                    </div>
+                    
+                    <div class="cultural-card faq-item">
+                        <h3 class="faq-question">Are your products suitable for sensitive skin?</h3>
+                        <p class="faq-answer">Our soaps are made with natural ingredients and are generally suitable for sensitive skin. Our Gentle Baby soap is specifically formulated for the most sensitive skin types. If you have specific allergies, please review our ingredient lists or contact us.</p>
+                    </div>
+                    
+                    <div class="cultural-card faq-item">
+                        <h3 class="faq-question">How do I care for handmade soap?</h3>
+                        <p class="faq-answer">Keep your soap in a dry place between uses, preferably on a soap dish that allows drainage. Our cotton soap bags help extend the life of each bar. With proper care, each soap lasts 4-6 weeks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cultural Blessing -->
+        <section class="section contact-blessing">
+            <div class="container">
+                <div class="cultural-blessing">
+                    <p class="blessing-text">"In our culture, every conversation is a bridge between hearts. Thank you for reaching out to us."</p>
+                    <cite class="blessing-attribution">- Ester Simon, Founder</cite>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Updated Footer to match other pages -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Bahr Naturals</h3>
+                    <p class="footer-description">
+                        Honoring South Sudanese heritage through authentic, natural skincare.
+                    </p>
+                    <div class="cultural-blessing">
+                        <p class="blessing-footer">May your skin be as radiant as your spirit</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <nav class="footer-nav">
+                        <a href="about.html">Our Story</a>
+                        <a href="shop.html">Products</a>
+                        <a href="resources.html">Resources</a>
+                        <a href="contact.html">Contact Us</a>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Support</h4>
+                    <nav class="footer-nav">
+                        <a href="shipping.html">Shipping Info</a>
+                        <a href="returns.html">Returns</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms</a>
+                    </nav>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                        <a href="#" class="social-link" aria-label="Facebook">📘</a>
+                        <a href="#" class="social-link" aria-label="Email">✉️</a>
+                    </div>
+                    <div class="contact-info">
+                        <p>Email: <a href="mailto:hello@bahrnaturals.com">hello@bahrnaturals.com</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="cultural-pattern-footer" aria-hidden="true"></div>
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        © 2025 Bahr Naturals. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/cart-management.js"></script>
+    <script src="js/form-handler.js"></script>
+    
+    <script>
+        // Initialize mobile navigation toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('nav-menu--open');
+                    const isExpanded = navMenu.classList.contains('nav-menu--open');
+                    navToggle.setAttribute('aria-expanded', isExpanded);
+                    
+                    // Toggle body scroll prevention
+                    document.body.style.overflow = isExpanded ? 'hidden' : '';
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (navMenu.classList.contains('nav-menu--open') && 
+                        !event.target.closest('.nav-menu') && 
+                        !event.target.closest('.nav-toggle')) {
+                        navMenu.classList.remove('nav-menu--open');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+            
+            // Initialize form handler
+            if (typeof BahrNaturalsFormHandler !== 'undefined') {
+                const formHandler = new BahrNaturalsFormHandler();
+            }
+        });
+    </script>
 </body>
 </html>
