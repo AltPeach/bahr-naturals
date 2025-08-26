@@ -1,5 +1,5 @@
 /* heritage-colors.css */
-/* Bahr Naturals Heritage Color Palette */
+/* Bahr Naturals Heritage Color Palette & Design System Variables */
 
 /* Primary Heritage Colors */
 :root {
@@ -34,6 +34,48 @@
   /* Soft Gray: soft minimalist backgrounds */
   --color-soft-gray: #F8F8F8;
   --color-soft-gray-rgb: 248, 248, 248;
+
+  /* === Design System Variables === */
+  
+  /* Spacing System - Clean Minimalism */
+  --spacing-xs: 10px;
+  --spacing-sm: 20px;
+  --spacing-md: 40px;
+  --spacing-lg: 60px;
+  --spacing-xl: 80px;
+  
+  /* Layout Constraints */
+  --container-max: 1200px;
+  --content-max: 800px;
+  
+  /* Interactive Elements */
+  --button-radius: 8px;
+  --card-radius: 12px;
+  --transition-smooth: 0.3s ease;
+  
+  /* Shadows & Effects */
+  --shadow-soft: 0 4px 12px rgba(44, 95, 122, 0.1);
+  --shadow-medium: 0 6px 20px rgba(44, 95, 122, 0.15);
+  --shadow-strong: 0 10px 30px rgba(44, 95, 122, 0.2);
+  
+  /* Cultural Pattern Opacity Levels */
+  --pattern-subtle: 0.08;     /* Background patterns */
+  --pattern-accent: 0.15;     /* Section dividers */
+  --pattern-prominent: 0.25;  /* Special occasions */
+  
+  /* Typography Hierarchy */
+  --font-primary: 'Playfair Display', serif;        /* Headers */
+  --font-secondary: 'Source Sans Pro', sans-serif;  /* Body text */
+  --font-accent: 'Dancing Script', cursive;         /* Accents */
+  
+  /* Font Sizes - Responsive */
+  --text-hero: clamp(2rem, 6vw, 3rem);
+  --text-h1: clamp(1.75rem, 5vw, 2.5rem);
+  --text-h2: clamp(1.5rem, 4vw, 2rem);
+  --text-h3: 1.25rem;
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-accent: clamp(1.125rem, 2.5vw, 1.5rem);
 }
 
 /* Text Colors */
@@ -74,3 +116,27 @@ button:hover {
   background-color: var(--color-charcoal-black);
   color: var(--color-pure-white);
 }
+
+/* Shadow Utilities */
+.shadow-soft   { box-shadow: var(--shadow-soft); }
+.shadow-medium { box-shadow: var(--shadow-medium); }
+.shadow-strong { box-shadow: var(--shadow-strong); }
+
+/* Spacing Utilities */
+.mt-xs { margin-top: var(--spacing-xs); }
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+
+.mb-xs { margin-bottom: var(--spacing-xs); }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+
+.p-xs { padding: var(--spacing-xs); }
+.p-sm { padding: var(--spacing-sm); }
+.p-md { padding: var(--spacing-md); }
+.p-lg { padding: var(--spacing-lg); }
+.p-xl { padding: var(--spacing-xl); }
