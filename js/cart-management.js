@@ -1,791 +1,646 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bahr Naturals - Cart Fix Demo</title>
-    <style>
-        :root {
-            --color-primary: #5D8A7E;
-            --color-accent: #D7B89C;
-            --color-background-light: #FDFBF8;
-            --color-text-primary: #444444;
-            --color-text-secondary: #6B7280;
-            --color-white: #FFFFFF;
-            --color-light-gray: #F8F9FA;
-            --color-medium-gray: #E9ECEF;
-            --color-success: #4CAF50;
-            
-            --font-heading: 'Plus Jakarta Sans', sans-serif;
-            --font-body: 'Inter', sans-serif;
-            --font-accent: 'Itim', cursive;
-            
-            --spacing-xs: 0.25rem;
-            --spacing-sm: 0.5rem;
-            --spacing-md: 1rem;
-            --spacing-lg: 1.5rem;
-            --spacing-xl: 2rem;
-            --spacing-xxl: 3rem;
-            
-            --radius-sm: 4px;
-            --radius-md: 8px;
-            --radius-lg: 12px;
-            --radius-xl: 16px;
-            
-            --shadow-light: 0 2px 12px rgba(0, 0, 0, 0.08);
-            --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.12);
+// cart-management.js - Enhanced Version with Complete E-commerce Functionality
+class BahrNaturalsCart {
+    constructor() {
+        this.items = [];
+        this.storageKey = 'bahrNaturalsCart';
+        this.taxRate = 0.13; // 13% HST for Canada
+        this.freeShippingThreshold = 50;
+        this.standardShippingRate = 8.99;
+        this.init();
+    }
+    
+    init() {
+        this.loadCart();
+        this.bindEvents();
+        this.updateCartDisplay();
+        this.initializeGlobalBahrNaturals();
+    }
+    
+    // Initialize global BahrNaturals object for shared functionality
+    initializeGlobalBahrNaturals() {
+        if (!window.BahrNaturals) {
+            window.BahrNaturals = {
+                showMessage: this.showMessage.bind(this)
+            };
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: var(--font-body);
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--color-text-primary);
-            background-color: var(--color-background-light);
-            padding: var(--spacing-md);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: var(--spacing-md);
-        }
-        
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: var(--spacing-md) 0;
-            border-bottom: 1px solid var(--color-medium-gray);
-            margin-bottom: var(--spacing-xl);
-        }
-        
-        .logo {
-            font-family: var(--font-heading);
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--color-primary);
-            text-decoration: none;
-        }
-        
-        .nav {
-            display: flex;
-            gap: var(--spacing-xl);
-        }
-        
-        .nav-link {
-            text-decoration: none;
-            color: var(--color-text-primary);
-            font-weight: 500;
-            padding: var(--spacing-sm) var(--spacing-md);
-            border-radius: var(--radius-md);
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--color-primary);
-            background: rgba(93, 138, 126, 0.05);
-        }
-        
-        .cart-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: var(--color-primary);
-            padding: var(--spacing-sm);
-            position: relative;
-        }
-        
-        .cart-icon {
-            font-size: 1.25rem;
-            margin-right: var(--spacing-sm);
-        }
-        
-        .cart-count {
-            background: var(--color-accent);
-            color: white;
-            border-radius: 50%;
-            padding: var(--spacing-xs) var(--spacing-sm);
-            font-size: 0.75rem;
-            font-weight: 600;
-            min-width: 1.5rem;
-            text-align: center;
-            display: none;
-        }
-        
-        .cart-count.has-items {
-            display: inline-block;
-        }
-        
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: var(--spacing-md) var(--spacing-xl);
-            border: none;
-            border-radius: var(--radius-md);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            gap: var(--spacing-sm);
-        }
-        
-        .btn-primary {
-            background: var(--color-primary);
-            color: white;
-            box-shadow: var(--shadow-light);
-        }
-        
-        .btn-primary:hover {
-            background: #4C7267;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-medium);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--color-primary);
-            border: 2px solid var(--color-primary);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--color-primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        .section {
-            margin-bottom: var(--spacing-xxl);
-        }
-        
-        .section-title {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            color: var(--color-primary);
-            margin-bottom: var(--spacing-lg);
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: var(--spacing-xl);
-            margin-bottom: var(--spacing-xl);
-        }
-        
-        .product-card {
-            background: var(--color-white);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-lg);
-            box-shadow: var(--shadow-light);
-            transition: all 0.3s ease;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
-        }
-        
-        .product-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-family: var(--font-heading);
-            margin-bottom: var(--spacing-md);
-        }
-        
-        .product-name {
-            font-family: var(--font-heading);
-            font-size: 1.25rem;
-            color: var(--color-primary);
-            margin-bottom: var(--spacing-sm);
-        }
-        
-        .product-price {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: var(--color-accent);
-            margin-bottom: var(--spacing-md);
-        }
-        
-        .product-actions {
-            display: flex;
-            gap: var(--spacing-sm);
-            align-items: center;
-        }
-        
-        .quantity-input {
-            width: 60px;
-            padding: var(--spacing-sm);
-            border: 1px solid var(--color-medium-gray);
-            border-radius: var(--radius-sm);
-            text-align: center;
-        }
-        
-        .cart-items {
-            background: var(--color-white);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-xl);
-            box-shadow: var(--shadow-light);
-            margin-bottom: var(--spacing-xl);
-        }
-        
-        .cart-item {
-            display: grid;
-            grid-template-columns: 80px 1fr auto auto auto;
-            gap: var(--spacing-md);
-            align-items: center;
-            padding: var(--spacing-lg) 0;
-            border-bottom: 1px solid var(--color-medium-gray);
-        }
-        
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-        
-        .item-image {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.875rem;
-        }
-        
-        .item-name {
-            font-family: var(--font-heading);
-            font-size: 1.125rem;
-            color: var(--color-primary);
-        }
-        
-        .item-price {
-            color: var(--color-text-secondary);
-            font-weight: 500;
-        }
-        
-        .item-quantity {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-        }
-        
-        .quantity-btn {
-            width: 32px;
-            height: 32px;
-            border: 1px solid var(--color-medium-gray);
-            background: var(--color-white);
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-weight: 700;
-        }
-        
-        .quantity-btn:hover {
-            border-color: var(--color-accent);
-            background: var(--color-accent);
-            color: var(--color-white);
-        }
-        
-        .item-total {
-            font-weight: 700;
-            color: var(--color-primary);
-            font-size: 1.125rem;
-        }
-        
-        .remove-item {
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: var(--spacing-sm);
-            border-radius: var(--radius-sm);
-            color: var(--color-text-secondary);
-        }
-        
-        .remove-item:hover {
-            background: rgba(255, 107, 107, 0.1);
-            color: #ff6b6b;
-        }
-        
-        .cart-summary {
-            background: var(--color-white);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-xl);
-            box-shadow: var(--shadow-light);
-        }
-        
-        .summary-line {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: var(--spacing-md);
-            padding-bottom: var(--spacing-md);
-            border-bottom: 1px solid var(--color-medium-gray);
-        }
-        
-        .total-line {
-            border-top: 2px solid var(--color-medium-gray);
-            padding-top: var(--spacing-md);
-            font-size: 1.125rem;
-            font-weight: 700;
-        }
-        
-        .checkout-btn {
-            width: 100%;
-            margin-top: var(--spacing-lg);
-            padding: var(--spacing-md);
-            font-size: 1.125rem;
-            font-weight: 600;
-        }
-        
-        .empty-cart {
-            text-align: center;
-            padding: var(--spacing-xxl) var(--spacing-xl);
-        }
-        
-        .empty-cart h3 {
-            color: var(--color-primary);
-            margin-bottom: var(--spacing-md);
-            font-size: 1.75rem;
-            font-family: var(--font-heading);
-        }
-        
-        .empty-cart p {
-            color: var(--color-text-secondary);
-            margin-bottom: var(--spacing-lg);
-        }
-        
-        .global-message {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: var(--spacing-md) var(--spacing-lg);
-            border-radius: var(--radius-md);
-            color: white;
-            font-weight: 500;
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-md);
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            box-shadow: var(--shadow-medium);
-        }
-        
-        .global-message.show {
-            transform: translateX(0);
-        }
-        
-        .global-message.success {
-            background: var(--color-success);
-        }
-        
-        .global-message.info {
-            background: var(--color-primary);
-        }
-        
-        .global-message.error {
-            background: #ff6b6b;
-        }
-        
-        .message-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 0;
-        }
-        
-        @media (max-width: 768px) {
-            .cart-item {
-                grid-template-columns: 60px 1fr;
-                gap: var(--spacing-md);
+    }
+    
+    // Load cart from localStorage
+    loadCart() {
+        try {
+            const cartData = localStorage.getItem(this.storageKey);
+            if (cartData) {
+                this.items = JSON.parse(cartData);
+                // Validate and clean loaded data
+                this.items = this.items.filter(item => 
+                    item.id && item.name && typeof item.price === 'number' && item.quantity > 0
+                );
             }
-            
-            .item-quantity,
-            .item-total {
-                grid-column: 1 / -1;
-                justify-self: start;
-                margin-top: var(--spacing-md);
-            }
-            
-            .remove-item {
-                grid-column: 1 / -1;
-                justify-self: end;
-                margin-top: -2rem;
-            }
+        } catch (error) {
+            console.error('Error loading cart from localStorage:', error);
+            this.items = [];
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <a href="index.html" class="logo">Bahr Naturals</a>
-            <nav class="nav">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="shop.html" class="nav-link active">Shop</a>
-                <a href="about.html" class="nav-link">Our Story</a>
-                <a href="cart.html" class="cart-link">
-                    <span class="cart-icon">🛒</span>
-                    <span class="cart-count" id="cart-count">0</span>
-                </a>
-            </nav>
-        </header>
-
-        <main>
-            <!-- Shop Page Content -->
-            <section class="section">
-                <h2 class="section-title">Our Handcrafted Soaps</h2>
-                <div class="products-grid">
-                    <!-- Product 1 -->
-                    <div class="product-card">
-                        <div class="product-image">Nile Essence</div>
-                        <h3 class="product-name">Nile Essence</h3>
-                        <div class="product-price">$18.00 CAD</div>
-                        <div class="product-actions">
-                            <input type="number" class="quantity-input" value="1" min="1" max="10" data-product-id="nile-essence">
-                            <button class="btn btn-primary add-to-cart" data-product-id="nile-essence" data-product-name="Nile Essence" data-product-price="18.00">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product 2 -->
-                    <div class="product-card">
-                        <div class="product-image">Heritage Honey</div>
-                        <h3 class="product-name">Heritage Honey</h3>
-                        <div class="product-price">$16.00 CAD</div>
-                        <div class="product-actions">
-                            <input type="number" class="quantity-input" value="1" min="1" max="10" data-product-id="heritage-honey">
-                            <button class="btn btn-primary add-to-cart" data-product-id="heritage-honey" data-product-name="Heritage Honey" data-product-price="16.00">Add to Cart</button>
-                        </div>
-                    </div>
-
-                    <!-- Product 3 -->
-                    <div class="product-card">
-                        <div class="product-image">Cultural Clay</div>
-                        <h3 class="product-name">Cultural Clay</h3>
-                        <div class="product-price">$20.00 CAD</div>
-                        <div class="product-actions">
-                            <input type="number" class="quantity-input" value="1" min="1" max="10" data-product-id="cultural-clay">
-                            <button class="btn btn-primary add-to-cart" data-product-id="cultural-clay" data-product-name="Cultural Clay" data-product-price="20.00">Add to Cart</button>
-                        </div>
-                    </div>
+    }
+    
+    // Save cart to localStorage
+    saveCart() {
+        try {
+            localStorage.setItem(this.storageKey, JSON.stringify(this.items));
+        } catch (error) {
+            console.error('Error saving cart to localStorage:', error);
+            this.showMessage('Unable to save cart changes', 'error');
+        }
+    }
+    
+    // Add item to cart
+    addItem(product) {
+        if (!this.validateProduct(product)) {
+            this.showMessage('Invalid product data', 'error');
+            return false;
+        }
+        
+        const existingItem = this.items.find(item => item.id === product.id);
+        
+        if (existingItem) {
+            existingItem.quantity += product.quantity || 1;
+        } else {
+            this.items.push({
+                id: product.id,
+                name: product.name,
+                price: parseFloat(product.price),
+                image: product.image || '',
+                quantity: product.quantity || 1
+            });
+        }
+        
+        this.saveCart();
+        this.updateCartDisplay();
+        this.showMessage(`${product.name} added to cart!`, 'success');
+        return true;
+    }
+    
+    // Remove item from cart
+    removeItem(productId) {
+        const itemIndex = this.items.findIndex(item => item.id === productId);
+        if (itemIndex > -1) {
+            const removedItem = this.items[itemIndex];
+            this.items.splice(itemIndex, 1);
+            this.saveCart();
+            this.updateCartDisplay();
+            this.showMessage(`${removedItem.name} removed from cart`, 'info');
+            return true;
+        }
+        return false;
+    }
+    
+    // Update item quantity
+    updateQuantity(productId, quantity) {
+        const item = this.items.find(item => item.id === productId);
+        if (!item) return false;
+        
+        if (quantity <= 0) {
+            return this.removeItem(productId);
+        } else {
+            item.quantity = parseInt(quantity);
+            this.saveCart();
+            this.updateCartDisplay();
+            return true;
+        }
+    }
+    
+    // Clear entire cart
+    clearCart() {
+        if (this.items.length === 0) {
+            this.showMessage('Cart is already empty', 'info');
+            return;
+        }
+        
+        this.items = [];
+        this.saveCart();
+        this.updateCartDisplay();
+        this.showMessage('Cart cleared', 'info');
+    }
+    
+    // Get cart subtotal
+    getSubtotal() {
+        return this.items.reduce((total, item) => {
+            return total + (item.price * item.quantity);
+        }, 0);
+    }
+    
+    // Get shipping cost
+    getShippingCost() {
+        const subtotal = this.getSubtotal();
+        return subtotal >= this.freeShippingThreshold ? 0 : this.standardShippingRate;
+    }
+    
+    // Get tax amount
+    getTax() {
+        return this.getSubtotal() * this.taxRate;
+    }
+    
+    // Get cart total (subtotal + shipping + tax)
+    getTotal() {
+        return this.getSubtotal() + this.getShippingCost() + this.getTax();
+    }
+    
+    // Get total item count
+    getItemCount() {
+        return this.items.reduce((count, item) => {
+            return count + item.quantity;
+        }, 0);
+    }
+    
+    // Validate product data
+    validateProduct(product) {
+        return product && 
+               product.id && 
+               product.name && 
+               typeof product.price === 'number' && 
+               product.price > 0;
+    }
+    
+    // Update cart display across all pages
+    updateCartDisplay() {
+        this.updateCartCount();
+        this.updateCartPage();
+    }
+    
+    // Update cart count in header
+    updateCartCount() {
+        const cartCountElements = document.querySelectorAll('.cart-count');
+        const count = this.getItemCount();
+        
+        cartCountElements.forEach(element => {
+            element.textContent = count;
+            
+            if (count > 0) {
+                element.style.display = 'inline-block';
+                element.classList.add('cart-updated');
+                setTimeout(() => {
+                    element.classList.remove('cart-updated');
+                }, 500);
+            } else {
+                element.style.display = 'none';
+            }
+        });
+    }
+    
+    // Update cart page if we're on it
+    updateCartPage() {
+        if (window.location.pathname.includes('cart.html')) {
+            this.renderCartPage();
+        }
+    }
+    
+    // Render cart page
+    renderCartPage() {
+        const cartContainer = document.querySelector('.cart-items-container');
+        const cartSummary = document.querySelector('.cart-summary');
+        
+        if (!cartContainer) return;
+        
+        if (this.items.length === 0) {
+            cartContainer.innerHTML = `
+                <div class="empty-cart">
+                    <h3>Your cart is empty</h3>
+                    <p>Discover our handcrafted natural soaps and start your heritage journey.</p>
+                    <a href="shop.html" class="btn btn-primary">Shop Our Collection</a>
                 </div>
-            </section>
-
-            <!-- Cart Preview -->
-            <section class="section">
-                <h2 class="section-title">Your Cart Preview</h2>
-                <div class="cart-items" id="cart-preview">
-                    <div class="empty-cart">
-                        <h3>Your cart is empty</h3>
-                        <p>Add some products to see them here</p>
-                    </div>
+            `;
+            
+            if (cartSummary) {
+                this.updateCartSummary(cartSummary);
+            }
+            return;
+        }
+        
+        // Render cart items
+        const itemsHTML = this.items.map(item => `
+            <div class="cart-item" data-product-id="${item.id}">
+                <div class="item-image">
+                    <img src="${item.image || 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23f0f0f0%22/><text x=%2250%22 y=%2250%22 text-anchor=%22middle%22 dy=%22.35em%22 font-size=%2214%22 fill=%22%23666%22>No Image</text></svg>'}" 
+                         alt="${this.escapeHtml(item.name)}" 
+                         loading="lazy"
+                         onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23f0f0f0%22/><text x=%2250%22 y=%2250%22 text-anchor=%22middle%22 dy=%22.35em%22 font-size=%2214%22 fill=%22%23666%22>No Image</text></svg>'">
                 </div>
-            </section>
-        </main>
-    </div>
-
-    <script>
-        // Enhanced Cart Management Class
-        class BahrNaturalsCart {
-            constructor() {
-                this.items = [];
-                this.storageKey = 'bahrNaturalsCart';
-                this.init();
-            }
+                <div class="item-details">
+                    <h4 class="item-name">${this.escapeHtml(item.name)}</h4>
+                    <div class="item-price">$${item.price.toFixed(2)} CAD</div>
+                </div>
+                <div class="item-quantity">
+                    <button class="quantity-btn decrease-quantity" 
+                            data-product-id="${item.id}"
+                            aria-label="Decrease quantity">-</button>
+                    <input type="number" 
+                           value="${item.quantity}" 
+                           min="1" 
+                           max="99"
+                           class="quantity-input" 
+                           data-product-id="${item.id}"
+                           aria-label="Quantity">
+                    <button class="quantity-btn increase-quantity" 
+                            data-product-id="${item.id}"
+                            aria-label="Increase quantity">+</button>
+                </div>
+                <div class="item-total">
+                    $${(item.price * item.quantity).toFixed(2)} CAD
+                </div>
+                <button class="remove-item" 
+                        data-product-id="${item.id}"
+                        aria-label="Remove ${this.escapeHtml(item.name)}">
+                    ×
+                </button>
+            </div>
+        `).join('');
+        
+        cartContainer.innerHTML = itemsHTML;
+        
+        // Update cart summary
+        if (cartSummary) {
+            this.updateCartSummary(cartSummary);
+        }
+        
+        // Bind events for the new elements
+        this.bindCartEvents();
+    }
+    
+    // Update cart summary section
+    updateCartSummary(cartSummary) {
+        const subtotal = this.getSubtotal();
+        const shipping = this.getShippingCost();
+        const tax = this.getTax();
+        const total = this.getTotal();
+        const itemCount = this.getItemCount();
+        
+        cartSummary.innerHTML = `
+            <h3>Order Summary</h3>
+            <div class="summary-line">
+                <span>Subtotal (${itemCount} item${itemCount !== 1 ? 's' : ''})</span>
+                <span>$${subtotal.toFixed(2)} CAD</span>
+            </div>
+            <div class="summary-line">
+                <span>Shipping</span>
+                <span>${shipping > 0 ? '$' + shipping.toFixed(2) + ' CAD' : 'Free'}</span>
+            </div>
+            <div class="summary-line">
+                <span>Tax (HST 13%)</span>
+                <span>$${tax.toFixed(2)} CAD</span>
+            </div>
+            <div class="summary-line total-line">
+                <span><strong>Total</strong></span>
+                <span><strong>$${total.toFixed(2)} CAD</strong></span>
+            </div>
+            <button class="btn btn-primary checkout-btn" ${itemCount === 0 ? 'disabled' : ''}>
+                Proceed to Checkout
+            </button>
+            <div class="shipping-note">
+                <small>Free shipping on orders over $${this.freeShippingThreshold} CAD</small>
+            </div>
             
-            init() {
-                this.loadCart();
-                this.bindEvents();
-                this.updateCartDisplay();
-            }
-            
-            // Load cart from localStorage
-            loadCart() {
-                try {
-                    const cartData = localStorage.getItem(this.storageKey);
-                    if (cartData) {
-                        this.items = JSON.parse(cartData);
-                    }
-                } catch (error) {
-                    console.error('Error loading cart from localStorage:', error);
-                    this.items = [];
+            <!-- Shipping Calculator -->
+            <div class="shipping-calculator">
+                <h4>Calculate Shipping</h4>
+                <div class="postal-code-input">
+                    <input type="text" 
+                           id="postal-code" 
+                           placeholder="Enter postal code" 
+                           maxlength="7"
+                           pattern="[A-Za-z]\\d[A-Za-z][ -]?\\d[A-Za-z]\\d">
+                    <button class="estimate-btn" onclick="updateShippingEstimate(document.getElementById('postal-code').value)">
+                        Estimate
+                    </button>
+                </div>
+                <div class="shipping-estimate"></div>
+            </div>
+        `;
+    }
+    
+    // Bind events to cart elements
+    bindCartEvents() {
+        // Quantity buttons
+        document.querySelectorAll('.increase-quantity').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const productId = e.target.dataset.productId;
+                const item = this.items.find(item => item.id === productId);
+                if (item && item.quantity < 99) {
+                    this.updateQuantity(productId, item.quantity + 1);
                 }
-            }
-            
-            // Save cart to localStorage
-            saveCart() {
-                try {
-                    localStorage.setItem(this.storageKey, JSON.stringify(this.items));
-                } catch (error) {
-                    console.error('Error saving cart to localStorage:', error);
-                }
-            }
-            
-            // Add item to cart
-            addItem(product) {
-                const existingItem = this.items.find(item => item.id === product.id);
-                
-                if (existingItem) {
-                    existingItem.quantity += product.quantity || 1;
-                } else {
-                    this.items.push({
-                        id: product.id,
-                        name: product.name,
-                        price: product.price,
-                        image: product.image || '',
-                        quantity: product.quantity || 1
-                    });
-                }
-                
-                this.saveCart();
-                this.updateCartDisplay();
-                this.showMessage(`${product.name} added to cart!`, 'success');
-            }
-            
-            // Remove item from cart
-            removeItem(productId) {
-                this.items = this.items.filter(item => item.id !== productId);
-                this.saveCart();
-                this.updateCartDisplay();
-                this.showMessage('Item removed from cart', 'info');
-            }
-            
-            // Update item quantity
-            updateQuantity(productId, quantity) {
+            });
+        });
+        
+        document.querySelectorAll('.decrease-quantity').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const productId = e.target.dataset.productId;
                 const item = this.items.find(item => item.id === productId);
                 if (item) {
-                    if (quantity <= 0) {
-                        this.removeItem(productId);
-                    } else {
-                        item.quantity = quantity;
-                        this.saveCart();
-                        this.updateCartDisplay();
-                    }
+                    this.updateQuantity(productId, item.quantity - 1);
                 }
-            }
-            
-            // Get cart total
-            getTotal() {
-                return this.items.reduce((total, item) => {
-                    return total + (item.price * item.quantity);
-                }, 0);
-            }
-            
-            // Get total item count
-            getItemCount() {
-                return this.items.reduce((count, item) => {
-                    return count + item.quantity;
-                }, 0);
-            }
-            
-            // Update cart display across all pages
-            updateCartDisplay() {
-                this.updateCartCount();
-                this.updateCartPreview();
-            }
-            
-            // Update cart count in header
-            updateCartCount() {
-                const cartCountElements = document.querySelectorAll('.cart-count');
-                const count = this.getItemCount();
+            });
+        });
+        
+        // Quantity inputs
+        document.querySelectorAll('.quantity-input').forEach(input => {
+            input.addEventListener('change', (e) => {
+                const productId = e.target.dataset.productId;
+                let quantity = parseInt(e.target.value) || 1;
                 
-                cartCountElements.forEach(element => {
-                    element.textContent = count;
-                    
-                    // Add animation when count changes
-                    if (count > 0) {
-                        element.classList.add('has-items');
-                        element.classList.add('cart-updated');
-                        setTimeout(() => {
-                            element.classList.remove('cart-updated');
-                        }, 500);
-                    } else {
-                        element.classList.remove('has-items');
-                    }
-                });
-            }
-            
-            // Update cart preview
-            updateCartPreview() {
-                const cartPreview = document.getElementById('cart-preview');
-                if (!cartPreview) return;
+                // Enforce min/max limits
+                if (quantity < 1) quantity = 1;
+                if (quantity > 99) quantity = 99;
                 
-                if (this.items.length === 0) {
-                    cartPreview.innerHTML = `
-                        <div class="empty-cart">
-                            <h3>Your cart is empty</h3>
-                            <p>Add some products to see them here</p>
-                        </div>
-                    `;
-                    return;
+                e.target.value = quantity; // Update input to show corrected value
+                this.updateQuantity(productId, quantity);
+            });
+            
+            // Prevent invalid input
+            input.addEventListener('keypress', (e) => {
+                if (!/[0-9]/.test(e.key) && !['Backspace', 'Delete', 'Tab', 'Enter'].includes(e.key)) {
+                    e.preventDefault();
                 }
-                
-                // Render cart items
-                const itemsHTML = this.items.map(item => `
-                    <div class="cart-item" data-product-id="${item.id}">
-                        <div class="item-image">${item.name.substring(0, 2)}</div>
-                        <div class="item-details">
-                            <h4 class="item-name">${item.name}</h4>
-                            <div class="item-price">$${item.price.toFixed(2)} CAD</div>
-                        </div>
-                        <div class="item-quantity">
-                            <button class="quantity-btn decrease-quantity" data-product-id="${item.id}">-</button>
-                            <input type="number" value="${item.quantity}" min="1" class="quantity-input" data-product-id="${item.id}">
-                            <button class="quantity-btn increase-quantity" data-product-id="${item.id}">+</button>
-                        </div>
-                        <div class="item-total">
-                            $${(item.price * item.quantity).toFixed(2)} CAD
-                        </div>
-                        <button class="remove-item" data-product-id="${item.id}">×</button>
-                    </div>
-                `).join('');
-                
-                cartPreview.innerHTML = itemsHTML;
-                
-                // Add event listeners to the new elements
-                this.bindCartEvents();
+            });
+        });
+        
+        // Remove buttons
+        document.querySelectorAll('.remove-item').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const productId = e.target.dataset.productId;
+                this.removeItem(productId);
+            });
+        });
+        
+        // Checkout button
+        const checkoutBtn = document.querySelector('.checkout-btn');
+        if (checkoutBtn) {
+            checkoutBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.proceedToCheckout();
+            });
+        }
+    }
+    
+    // Bind events to add-to-cart buttons across the site
+    bindEvents() {
+        // Add to cart buttons
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('add-to-cart') || 
+                (e.target.closest('.btn') && e.target.closest('.btn').textContent.includes('Add to Cart'))) {
+                e.preventDefault();
+                this.handleAddToCart(e.target.closest('.btn') || e.target);
             }
-            
-            // Bind events to cart elements
-            bindCartEvents() {
-                // Quantity buttons
-                document.querySelectorAll('.increase-quantity').forEach(button => {
-                    button.addEventListener('click', (e) => {
-                        const productId = e.target.dataset.productId;
-                        const item = this.items.find(item => item.id === productId);
-                        if (item) {
-                            this.updateQuantity(productId, item.quantity + 1);
-                        }
-                    });
-                });
-                
-                document.querySelectorAll('.decrease-quantity').forEach(button => {
-                    button.addEventListener('click', (e) => {
-                        const productId = e.target.dataset.productId;
-                        const item = this.items.find(item => item.id === productId);
-                        if (item) {
-                            this.updateQuantity(productId, item.quantity - 1);
-                        }
-                    });
-                });
-                
-                // Quantity inputs
-                document.querySelectorAll('.quantity-input').forEach(input => {
-                    input.addEventListener('change', (e) => {
-                        const productId = e.target.dataset.productId;
-                        const quantity = parseInt(e.target.value) || 1;
-                        this.updateQuantity(productId, quantity);
-                    });
-                });
-                
-                // Remove buttons
-                document.querySelectorAll('.remove-item').forEach(button => {
-                    button.addEventListener('click', (e) => {
-                        const productId = e.target.dataset.productId;
-                        this.removeItem(productId);
-                    });
-                });
+        });
+        
+        // Handle cart link clicks to ensure cart count is visible
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.cart-link')) {
+                // Small delay to ensure cart page loads before updating display
+                setTimeout(() => this.updateCartDisplay(), 100);
             }
-            
-            // Bind events to add-to-cart buttons
-            bindEvents() {
-                // Add to cart buttons
-                document.addEventListener('click', (e) => {
-                    if (e.target.classList.contains('add-to-cart')) {
-                        e.preventDefault();
-                        this.handleAddToCart(e.target);
-                    }
-                });
-            }
-            
-            // Handle add to cart button click
-            handleAddToCart(button) {
-                const productId = button.dataset.productId;
-                const productName = button.dataset.productName;
-                const productPrice = parseFloat(button.dataset.productPrice);
-                
-                // Get quantity from the input field next to the button
-                const quantityInput = button.parentElement.querySelector('.quantity-input');
-                const quantity = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
-                
-                const productData = {
-                    id: productId,
-                    name: productName,
-                    price: productPrice,
-                    quantity: quantity
-                };
-                
-                this.addItem(productData);
-                
-                // Reset quantity input to 1 after adding to cart
-                if (quantityInput) {
-                    quantityInput.value = 1;
-                }
-            }
-            
-            // Show message
-            showMessage(text, type = 'info') {
-                // Create message element
-                const message = document.createElement('div');
-                message.className = `global-message ${type}`;
-                message.innerHTML = `
-                    <span>${text}</span>
-                    <button class="message-close">&times;</button>
-                `;
-                
-                // Add to page
-                document.body.appendChild(message);
-                
-                // Show message with animation
-                setTimeout(() => {
-                    message.classList.add('show');
-                }, 10);
-                
-                // Close button
-                message.querySelector('.message-close').addEventListener('click', () => {
-                    message.classList.remove('show');
-                    setTimeout(() => {
-                        message.remove();
-                    }, 300);
-                });
-                
-                // Auto-remove after 3 seconds
-                setTimeout(() => {
-                    if (document.body.contains(message)) {
-                        message.classList.remove('show');
-                        setTimeout(() => {
-                            message.remove();
-                        }, 300);
-                    }
-                }, 3000);
+        });
+    }
+    
+    // Handle add to cart button click
+    handleAddToCart(button) {
+        const productCard = button.closest('.product-card, .gift-set-card, '.product');
+        if (!productCard) {
+            console.warn('Add to cart button not within a valid product card');
+            return;
+        }
+        
+        // Try multiple selectors for product data
+        const productName = this.getProductName(productCard);
+        const productPrice = this.getProductPrice(productCard);
+        const productImage = this.getProductImage(button, productCard);
+        
+        if (!productName || !productPrice) {
+            console.warn('Unable to extract product data:', { productName, productPrice });
+            this.showMessage('Unable to add product to cart', 'error');
+            return;
+        }
+        
+        const productId = button.dataset.productId || 
+                         this.generateId(productName);
+        
+        const productData = {
+            id: productId,
+            name: productName,
+            price: productPrice,
+            image: productImage,
+            quantity: 1
+        };
+        
+        this.addItem(productData);
+    }
+    
+    // Extract product name from various possible selectors
+    getProductName(productCard) {
+        const nameSelectors = [
+            '.product-name',
+            '.set-name', 
+            '.item-name',
+            'h3',
+            'h4',
+            '[data-product-name]'
+        ];
+        
+        for (const selector of nameSelectors) {
+            const element = productCard.querySelector(selector);
+            if (element) {
+                return element.textContent.trim() || element.dataset.productName;
             }
         }
+        return null;
+    }
+    
+    // Extract product price from various possible selectors
+    getProductPrice(productCard) {
+        const priceSelectors = [
+            '.product-price',
+            '.sale-price',
+            '.price',
+            '.item-price',
+            '[data-product-price]'
+        ];
+        
+        for (const selector of priceSelectors) {
+            const element = productCard.querySelector(selector);
+            if (element) {
+                const priceText = element.textContent || element.dataset.productPrice;
+                const price = this.parsePrice(priceText);
+                if (price > 0) return price;
+            }
+        }
+        return null;
+    }
+    
+    // Extract product image
+    getProductImage(button, productCard) {
+        // Try button data attribute first
+        if (button.dataset.productImage) {
+            return button.dataset.productImage;
+        }
+        
+        // Try to find image in product card
+        const imageSelectors = [
+            '.product-image img',
+            '.item-image img',
+            'img'
+        ];
+        
+        for (const selector of imageSelectors) {
+            const img = productCard.querySelector(selector);
+            if (img && img.src && !img.src.includes('data:image')) {
+                return img.src;
+            }
+        }
+        
+        return '';
+    }
+    
+    // Generate a product ID from text
+    generateId(text) {
+        return text.toLowerCase()
+                  .replace(/\s+/g, '-')
+                  .replace(/[^\w-]+/g, '')
+                  .substring(0, 50); // Limit length
+    }
+    
+    // Parse price from text
+    parsePrice(priceText) {
+        if (!priceText) return 0;
+        
+        // Remove currency symbols and non-numeric characters except decimal point
+        const cleanPrice = priceText.toString().replace(/[^\d.]/g, '');
+        const price = parseFloat(cleanPrice);
+        
+        return isNaN(price) ? 0 : price;
+    }
+    
+    // Escape HTML to prevent XSS
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+    
+    // Proceed to checkout
+    proceedToCheckout() {
+        if (this.items.length === 0) {
+            this.showMessage('Your cart is empty', 'error');
+            return;
+        }
+        
+        if (this.getTotal() <= 0) {
+            this.showMessage('Cart total must be greater than $0', 'error');
+            return;
+        }
+        
+        this.showMessage('Redirecting to secure checkout...', 'info');
+        
+        // In a real implementation, you would:
+        // 1. Validate cart contents
+        // 2. Create checkout session
+        // 3. Redirect to payment processor
+        
+        setTimeout(() => {
+            // Replace with your actual checkout URL
+            const checkoutUrl = 'checkout.html';
+            
+            if (document.querySelector('a[href="' + checkoutUrl + '"]')) {
+                window.location.href = checkoutUrl;
+            } else {
+                // Fallback for development/testing
+                alert(`Checkout functionality ready!\n\nCart Summary:\nItems: ${this.getItemCount()}\nSubtotal: $${this.getSubtotal().toFixed(2)}\nTotal: $${this.getTotal().toFixed(2)}\n\nIn production, this would redirect to your payment processor.`);
+            }
+        }, 1500);
+    }
+    
+    // Show message to user
+    showMessage(text, type = 'info') {
+        // Remove existing messages
+        const existingMessages = document.querySelectorAll('.global-message');
+        existingMessages.forEach(msg => msg.remove());
+        
+        // Create message element
+        const message = document.createElement('div');
+        message.className = `global-message ${type}`;
+        message.innerHTML = `
+            <span>${this.escapeHtml(text)}</span>
+            <button class="message-close" aria-label="Close message">&times;</button>
+        `;
+        
+        // Add to page
+        document.body.appendChild(message);
+        
+        // Show message with animation
+        setTimeout(() => {
+            message.classList.add('show');
+        }, 10);
+        
+        // Close button functionality
+        const closeBtn = message.querySelector('.message-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                message.classList.remove('show');
+                setTimeout(() => {
+                    if (message.parentNode) {
+                        message.remove();
+                    }
+                }, 300);
+            });
+        }
+        
+        // Auto-remove after 4 seconds
+        setTimeout(() => {
+            if (document.body.contains(message)) {
+                message.classList.remove('show');
+                setTimeout(() => {
+                    if (message.parentNode) {
+                        message.remove();
+                    }
+                }, 300);
+            }
+        }, 4000);
+    }
+    
+    // Get cart data for external use (e.g., analytics, checkout)
+    getCartData() {
+        return {
+            items: [...this.items],
+            subtotal: this.getSubtotal(),
+            shipping: this.getShippingCost(),
+            tax: this.getTax(),
+            total: this.getTotal(),
+            itemCount: this.getItemCount()
+        };
+    }
+    
+    // Import cart data (useful for syncing with server)
+    importCartData(cartData) {
+        if (cartData && Array.isArray(cartData.items)) {
+            this.items = cartData.items.filter(item => this.validateProduct(item));
+            this.saveCart();
+            this.updateCartDisplay();
+            return true;
+        }
+        return false;
+    }
+}
 
-        // Initialize cart when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            window.cart = new BahrNaturalsCart();
-        });
-    </script>
-</body>
-</html>
+// Initialize cart when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    window.cart = new BahrNaturalsCart();
+    
+    // Make cart globally accessible for debugging
+    if (typeof window !== 'undefined') {
+        window.BahrNaturalsCart = BahrNaturalsCart;
+    }
+});
+
+// Export for module environments
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = BahrNaturalsCart;
+}
